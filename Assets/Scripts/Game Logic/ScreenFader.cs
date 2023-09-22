@@ -14,8 +14,9 @@ namespace SpaceShooter.GameLogic
 
         private bool _inProgress = false;
 
-        private void Start()
+        private IEnumerator Start()
         {
+            yield return new WaitForSeconds(0.5f);
             FadeIn();
         }
 

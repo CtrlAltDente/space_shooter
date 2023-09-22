@@ -9,6 +9,8 @@ namespace SpaceShooter.GameLogic
     {
         [Inject]
         public ScreenFader Fader;
+        [Inject]
+        public Loadbar Loader;
 
         private Coroutine _sceneLoadingCoroutine;
 
@@ -23,11 +25,16 @@ namespace SpaceShooter.GameLogic
         private IEnumerator StartLoadScene(string sceneName)
         {
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
-            
+            asyncOperation.allowSceneActivation = false;
+
+            Loader.gameObject.SetActive(true);
+
             while (!asyncOperation.isDone)
             {
-                if(asyncOperation.progress >= 0.9f)
+                if (asyncOperation.progress >= 0.9f)
                 {
+                    Loader.gameObject.SetActive(false);
+
                     asyncOperation.allowSceneActivation = true;
                 }
 
