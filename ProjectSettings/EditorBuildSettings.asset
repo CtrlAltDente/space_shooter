@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Debug/MainMenu.unity
     guid: 0a31d30d5f4f19e499530546ddafb994
+  - enabled: 1
+    path: Assets/Scenes/Debug/SpaceshipControl/SpaceshipControl.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d0d2ecff86841e042967b464f5a5f546, type: 2}
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 108665650e5fadf47a6e54bb2d9e0500, type: 2}
