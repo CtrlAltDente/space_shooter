@@ -17,6 +17,14 @@ namespace SpaceShooter.GameLogic
 
         private bool _inProgress = false;
 
+        public float LoadProgression
+        {
+            set
+            {
+                _loadbar.SetLoadProgress(value);
+            }
+        }
+
         private IEnumerator Start()
         {
             yield return new WaitForSeconds(0.5f);
@@ -28,6 +36,7 @@ namespace SpaceShooter.GameLogic
             if (_inProgress)
                 return;
 
+            _loadbar.gameObject.SetActive(true);
             _inProgress = true;
             Fade(0f, callback);
         }
@@ -37,6 +46,7 @@ namespace SpaceShooter.GameLogic
             if (_inProgress)
                 return;
 
+            _loadbar.gameObject.SetActive(true);
             _inProgress = true;
             Fade(1f, callback);
         }
@@ -47,6 +57,7 @@ namespace SpaceShooter.GameLogic
             {
                 callback?.Invoke();
                 _inProgress = false;
+                _loadbar.gameObject.SetActive(false);
             });
         }
     }

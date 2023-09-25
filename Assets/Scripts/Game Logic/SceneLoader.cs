@@ -8,7 +8,7 @@ namespace SpaceShooter.GameLogic
     public class SceneLoader : MonoBehaviour
     {
         [Inject]
-        public LoadingScreen LoadingScreen;
+        private LoadingScreen _loadingScreen;
 
         private Coroutine _sceneLoadingCoroutine;
 
@@ -16,7 +16,7 @@ namespace SpaceShooter.GameLogic
         {
             if (_sceneLoadingCoroutine == null)
             {
-                LoadingScreen.FadeOut(() => _sceneLoadingCoroutine = StartCoroutine(StartLoadScene(sceneName)));
+                _loadingScreen.FadeOut(() => _sceneLoadingCoroutine = StartCoroutine(StartLoadScene(sceneName)));
             }
         }
 
@@ -27,6 +27,8 @@ namespace SpaceShooter.GameLogic
 
             while (!asyncOperation.isDone)
             {
+                _loadingScreen.LoadProgression = asyncOperation.progress;
+
                 if (asyncOperation.progress >= 0.9f)
                 {
                     asyncOperation.allowSceneActivation = true;
