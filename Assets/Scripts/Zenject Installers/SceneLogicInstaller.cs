@@ -8,7 +8,7 @@ namespace SpaceShooter.Installers
 {
     public class SceneLogicInstaller : MonoInstaller
     {
-        public ScreenFader ScreenFader;
+        public LoadingScreen ScreenFader;
         public Loadbar Loader;
 
         public override void InstallBindings()

@@ -7,10 +7,13 @@ using UnityEngine.UI;
 
 namespace SpaceShooter.GameLogic
 {
-    public class ScreenFader : MonoBehaviour
+    public class LoadingScreen : MonoBehaviour
     {
         [SerializeField] 
         private CanvasGroup _canvasGroup;
+
+        [SerializeField]
+        private Loadbar _loadbar;
 
         private bool _inProgress = false;
 
