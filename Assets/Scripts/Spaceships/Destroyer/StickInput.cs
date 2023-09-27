@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace SpaceShooter.Spaceships.Destroyer
 {
-    public class StickInput : MonoBehaviour, IDestroyerInput
+    public class StickInput : MonoBehaviour, IDestroyerMovementInput
     {
         [SerializeField]
         private InputActionReference DirectionChange;
