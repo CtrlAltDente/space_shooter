@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace SpaceShooter.Input
+namespace SpaceShooter.Interfaces
 {
     public interface IDestroyerInput
     {

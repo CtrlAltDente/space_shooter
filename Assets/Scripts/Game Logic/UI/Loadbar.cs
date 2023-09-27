@@ -3,26 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Loadbar : MonoBehaviour
+namespace SpaceShooter.GameLogic
 {
-    [SerializeField]
-    private Image[] _loadbarImages;
-
-    private void Start()
+    public class Loadbar : MonoBehaviour
     {
-        SetLoadProgress(1f);
-    }
+        [SerializeField]
+        private Image[] _loadbarImages;
 
-    private void OnDisable()
-    {
-        SetLoadProgress(0f);
-    }
-
-    public void SetLoadProgress(float progress)
-    {
-        foreach(Image loadbarImage in _loadbarImages)
+        private void Start()
         {
-            loadbarImage.fillAmount = progress;
+            SetLoadProgress(1f);
+        }
+
+        private void OnDisable()
+        {
+            SetLoadProgress(0f);
+        }
+
+        public void SetLoadProgress(float progress)
+        {
+            foreach (Image loadbarImage in _loadbarImages)
+            {
+                loadbarImage.fillAmount = progress;
+            }
         }
     }
 }

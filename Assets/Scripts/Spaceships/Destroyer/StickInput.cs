@@ -1,9 +1,10 @@
+using SpaceShooter.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace SpaceShooter.Input
+namespace SpaceShooter.Spaceships.Destroyer
 {
     public class StickInput : MonoBehaviour, IDestroyerInput
     {

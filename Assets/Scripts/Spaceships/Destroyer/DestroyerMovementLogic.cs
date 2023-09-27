@@ -1,4 +1,4 @@
-using SpaceShooter.Input;
+using SpaceShooter.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
