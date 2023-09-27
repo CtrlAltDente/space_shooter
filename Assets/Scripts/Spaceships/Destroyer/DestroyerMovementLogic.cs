@@ -8,6 +8,9 @@ namespace SpaceShooter.Spaceships.Destroyer
     public class DestroyerMovementLogic : MonoBehaviour
     {
         [SerializeField]
+        private Rigidbody _rigidbody;
+
+        [SerializeField]
         private float _movementSpeed = 30f;
         [SerializeField]
         private float _rotationSpeed = 30f;
@@ -30,8 +33,8 @@ namespace SpaceShooter.Spaceships.Destroyer
 
         private void CalculateMovement()
         {
-            transform.position += transform.forward * _movementSpeed * Time.deltaTime;
-            transform.rotation *= Quaternion.Euler(new Vector3(X_Y_Input.y, X_Y_Input.x, Z_Input.x) * _rotationSpeed * Time.deltaTime);
+            _rigidbody.position += (_rigidbody.transform.forward * _movementSpeed * Time.deltaTime);
+            _rigidbody.MoveRotation(Quaternion.Euler(new Vector3(X_Y_Input.y, X_Y_Input.x, Z_Input.x) * _rotationSpeed * Time.deltaTime));
         }
     }
 }
