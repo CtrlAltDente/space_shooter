@@ -9,9 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Debug/MainMenu.unity
     guid: 0a31d30d5f4f19e499530546ddafb994
   - enabled: 1
-    path: Assets/Scenes/Debug/SpaceshipControl/SpaceshipControl.unity
+    path: Assets/Scenes/Debug/Spaceship_Destroyer/Spaceship_Destroyer_Control.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d0d2ecff86841e042967b464f5a5f546, type: 2}
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 108665650e5fadf47a6e54bb2d9e0500, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: f6db67d435e427f46a3438333fd41cdd, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: a26a72f2863bfaa4da265838d76a3661, type: 2}
