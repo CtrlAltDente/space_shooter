@@ -7,11 +7,13 @@ namespace SpaceShooter.Base
 {
     public class HealthSystem : MonoBehaviour, IDamagable
     {
-        public float BaseEnergyShield;
-        public float BaseHealth;
+        [SerializeField]
+        private float _baseEnergyShield;
+        [SerializeField]
+        private float _baseHealth;
 
-        public float EnergyShield;
-        public float Health;
+        public float EnergyShield { get; private set; }
+        public float Health { get; private set; }
 
         [SerializeField]
         private float _restorationSpeed = 2f;
@@ -20,8 +22,8 @@ namespace SpaceShooter.Base
 
         private void Awake()
         {
-            Health = BaseHealth;
-            EnergyShield = BaseEnergyShield;
+            Health = _baseHealth;
+            EnergyShield = _baseEnergyShield;
         }
 
 
@@ -52,7 +54,7 @@ namespace SpaceShooter.Base
         {
             while (Health > 0)
             {
-                if (EnergyShield <= BaseEnergyShield)
+                if (EnergyShield <= _baseEnergyShield)
                 {
                     EnergyShield += _restorationSpeed * Time.deltaTime;
                 }
