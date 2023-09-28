@@ -70,11 +70,6 @@ namespace SpaceShooter.AI.Destroyer
             _aiLogicCoroutine = StartCoroutine(DoAiLogic());
         }
 
-        public void CalculateInput()
-        {
-
-        }
-
         private int CalculateNearAxisPositionToTarget(Vector3 targetPosition, Vector3 axis)
         {
             Vector3 leftSide = _aiDestroyer.transform.position + -axis;
@@ -95,11 +90,6 @@ namespace SpaceShooter.AI.Destroyer
                 yield return new WaitForSeconds(1f);
                 CalculateFlyAwayPosition();
             }
-        }
-
-        private void CalculateRotationToPlayer()
-        {
-
         }
 
         private void CalculateFlyAwayPosition()
