@@ -8,6 +8,8 @@ namespace SpaceShooter.Spaceships
 {
     public class DestroyerStatus : MonoBehaviour
     {
+        public bool IsLive => _healthSystem.Health > 0;
+
         [SerializeField]
         private HealthSystem _healthSystem;
     }
