@@ -16,16 +16,6 @@ namespace SpaceShooter.AI.Destroyer
         private DestroyerStatus _aiDestroyer;
 
         [SerializeField]
-        private DestroyerStatus _closestDestroyer;
-        [SerializeField]
-        List<DestroyerStatus> _contactedDestroyers;
-
-        [SerializeField]
-        private DestroyerFireSystemLogic _destroyerFireSystemLogic;
-
-        private RaycastHit[] _hits;
-
-        [SerializeField]
         private bool _fireInput = false;
         public bool FireInput
         {
@@ -37,50 +27,63 @@ namespace SpaceShooter.AI.Destroyer
 
         private void Update()
         {
-            _hits = Physics.SphereCastAll(_aiDestroyer.transform.position + _aiDestroyer.transform.forward * 10f, 10f, _aiDestroyer.transform.forward, 1000);
+            AttackPlayer();
+        }
 
-            _contactedDestroyers = new List<DestroyerStatus>();
+        private void AttackPlayer()
+        {
+            List<DestroyerStatus> destroyers = FindDestroyers();
 
-            foreach (RaycastHit hit in _hits)
+            if (FindClosestDestroyer(destroyers) == _playerDestroyer)
             {
-                if (hit.transform.GetComponent<DestroyerStatus>())
-                {
-                    _contactedDestroyers.Add(hit.transform.GetComponent<DestroyerStatus>());
-                }
-            }
-
-            Debug.Log("C: " + _contactedDestroyers.Count);
-
-            if (_contactedDestroyers.Contains(_aiDestroyer))
-            {
-                _contactedDestroyers.Remove(_aiDestroyer);
-            }
-
-            if (_contactedDestroyers.Count > 0)
-            {
-                _closestDestroyer = _contactedDestroyers[0];
-
-                foreach (DestroyerStatus destroyer in _contactedDestroyers)
-                {
-                    if (Vector3.Distance(_closestDestroyer.transform.position, transform.position) > Vector3.Distance(destroyer.transform.position, transform.position))
-                    {
-                        _closestDestroyer = destroyer;
-                    }
-                }
-
-                if (_closestDestroyer == _playerDestroyer)
-                {
-                    _fireInput = true;
-                }
-                else
-                {
-                    _fireInput = false;
-                }
+                _fireInput = true;
             }
             else
             {
                 _fireInput = false;
             }
+        }
+
+        private List<DestroyerStatus> FindDestroyers()
+        {
+            RaycastHit[] hits = Physics.SphereCastAll(_aiDestroyer.transform.position + _aiDestroyer.transform.forward * 10f, 5f, _aiDestroyer.transform.forward, 1000);
+
+            List<DestroyerStatus> findedDestroyersAtForward = new List<DestroyerStatus>();
+
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.transform.GetComponent<DestroyerStatus>())
+                {
+                    findedDestroyersAtForward.Add(hit.transform.GetComponent<DestroyerStatus>());
+                }
+            }
+
+            if (findedDestroyersAtForward.Contains(_aiDestroyer))
+            {
+                findedDestroyersAtForward.Remove(_aiDestroyer);
+            }
+
+            return findedDestroyersAtForward;
+        }
+
+        private DestroyerStatus FindClosestDestroyer(List<DestroyerStatus> destroyers)
+        {
+            DestroyerStatus closestDestroyer = null;
+
+            if (destroyers.Count > 0)
+            {
+                closestDestroyer = destroyers[0];
+
+                foreach (DestroyerStatus destroyer in destroyers)
+                {
+                    if (Vector3.Distance(closestDestroyer.transform.position, transform.position) > Vector3.Distance(destroyer.transform.position, transform.position))
+                    {
+                        closestDestroyer = destroyer;
+                    }
+                }
+            }
+
+            return closestDestroyer;
         }
     }
 }
