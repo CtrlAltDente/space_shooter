@@ -15,8 +15,8 @@ namespace SpaceShooter.Spaceships.Destroyer
         [SerializeField]
         private float _rotationSpeed = 60f;
 
-        private Vector2 X_Y_Input => _baseInput.DirectionInput;
-        private Vector2 Z_Input => _baseInput.RotationInput;
+        private Vector2 LeftHandInput => _baseInput.DirectionInput;
+        private Vector2 RightHandInput => _baseInput.RotationInput;
 
         private IMovementInput _baseInput;
 
@@ -27,13 +27,21 @@ namespace SpaceShooter.Spaceships.Destroyer
 
         private void Update()
         {
+            SpeedControlLogic();
             CalculateMovement();
         }
 
         private void CalculateMovement()
         {
             _transform.position += (_transform.forward * _movementSpeed * Time.deltaTime);
-            _transform.rotation *= (Quaternion.Euler(new Vector3(X_Y_Input.y, X_Y_Input.x, Z_Input.x).normalized * _rotationSpeed * Time.deltaTime));
+            _transform.rotation *= (Quaternion.Euler(new Vector3(LeftHandInput.y, LeftHandInput.x, -RightHandInput.x).normalized * _rotationSpeed * Time.deltaTime));
+        }
+
+        private void SpeedControlLogic()
+        {
+            float newSpeed = _movementSpeed + RightHandInput.y * 5f * Time.deltaTime;
+
+            _movementSpeed = Mathf.Clamp(newSpeed, 0f, 30f);
         }
     }
 }

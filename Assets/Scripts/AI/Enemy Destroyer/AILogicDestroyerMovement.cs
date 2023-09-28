@@ -15,8 +15,8 @@ namespace SpaceShooter.AI.Destroyer
         [SerializeField]
         private DestroyerStatus _aiDestroyer;
 
-        private bool _isTooFarFromPlayer => Vector3.Distance(_aiDestroyer.transform.position, _playerDestroyer.transform.position) > 200;
-        private bool _isTooCloseToPlayer => Vector3.Distance(_aiDestroyer.transform.position, _playerDestroyer.transform.position) < 50;
+        private bool _isFarFromPlayer => Vector3.Distance(_aiDestroyer.transform.position, _playerDestroyer.transform.position) > 100;
+        private bool _isTooCloseToPlayer => Vector3.Distance(_aiDestroyer.transform.position, _playerDestroyer.transform.position) < 50f;
 
         private bool _flyAway;
 
@@ -31,12 +31,19 @@ namespace SpaceShooter.AI.Destroyer
                 Vector2 direction;
                 Vector3 targetPosition;
 
-                if ((_isTooFarFromPlayer || !_isTooCloseToPlayer) && !_flyAway)
+                if (_isFarFromPlayer)
                 {
+                    _flyAway = false;
                     targetPosition = _playerDestroyer.transform.position;
+                }
+                else if (!_isTooCloseToPlayer && !_flyAway)
+                {
+                    
+                    targetPosition = _playerDestroyer.transform.position; //TO DO: improve logic;
                 }
                 else
                 {
+                    _flyAway = true;
                     targetPosition = _flyAwayPosition;
                 }
 
@@ -85,7 +92,7 @@ namespace SpaceShooter.AI.Destroyer
         {
             while (_playerDestroyer.IsLive && _aiDestroyer.IsLive)
             {
-                yield return new WaitForSeconds(10f);
+                yield return new WaitForSeconds(1f);
                 CalculateFlyAwayPosition();
             }
         }
@@ -97,7 +104,7 @@ namespace SpaceShooter.AI.Destroyer
 
         private void CalculateFlyAwayPosition()
         {
-            _flyAwayPosition = _playerDestroyer.transform.position + new Vector3(Random.Range(0f, 30f), Random.Range(0f, 30f), Random.Range(0f, 30f));
+            _flyAwayPosition = _playerDestroyer.transform.position + new Vector3(Random.Range(-200, 200), Random.Range(-200, 200), Random.Range(-200, 200));
         }
     }
 }

@@ -31,7 +31,7 @@ namespace SpaceShooter.Spaceships.Destroyer
         {
             get
             {
-                return -RotationChange.action.ReadValue<Vector2>();
+                return RotationChange.action.ReadValue<Vector2>();
             }
         }
     }
