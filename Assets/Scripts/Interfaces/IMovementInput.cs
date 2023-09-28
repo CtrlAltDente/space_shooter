@@ -5,11 +5,9 @@ using UnityEngine.InputSystem;
 
 namespace SpaceShooter.Interfaces
 {
-    public interface IDestroyerMovementInput
+    public interface IMovementInput
     {
         public Vector2 DirectionInput { get; }
         public Vector2 RotationInput { get; }
-
-        public void CalculateInput();
     }
 }

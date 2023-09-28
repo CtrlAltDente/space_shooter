@@ -7,7 +7,7 @@ using SpaceShooter.Spaceships;
 
 namespace SpaceShooter.AI.Destroyer
 {
-    public class AILogicDestroyerMovement : MonoBehaviour, IDestroyerMovementInput
+    public class AILogicDestroyerMovement : MonoBehaviour, IMovementInput
     {
         [SerializeField]
         private DestroyerStatus _playerDestroyer;
@@ -45,8 +45,6 @@ namespace SpaceShooter.AI.Destroyer
 
                 direction = new Vector2(xDirection, yDirection);
 
-                Debug.Log(direction);
-
                 return direction;
             }
         }
@@ -80,8 +78,6 @@ namespace SpaceShooter.AI.Destroyer
 
             int xDirection = (targetPosition - leftSide).sqrMagnitude > (targetPosition - rightSide).sqrMagnitude ? 1 : -1;
 
-            Debug.Log("Right " + ((targetPosition - leftSide).sqrMagnitude - (targetPosition - rightSide).sqrMagnitude));
-
             return xDirection;
         }
 
@@ -91,7 +87,6 @@ namespace SpaceShooter.AI.Destroyer
             {
                 yield return new WaitForSeconds(10f);
                 CalculateFlyAwayPosition();
-                _flyAway = !_flyAway;
             }
         }
 

@@ -18,12 +18,11 @@ namespace SpaceShooter.Spaceships.Destroyer
         private Vector2 X_Y_Input => _baseInput.DirectionInput;
         private Vector2 Z_Input => _baseInput.RotationInput;
 
-        [SerializeField]
-        private IDestroyerMovementInput _baseInput;
+        private IMovementInput _baseInput;
 
         private void Awake()
         {
-            _baseInput = gameObject.GetComponent<IDestroyerMovementInput>();
+            _baseInput = gameObject.GetComponent<IMovementInput>();
         }
 
         private void Update()

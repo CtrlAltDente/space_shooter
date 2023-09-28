@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace SpaceShooter.Spaceships.Destroyer
 {
-    public class StickInput : MonoBehaviour, IDestroyerMovementInput
+    public class StickInput : MonoBehaviour, IMovementInput
     {
         [SerializeField]
         private InputActionReference DirectionChange;
@@ -23,7 +23,7 @@ namespace SpaceShooter.Spaceships.Destroyer
         {
             get
             {
-                return _directionInput;
+                return DirectionChange.action.ReadValue<Vector2>();
             }
         }
 
@@ -31,19 +31,8 @@ namespace SpaceShooter.Spaceships.Destroyer
         {
             get
             {
-                return -_rotationInput;
+                return -RotationChange.action.ReadValue<Vector2>();
             }
-        }
-
-        private void Update()
-        {
-            CalculateInput();
-        }
-
-        public void CalculateInput()
-        {
-            _directionInput = DirectionChange.action.ReadValue<Vector2>();
-            _rotationInput = RotationChange.action.ReadValue<Vector2>();
         }
     }
 }
