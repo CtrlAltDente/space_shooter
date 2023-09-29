@@ -15,8 +15,23 @@ namespace SpaceShooter.Base
         public float EnergyShield { get; private set; }
         public float Health { get; private set; }
 
+        public float HealthPercentage
+        {
+            get
+            {
+                return Health / _baseHealth;
+            }
+        }
+        public float EnergyShieldPercentage
+        {
+            get
+            {
+                return EnergyShield / _baseEnergyShield;
+            }
+        }
+
         [SerializeField]
-        private float _restorationSpeed = 2f;
+        private float _energyRestorationSpeed = 10f;
 
         public UnityEvent OnDestroyed;
 
@@ -56,7 +71,7 @@ namespace SpaceShooter.Base
             {
                 if (EnergyShield <= _baseEnergyShield)
                 {
-                    EnergyShield += _restorationSpeed * Time.deltaTime;
+                    EnergyShield += _energyRestorationSpeed * Time.deltaTime;
                 }
 
                 yield return null;
