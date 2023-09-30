@@ -11,35 +11,57 @@ namespace SpaceShooter.UI.Destroyer
         [SerializeField]
         private DestroyerStatus _playerDestroyer;
         [SerializeField]
-        private List<DestroyerRadarTarget> _destroyerRadarTargets;
+        private List<RadarTarget> _radarTargets = new List<RadarTarget>();
 
-        [SerializeField]
-        private DestroyerRadarTarget _radarTargetPrefab;
-
-        public void AddTarget(DestroyerStatus destroyer)
+        public void AddEnemyDestroyers(DestroyerStatus destroyerStatus)
         {
-            DestroyerRadarTarget target = Instantiate(_radarTargetPrefab, transform.position, Quaternion.identity, transform);
-            target.SetTarget(destroyer);
-            _destroyerRadarTargets.Add(target);
+            _radarTargets.Add(Instantiate(new GameObject("Radar Target").AddComponent<RadarTarget>(), transform.position, Quaternion.identity, transform));
         }
 
-        private void Update()
+        private void ShowDestroyersOnRadar()
         {
-            foreach(DestroyerRadarTarget destroyerRadarTarget in _destroyerRadarTargets)
+            CalculateVectorToEnemies();
+
+        }
+
+        private void CalculateVectorToEnemies()
+        {
+            foreach (RadarTarget radarTarget in _radarTargets)
             {
-                if(destroyerRadarTarget.IsTargetLive)
+                if (radarTarget.EnemyDestroyer.IsLive)
                 {
-                    Vector3 vectorToTarget = destroyerRadarTarget.Target.transform.position - _playerDestroyer.transform.position;
-                    destroyerRadarTarget.transform.position = transform.position + (vectorToTarget /100f).normalized/2;
+                    radarTarget.VectorToTarget = (radarTarget.EnemyDestroyer.transform.position - _playerDestroyer.transform.position);
                 }
                 else
                 {
-                    _destroyerRadarTargets.Remove(destroyerRadarTarget);
-                    Destroy(destroyerRadarTarget);
+                    _radarTargets.Remove(radarTarget);
+                    Destroy(radarTarget.gameObject);
+                }
+            }
+        }
+
+        private void ShowTargets()
+        {
+            foreach(RadarTarget radarTarget in _radarTargets)
+            {
+
+                if(Vector3.Dot(_playerDestroyer.transform.forward, radarTarget.VectorToTarget.normalized) > 0.7f)
+                {
+                    Debug.Log("TRRR");
                 }
             }
         }
     }
 
-    
+    public class RadarTarget : MonoBehaviour
+    {
+        public DestroyerStatus EnemyDestroyer { get; private set; }
+
+        public Vector3 VectorToTarget;
+
+        public void SetTarget(DestroyerStatus enemyDestroyer)
+        {
+            EnemyDestroyer = enemyDestroyer;
+        }
+    }
 }
