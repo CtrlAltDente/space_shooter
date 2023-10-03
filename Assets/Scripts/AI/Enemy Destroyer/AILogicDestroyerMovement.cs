@@ -15,8 +15,8 @@ namespace SpaceShooter.AI.Destroyer
         [SerializeField]
         private DestroyerStatus _aiDestroyer;
 
-        private bool _isFarFromPlayer => Vector3.Distance(_aiDestroyer.transform.position, _playerDestroyer.transform.position) > 100;
-        private bool _isTooCloseToPlayer => Vector3.Distance(_aiDestroyer.transform.position, _playerDestroyer.transform.position) < 50f;
+        private bool _isFarFromPlayer => Vector3.Distance(_aiDestroyer.transform.position, _playerDestroyer.transform.position) > 500;
+        private bool _isTooCloseToPlayer => Vector3.Distance(_aiDestroyer.transform.position, _playerDestroyer.transform.position) < 150;
 
         private bool _flyAway;
 
