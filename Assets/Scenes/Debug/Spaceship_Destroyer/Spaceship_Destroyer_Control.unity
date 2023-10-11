@@ -3690,13 +3690,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45fbec5e1b0f0b8468b4ad7c3eec84b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1714975622}
+  _player: {fileID: 1714975616}
   _radarTargetPrefab: {fileID: 6955752496764323189, guid: 636f37aa981203e4b895a49115f55373, type: 3}
   _radarTargets: []
-  _destroyersToAdd:
-  - {fileID: 2063855707}
-  - {fileID: 1808001850}
-  - {fileID: 630013400}
+  _targetToAdd:
+  - {fileID: 2063855706}
+  - {fileID: 1808001846}
+  - {fileID: 630013396}
 --- !u!1 &1444476782
 GameObject:
   m_ObjectHideFlags: 0
