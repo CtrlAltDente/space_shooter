@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3695806593649996519}
+  - component: {fileID: -3252124928523212622}
   - component: {fileID: 3695806593649996518}
   - component: {fileID: 3695806593649996513}
   - component: {fileID: 3695806593649996512}
-  - component: {fileID: -3252124928523212622}
   - component: {fileID: 4823361036655683749}
   m_Layer: 0
   m_Name: Ammo
@@ -35,6 +35,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3252124928523212622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3695806593649996515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf026583e4627ea40b6bd16f0c591465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementSpeed: 150
+  _damage: 20
+  _destroyTime: 30
 --- !u!33 &3695806593649996518
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -97,21 +112,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-3252124928523212622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695806593649996515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf026583e4627ea40b6bd16f0c591465, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movementSpeed: 150
-  _damage: 20
-  _destroyTime: 30
 --- !u!54 &4823361036655683749
 Rigidbody:
   m_ObjectHideFlags: 0

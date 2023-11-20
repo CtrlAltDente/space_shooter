@@ -17,6 +17,12 @@ namespace SpaceShooter.GunSystem
             if (!_canShoot)
                 return;
 
+            SpawnBullets();
+            StartCoroutine(ShootPause());
+        }
+
+        private void SpawnBullets()
+        {
             foreach (Transform spawnPosition in _gunSettings.SpawnPositions)
             {
                 for (int i = 0; i < _gunSettings.AmmoCount; i++)
@@ -25,8 +31,6 @@ namespace SpaceShooter.GunSystem
                     Ammo ammo = Instantiate(_gunSettings.AmmoPrefab, spawnPosition.position, spawnPosition.rotation * fireSpread);
                 }
             }
-
-            StartCoroutine(ShootPause());
         }
 
         private IEnumerator ShootPause()
