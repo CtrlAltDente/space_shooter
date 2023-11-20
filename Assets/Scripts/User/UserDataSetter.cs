@@ -34,7 +34,7 @@ namespace SpaceShooter.User
 
         private void SetPlayerBodyReferences()
         {
-            _gamePlayersData.SetPlayerData(_localUser.PlayerData);
+            _gamePlayersData.SetPlayerDataServerRpc(_localUser.PlayerData);
         }
     }
 }

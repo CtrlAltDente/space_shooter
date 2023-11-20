@@ -1,11 +1,12 @@
 using SpaceShooter.Player;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace SpaceShooter.GameLogic
 {
-    public class GamePlayersData : MonoBehaviour
+    public class GamePlayersData : NetworkBehaviour
     {
         [SerializeField]
         private PlayerState _playerStatePrefab;
@@ -20,10 +21,19 @@ namespace SpaceShooter.GameLogic
 
         private void InitializePlayers()
         {
-            _playerStates.Add(Instantiate(_playerStatePrefab, null));
+            if (NetworkManager.Singleton.IsHost)
+            {
+                foreach (ulong id in NetworkManager.Singleton.ConnectedClientsIds)
+                {
+                    PlayerState newPlayer = Instantiate(_playerStatePrefab, null);
+                    newPlayer.PlayerId = id;
+                    _playerStates.Add(newPlayer);
+                }
+            }
         }
-
-        public void SetPlayerData(PlayerData playerData)
+        
+        [ServerRpc(RequireOwnership = false)]
+        public void SetPlayerDataServerRpc(PlayerData playerData)
         {
             PlayerState playerState = _playerStates.Find(playerState => playerState.PlayerId == playerData.PlayerId);
             

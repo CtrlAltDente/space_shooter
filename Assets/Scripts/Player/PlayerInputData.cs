@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
 namespace SpaceShooter.Player
 {
-    public struct PlayerInputData
+    public struct PlayerInputData : INetworkSerializable
     {
         public bool LeftTriggerPressed;
         public bool RightTriggerPressed;
@@ -13,6 +14,12 @@ namespace SpaceShooter.Player
         {
             LeftTriggerPressed = leftTriggerPressed;
             RightTriggerPressed = rightTriggerPressed;
+        }
+
+        public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
+        {
+            serializer.SerializeValue(ref LeftTriggerPressed);
+            serializer.SerializeValue(ref RightTriggerPressed);
         }
     }
 }

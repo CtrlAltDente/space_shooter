@@ -26,6 +26,8 @@ namespace SpaceShooter.Network
             if (NetworkManager.Singleton)
             {
                 NetworkManager.Singleton.OnClientStarted += RaiseOnClientStartOperations;
+
+                NetworkManager.Singleton.OnClientConnectedCallback += RaiseOnClientConnected;
             }
         }
 
@@ -34,6 +36,8 @@ namespace SpaceShooter.Network
             if (NetworkManager.Singleton)
             {
                 NetworkManager.Singleton.OnClientStarted -= RaiseOnClientStartOperations;
+
+                NetworkManager.Singleton.OnClientConnectedCallback -= RaiseOnClientConnected;
             }
         }
 
@@ -47,6 +51,11 @@ namespace SpaceShooter.Network
             {
                 DoOnHostStartOperations?.Invoke();
             }
+        }
+
+        private void RaiseOnClientConnected(ulong clientId)
+        {
+            Debug.Log($"New client connected: {clientId}");
         }
     }
 }

@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Debug/Player.unity
     guid: 331bbb33bfca85d44a2d792fa94fbdfd
-  - enabled: 0
-    path: Assets/Scenes/Debug/Spaceship_Destroyer/Spaceship_Destroyer_Control.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d0d2ecff86841e042967b464f5a5f546, type: 2}
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 108665650e5fadf47a6e54bb2d9e0500, type: 2}

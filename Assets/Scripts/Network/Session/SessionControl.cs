@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SpaceShooter.Network
 {
-    public class SessionControl : MonoBehaviour
+    public class SessionControl : NetworkBehaviour
     {
         [SerializeField]
         private SceneLoader _sceneLoader;
