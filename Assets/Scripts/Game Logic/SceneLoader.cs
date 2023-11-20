@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System;
 using System.Collections;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -15,6 +16,22 @@ namespace SpaceShooter.GameLogic
         private LoadingScreen _loadingScreen;
 
         private Coroutine _sceneLoadingCoroutine;
+
+        public void LoadNetworkScene(string sceneName, Action ActionBeforeSceneChanging = null)
+        {
+            if (_sceneLoadingCoroutine == null)
+            {
+                _loadingScreen.LoadProgression = 1f;
+
+                _loadingScreen.FadeOut(() =>
+                {
+                    if(NetworkManager.Singleton.IsHost)
+                    {
+                        NetworkManager.Singleton.SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+                    }
+                });
+            }
+        }
 
         public void LoadScene(string sceneName, Action ActionBeforeSceneChanging = null)
         {

@@ -52,13 +52,7 @@ namespace SpaceShooter.Network
             StartCoroutine(StartSessionListening());
         }
 
-        private void StartUdpClient(int port)
-        {
-            _udpClient = new UdpClient(port);
-            _udpClient.JoinMulticastGroup(LocalNetworkInfo.DefaultMulticastIpAddress);
-        }
-
-        private void CloseUdpClient()
+        public void CloseUdpClient()
         {
             if (_udpClient != null)
             {
@@ -68,6 +62,13 @@ namespace SpaceShooter.Network
                 _udpClient = null;
                 Debug.Log("UDP CLIENT DESTROYED");
             }
+        }
+
+
+        private void StartUdpClient(int port)
+        {
+            _udpClient = new UdpClient(port);
+            _udpClient.JoinMulticastGroup(LocalNetworkInfo.DefaultMulticastIpAddress);
         }
 
         private IEnumerator StartSessionSharing()
@@ -100,9 +101,12 @@ namespace SpaceShooter.Network
 
         private async void ReceiveSession()
         {
-            var receiveResult = await _udpClient.ReceiveAsync();
-            Debug.Log("Received data");
-            _sessionsList.ProceedReceivedBytes(receiveResult.Buffer);
+            if (_udpClient != null)
+            {
+                var receiveResult = await _udpClient.ReceiveAsync();
+                Debug.Log("Received data");
+                _sessionsList.ProceedReceivedBytes(receiveResult.Buffer);
+            }
         }
     }
 }

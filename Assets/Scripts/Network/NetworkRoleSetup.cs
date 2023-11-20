@@ -16,6 +16,7 @@ namespace SpaceShooter.Network
         {
             string localIpAddress = LocalNetworkInfo.GetLocalIPAddress();
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIpAddress, (ushort)LocalNetworkInfo.DefaultPort);
+            NetworkManager.Singleton.StartHost();
             OnHostStarted?.Invoke();
         }
 
