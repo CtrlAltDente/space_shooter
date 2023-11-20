@@ -10,17 +10,20 @@ namespace SpaceShooter.User
     public class LocalUser : MonoBehaviour
     {
         public uint PlayerId = 0;
-        public PlayerBodyData PlayerBodyData => new PlayerBodyData(_playerBodyReference.Head, _playerBodyReference.LeftHand, _playerBodyReference.RightHand);
+        public PlayerBodyData PlayerBodyData => new PlayerBodyData(_playerBodyReferences.Head, _playerBodyReferences.LeftHand, _playerBodyReferences.RightHand);
+        public PlayerInputData PlayerInputData => new PlayerInputData(_playerInputReferences.LeftTriggerPressed, _playerInputReferences.RightTriggerPressed);
 
         public PlayerData PlayerData
         {
             get
             {
-                return new PlayerData(PlayerId, PlayerBodyData);
+                return new PlayerData(PlayerId, PlayerBodyData, PlayerInputData);
             }
         }
 
         [SerializeField]
-        private PlayerBodyReference _playerBodyReference;
+        private PlayerBodyReferences _playerBodyReferences;
+        [SerializeField]
+        private PlayerInputReferences _playerInputReferences;
     }
 }

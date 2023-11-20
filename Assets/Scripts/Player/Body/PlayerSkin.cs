@@ -7,13 +7,13 @@ namespace SpaceShooter.Player
     public class PlayerSkin : MonoBehaviour
     {
         [SerializeField]
-        private PlayerBodyReference _playerBodyReference;
+        private PlayerBodyReferences _playerBodyReferences;
 
         public void SetBodyData(PlayerBodyData playerSkinData)
         {
-            SetDataForPart(playerSkinData.Head, _playerBodyReference.Head);
-            SetDataForPart(playerSkinData.LeftHand, _playerBodyReference.LeftHand);
-            SetDataForPart(playerSkinData.RightHand, _playerBodyReference.RightHand);
+            SetDataForPart(playerSkinData.Head, _playerBodyReferences.Head);
+            SetDataForPart(playerSkinData.LeftHand, _playerBodyReferences.LeftHand);
+            SetDataForPart(playerSkinData.RightHand, _playerBodyReferences.RightHand);
         }
 
         private void SetDataForPart(PlayerBodyPartInformation playerBodyPart, Transform part)

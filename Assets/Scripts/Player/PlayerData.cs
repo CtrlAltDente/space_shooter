@@ -8,11 +8,13 @@ namespace SpaceShooter.Player
     {
         public uint PlayerId;
         public PlayerBodyData PlayerBodyData;
+        public PlayerInputData PlayerInputData;
 
-        public PlayerData(uint playerId, PlayerBodyData playerBodyData)
+        public PlayerData(uint playerId, PlayerBodyData playerBodyData, PlayerInputData playerInputData)
         {
             PlayerId = playerId;
             PlayerBodyData = playerBodyData;
+            PlayerInputData = playerInputData;
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBodyReference : MonoBehaviour
+public class PlayerBodyReferences : MonoBehaviour
 {
     public Transform Head;
     public Transform LeftHand;

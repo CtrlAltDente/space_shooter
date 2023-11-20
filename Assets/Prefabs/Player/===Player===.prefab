@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ed60cb61b6e074bbe9f2c743ddc8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerBodyReference: {fileID: 56310296755389008}
+  _playerBodyReferences: {fileID: 56310296755389008}
 --- !u!114 &56310296755389008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8396866721270372166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae47bc391fc02de458a22dce4e199ea6, type: 3}
+  m_Script: {fileID: 11500000, guid: d96a544582fd8f5489edb32823c145ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Head: {fileID: 9049740521370138363}
