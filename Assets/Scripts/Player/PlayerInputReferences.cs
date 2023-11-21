@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputReferences : MonoBehaviour
 {
-    public bool LeftTriggerPressed => LeftTriggerActionReference.action.ReadValue<bool>();
-    public bool RightTriggerPressed => RightTriggerActionReference.action.ReadValue<bool>();
+    public bool LeftTriggerPressed => LeftTriggerActionReference.action.ReadValue<float>() > 0.5f;
+    public bool RightTriggerPressed => RightTriggerActionReference.action.ReadValue<float>() > 0.5f;
 
     [SerializeField]
     private InputActionReference LeftTriggerActionReference;

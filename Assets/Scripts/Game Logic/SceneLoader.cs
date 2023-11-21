@@ -1,4 +1,7 @@
+using DG.Tweening;
+using System;
 using System.Collections;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -7,16 +10,38 @@ namespace SpaceShooter.GameLogic
 {
     public class SceneLoader : MonoBehaviour
     {
+        public LoadingScreen LoadingScreen => _loadingScreen;
+
         [Inject]
         private LoadingScreen _loadingScreen;
 
         private Coroutine _sceneLoadingCoroutine;
 
-        public void LoadScene(string sceneName)
+        public void LoadNetworkScene(string sceneName, Action ActionBeforeSceneChanging = null)
         {
             if (_sceneLoadingCoroutine == null)
             {
-                _loadingScreen.FadeOut(() => _sceneLoadingCoroutine = StartCoroutine(StartLoadScene(sceneName)));
+                _loadingScreen.LoadProgression = 1f;
+
+                _loadingScreen.FadeOut(() =>
+                {
+                    if(NetworkManager.Singleton.IsHost)
+                    {
+                        NetworkManager.Singleton.SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+                    }
+                });
+            }
+        }
+
+        public void LoadScene(string sceneName, Action ActionBeforeSceneChanging = null)
+        {
+            if (_sceneLoadingCoroutine == null)
+            {
+                _loadingScreen.FadeOut(() =>
+                {
+                    ActionBeforeSceneChanging?.Invoke();
+                    _sceneLoadingCoroutine = StartCoroutine(StartLoadScene(sceneName));
+                });
             }
         }
 

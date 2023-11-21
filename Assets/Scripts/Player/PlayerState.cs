@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace SpaceShooter.Player
 {
-    public class PlayerState : MonoBehaviour
+    public class PlayerState : NetworkBehaviour
     {
-        public uint PlayerId = 0;
+        public ulong PlayerId = 0;
 
         [SerializeField]
         private PlayerSkin _skin;
 
-        public void SetData(PlayerData playerData)
+        [ClientRpc]
+        public void SetDataClientRpc(PlayerData playerData)
         {
             SetBodyData(playerData.PlayerBodyData);
         }
