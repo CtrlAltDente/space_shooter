@@ -11,16 +11,45 @@ namespace SpaceShooter.Network
     {
         [SerializeField]
         private SceneLoader _sceneLoader;
-        
-        public void Shutdown()
+
+        private void Start()
+        {
+            SubscribeOnEvents();
+        }
+
+        private void OnDestroy()
+        {
+            UnsubscribeFromEvents();
+        }
+
+        public void Shutdown(bool boolValue)
         {
             _sceneLoader.LoadScene("MainMenu", ShutdownNetwork);
         }
 
+        private void SubscribeOnEvents()
+        {
+            if (NetworkManager.Singleton)
+            {
+                NetworkManager.Singleton.OnClientStopped += Shutdown;
+            }
+        }
+
+        private void UnsubscribeFromEvents()
+        {
+            if (NetworkManager.Singleton)
+            {
+                NetworkManager.Singleton.OnClientStopped -= Shutdown;
+            }
+        }
+
         private void ShutdownNetwork()
         {
-            NetworkManager.Singleton.Shutdown();
-            Destroy(NetworkManager.Singleton.gameObject);
+            if (NetworkManager.Singleton != null)
+            {
+                NetworkManager.Singleton.Shutdown();
+                Destroy(NetworkManager.Singleton.gameObject);
+            }
         }
     }
 }
