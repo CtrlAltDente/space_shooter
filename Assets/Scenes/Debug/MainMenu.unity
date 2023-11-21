@@ -1597,12 +1597,84 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
-      propertyPath: m_TrackingStateInput.m_Action.m_Id
-      value: 84849038-0c7c-4153-a7b3-e36b46441c96
+      propertyPath: m_PositionInput.m_Action.m_Id
+      value: 80efa831-34f5-47ed-b2c7-6cd4da2ee77c
       objectReference: {fileID: 0}
     - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
-      propertyPath: m_TrackingStateInput.m_Action.m_Name
-      value: Tracking State Input
+      propertyPath: m_RotationInput.m_Action.m_Id
+      value: f5e33e9f-4671-498d-aa8e-49ecf11abca3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_PositionInput.m_Action.m_Name
+      value: Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_RotationInput.m_Action.m_Name
+      value: Rotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_PositionInput.m_Action.m_ExpectedControlType
+      value: Vector3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_RotationInput.m_Action.m_ExpectedControlType
+      value: Quaternion
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_PositionInput.m_Action.m_SingletonActionBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_RotationInput.m_Action.m_SingletonActionBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_PositionInput.m_Action.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 3fa2fff9-5925-45f9-88ac-d0fe4b420d82
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_PositionInput.m_Action.m_SingletonActionBindings.Array.data[1].m_Id
+      value: d08b74fa-aa23-433f-899f-dd48f7f72473
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_RotationInput.m_Action.m_SingletonActionBindings.Array.data[0].m_Id
+      value: e454e541-7ad2-4cb9-a343-bf336cfc0f44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_RotationInput.m_Action.m_SingletonActionBindings.Array.data[1].m_Id
+      value: de0179f6-2715-4b9d-bd2a-c8dcc2d973af
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_PositionInput.m_Action.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <XRHMD>/centerEyePosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_PositionInput.m_Action.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <HandheldARInputDevice>/devicePosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_RotationInput.m_Action.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <XRHMD>/centerEyeRotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_RotationInput.m_Action.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <HandheldARInputDevice>/deviceRotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_PositionInput.m_Action.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_PositionInput.m_Action.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_RotationInput.m_Action.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Rotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_RotationInput.m_Action.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Rotation
       objectReference: {fileID: 0}
     - target: {fileID: 7873867311997879081, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
       propertyPath: m_Name
