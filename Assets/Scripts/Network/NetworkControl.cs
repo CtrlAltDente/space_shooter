@@ -21,7 +21,6 @@ namespace SpaceShooter.Network
         {
             NetworkManager.Singleton.Shutdown();
             Destroy(NetworkManager.Singleton.gameObject);
-            _sceneLoader.LoadScene("MainMenu");
         }
     }
 }
