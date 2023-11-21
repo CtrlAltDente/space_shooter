@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace SpaceShooter.Network
 {
@@ -10,6 +11,8 @@ namespace SpaceShooter.Network
     {
         public UnityEvent DoOnClientStartOperations;
         public UnityEvent DoOnHostStartOperations;
+
+        public UnityEvent OnClientConnectedOrDisconnectedEvent;
 
         private void Start()
         {
@@ -27,7 +30,10 @@ namespace SpaceShooter.Network
             {
                 NetworkManager.Singleton.OnClientStarted += RaiseOnClientStartOperations;
 
-                NetworkManager.Singleton.OnClientConnectedCallback += RaiseOnClientConnected;
+                NetworkManager.Singleton.ConnectionApprovalCallback += ApproveConnection;
+
+                NetworkManager.Singleton.OnClientConnectedCallback += RaiseOnClientConnectedOrDisconnectedEvent;
+                NetworkManager.Singleton.OnClientDisconnectCallback += RaiseOnClientConnectedOrDisconnectedEvent;
             }
         }
 
@@ -37,7 +43,8 @@ namespace SpaceShooter.Network
             {
                 NetworkManager.Singleton.OnClientStarted -= RaiseOnClientStartOperations;
 
-                NetworkManager.Singleton.OnClientConnectedCallback -= RaiseOnClientConnected;
+                NetworkManager.Singleton.OnClientConnectedCallback -= RaiseOnClientConnectedOrDisconnectedEvent;
+                NetworkManager.Singleton.OnClientDisconnectCallback -= RaiseOnClientConnectedOrDisconnectedEvent;
             }
         }
 
@@ -53,9 +60,15 @@ namespace SpaceShooter.Network
             }
         }
 
-        private void RaiseOnClientConnected(ulong clientId)
+        private void ApproveConnection(NetworkManager.ConnectionApprovalRequest request, NetworkManager.ConnectionApprovalResponse response)
         {
-            Debug.Log($"New client connected: {clientId}");
+            response.Approved = SceneManager.GetActiveScene().name == "MainMenu";
+        }
+
+        private void RaiseOnClientConnectedOrDisconnectedEvent(ulong clientId)
+        {
+            OnClientConnectedOrDisconnectedEvent?.Invoke();
+            Debug.Log($"New count of clients: {NetworkManager.Singleton.ConnectedClientsList.Count}");
         }
     }
 }
