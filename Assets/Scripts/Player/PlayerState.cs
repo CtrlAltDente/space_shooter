@@ -12,12 +12,8 @@ namespace SpaceShooter.Player
         [SerializeField]
         private PlayerSkin _skin;
 
-        private void Start()
-        {
-            InitializeInNetwork();
-        }
-
-        public void SetData(PlayerData playerData)
+        [ClientRpc]
+        public void SetDataClientRpc(PlayerData playerData)
         {
             SetBodyData(playerData.PlayerBodyData);
         }
@@ -25,17 +21,6 @@ namespace SpaceShooter.Player
         private void SetBodyData(PlayerBodyData playerBodyData)
         {
             _skin.SetBodyData(playerBodyData);
-        }
-
-        private void InitializeInNetwork()
-        {
-            if (!NetworkManager.Singleton)
-                return;
-
-            if(NetworkManager.Singleton.IsHost)
-            {
-                GetComponent<NetworkObject>().Spawn();
-            }
         }
     }
 }

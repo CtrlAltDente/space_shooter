@@ -27,6 +27,7 @@ namespace SpaceShooter.GameLogic
                 {
                     PlayerState newPlayer = Instantiate(_playerStatePrefab, null);
                     newPlayer.PlayerId = id;
+                    newPlayer.GetComponent<NetworkObject>().SpawnWithOwnership(id);
                     _playerStates.Add(newPlayer);
                 }
             }
@@ -38,7 +39,7 @@ namespace SpaceShooter.GameLogic
             PlayerState playerState = _playerStates.Find(playerState => playerState.PlayerId == playerData.PlayerId);
             
             if (playerState)
-                playerState.SetData(playerData);
+                playerState.SetDataClientRpc(playerData);
         }
     }
 }
