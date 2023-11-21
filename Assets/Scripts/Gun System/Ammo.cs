@@ -1,11 +1,12 @@
 using SpaceShooter.Base;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace SpaceShooter.Guns
 {
-    public class Ammo : MonoBehaviour
+    public class Ammo : NetworkBehaviour
     {
         [SerializeField]
         private float _movementSpeed = 50f;
@@ -18,7 +19,11 @@ namespace SpaceShooter.Guns
 
         private void Start()
         {
-            StartCoroutine(SelfDestroy());
+            if(NetworkManager.Singleton.IsHost)
+            {
+                GetComponent<NetworkObject>().Spawn();
+                StartCoroutine(SelfDestroy());
+            }
         }
 
         private void Update()

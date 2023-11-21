@@ -13,6 +13,11 @@ namespace SpaceShooter.Guns
 
         private PlayerItemPicker _currentItemPicker;
 
+        private void Update()
+        {
+            UpdatePositionAndRotation();
+        }
+
         public void Pick(PlayerItemPicker playerItemPicker)
         {
             if (!_currentItemPicker)
@@ -20,8 +25,6 @@ namespace SpaceShooter.Guns
                 _currentItemPicker = playerItemPicker;
                 _rigidbody.isKinematic = true;
                 transform.parent = playerItemPicker.transform;
-                transform.position = playerItemPicker.transform.position;
-                transform.rotation = playerItemPicker.transform.rotation;
             }
         }
 
@@ -35,6 +38,15 @@ namespace SpaceShooter.Guns
         public void Interact()
         {
             Shoot();
+        }
+
+        private void UpdatePositionAndRotation()
+        {
+            if (_currentItemPicker)
+            {
+                transform.position = _currentItemPicker.transform.position;
+                transform.rotation = _currentItemPicker.transform.rotation;
+            }
         }
     }
 }

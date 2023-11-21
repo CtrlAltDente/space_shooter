@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SpaceShooter.Interfaces;
+using Unity.Netcode;
 
 namespace SpaceShooter.Guns
 {
-    public class Gun : MonoBehaviour
+    public class Gun : NetworkBehaviour
     {
         [SerializeField]
         private GunSettings _gunSettings;
