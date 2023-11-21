@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SpaceShooter.Interfaces;
 
-namespace SpaceShooter.GunSystem
+namespace SpaceShooter.Guns
 {
     public class Gun : MonoBehaviour
     {
@@ -12,7 +13,7 @@ namespace SpaceShooter.GunSystem
         [SerializeField]
         private bool _canShoot = true;
 
-        public void Shoot()
+        protected void Shoot()
         {
             if (!_canShoot)
                 return;

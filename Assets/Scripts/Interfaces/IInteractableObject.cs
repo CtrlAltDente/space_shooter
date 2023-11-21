@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace SpaceShooter.Interfaces
 {
-    public interface IFireInput
+    public interface IInteractableObject
     {
-        public bool FireInput { get; }
+        public void Interact();
     }
 }
