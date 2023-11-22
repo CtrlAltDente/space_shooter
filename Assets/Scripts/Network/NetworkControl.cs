@@ -2,16 +2,21 @@ using SpaceShooter.GameLogic;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 namespace SpaceShooter.Network
 {
     public class NetworkControl : MonoBehaviour
     {
+        public UnityEvent OnHostSelected;
+        public UnityEvent OnClientSelected;
+
         [SerializeField]
         private SceneLoader _sceneLoader;
-
+        
         private void Start()
         {
             SubscribeOnEvents();
@@ -20,6 +25,19 @@ namespace SpaceShooter.Network
         private void OnDestroy()
         {
             UnsubscribeFromEvents();
+        }
+
+        public void SelectHost()
+        {
+            string localIpAddress = LocalNetworkInfo.GetLocalIPAddress();
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIpAddress, (ushort)LocalNetworkInfo.DefaultPort);
+            NetworkManager.Singleton.StartHost();
+            OnHostSelected?.Invoke();
+        }
+
+        public void SelectClient()
+        {
+            OnClientSelected?.Invoke();
         }
 
         public void Shutdown(bool boolValue)
