@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 23470190}
   - component: {fileID: 23470191}
   m_Layer: 0
-  m_Name: --UserDataSetter--
+  m_Name: ---UserDataSetter---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,6 +213,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8c4fd3a91b73b4a9d5ecbfa8baf2f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHostStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnClientStarted:
+    m_PersistentCalls:
+      m_Calls: []
   _sceneLoader: {fileID: 1909236366}
 --- !u!1 &386232969
 GameObject:
@@ -372,7 +378,7 @@ GameObject:
   - component: {fileID: 618354144}
   - component: {fileID: 618354145}
   m_Layer: 0
-  m_Name: --XR Interaction Manager--
+  m_Name: ---XR Interaction Manager---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -524,7 +530,7 @@ GameObject:
   - component: {fileID: 764999527}
   - component: {fileID: 764999526}
   m_Layer: 0
-  m_Name: --GamePlayersData--
+  m_Name: ---GamePlayersData---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -826,7 +832,7 @@ GameObject:
   - component: {fileID: 1422033655}
   - component: {fileID: 1422033654}
   m_Layer: 0
-  m_Name: --EventSystem--
+  m_Name: ---EventSystem---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1291,8 +1297,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8165136998322032124}
-  - component: {fileID: 3651271518916813762}
   - component: {fileID: 629803474369256917}
+  - component: {fileID: 3651271518916813762}
   - component: {fileID: 4043596211666167233}
   - component: {fileID: 4037086363439568696}
   - component: {fileID: 7538113248773350712}
@@ -1335,8 +1341,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8165136998532243702}
-  - component: {fileID: 3651271518572383944}
   - component: {fileID: 629803474713686239}
+  - component: {fileID: 3651271518572383944}
   - component: {fileID: 4043596211472664779}
   - component: {fileID: 4037086362575845938}
   - component: {fileID: 7538113248428984370}
@@ -1379,8 +1385,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8165136997262679338}
-  - component: {fileID: 3651271517864866580}
   - component: {fileID: 629803473550544131}
+  - component: {fileID: 3651271517864866580}
   - component: {fileID: 4043596212885370135}
   - component: {fileID: 4037086362212239342}
   - component: {fileID: 7538113249927149038}
