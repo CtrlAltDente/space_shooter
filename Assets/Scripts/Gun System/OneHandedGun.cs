@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using SpaceShooter.Interfaces;
 using SpaceShooter.Player;
+using System;
+using UnityEngine.UI;
+using Unity.Netcode;
 
 namespace SpaceShooter.Guns
 {
@@ -10,6 +13,9 @@ namespace SpaceShooter.Guns
     {
         [SerializeField]
         private Rigidbody _rigidbody;
+
+        [SerializeField]
+        private GunVisual _gunVisual;
 
         private PlayerItemPicker _currentItemPicker;
 
@@ -48,5 +54,18 @@ namespace SpaceShooter.Guns
                 transform.rotation = _currentItemPicker.transform.rotation;
             }
         }
+
+        protected override void UpdateVisualClientRpc()
+        {
+            _gunVisual.ReadyImage.color = _canShoot ? _gunVisual.ReadyColor : _gunVisual.NotReadyColor;
+        }
+    }
+
+    [Serializable]
+    public struct GunVisual
+    {
+        public Image ReadyImage;
+        public Color ReadyColor;
+        public Color NotReadyColor;
     }
 }
