@@ -12,10 +12,20 @@ namespace SpaceShooter.Player
         [SerializeField]
         private PlayerInteractor _playerInteractor;
 
-        public void SetData(PlayerData playerData)
+        [ClientRpc]
+        public void SetDataClientRpc(PlayerData playerData)
+        {
+            if (playerData.PlayerId == NetworkManager.Singleton.LocalClientId)
+                return;
+            _skin.SetBodyData(playerData.PlayerBodyData);
+            _playerInteractor.SetInputData(playerData.PlayerInputData);
+        }
+
+        public void SetDataLocally(PlayerData playerData)
         {
             _skin.SetBodyData(playerData.PlayerBodyData);
             _playerInteractor.SetInputData(playerData.PlayerInputData);
+            Debug.Log("Data setted locally");
         }
     }
 }

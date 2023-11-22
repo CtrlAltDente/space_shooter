@@ -67,7 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5309488d047a65645ac587ab924aa268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerId: 0
   _skin: {fileID: 8540944887665351963}
   _playerInteractor: {fileID: 2573073094572882100}
 --- !u!114 &2573073094572882100

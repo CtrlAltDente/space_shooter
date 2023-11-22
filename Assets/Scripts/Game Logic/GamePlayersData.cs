@@ -31,14 +31,17 @@ namespace SpaceShooter.GameLogic
                 }
             }
         }
-        
+
         [ServerRpc(RequireOwnership = false)]
         public void SetPlayerDataServerRpc(PlayerData playerData)
         {
-            PlayerState playerState = _playerStates.Find(playerState => playerState.OwnerClientId == playerData.PlayerId);
-            
-            if (playerState)
-                playerState.SetData(playerData);
+            if (NetworkManager.Singleton.IsHost)
+            {
+                PlayerState playerState = _playerStates.Find(playerState => playerState.OwnerClientId == playerData.PlayerId);
+
+                if (playerState)
+                    playerState.SetDataClientRpc(playerData);
+            }
         }
     }
 }

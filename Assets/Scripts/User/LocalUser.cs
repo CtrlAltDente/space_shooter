@@ -23,8 +23,44 @@ namespace SpaceShooter.User
         }
 
         [SerializeField]
+        private PlayerState _playerState;
+
+        [SerializeField]
         private PlayerBodyReferences _playerBodyReferences;
         [SerializeField]
         private PlayerInputReferences _playerInputReferences;
+
+        private void Start()
+        {
+            StartCoroutine(FindLocalUserPlayer());
+        }
+
+        private void Update()
+        {
+            if(_playerState)
+            {
+                _playerState.SetDataLocally(PlayerData);
+            }
+        }
+
+        private IEnumerator FindLocalUserPlayer()
+        {
+            while(!_playerState)
+            {
+                Debug.Log("searching");
+                var players = FindObjectsOfType<PlayerState>();
+                foreach(var p in players)
+                {
+                    if(p.OwnerClientId == PlayerId)
+                    {
+                        _playerState = p;
+                    }
+                    
+                    yield return null;
+                }
+
+                yield return null;
+            }
+        }
     }
 }
