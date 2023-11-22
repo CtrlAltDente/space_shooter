@@ -32,30 +32,48 @@ namespace SpaceShooter.User
 
         private void Start()
         {
+            SubscriveOnEvents();
             StartCoroutine(FindLocalUserPlayer());
         }
 
-        private void Update()
+        private void OnDestroy()
         {
-            if(_playerState)
+            UnsubscribeFromEvents();
+        }
+
+        private void SubscriveOnEvents()
+        {
+            if (NetworkManager.Singleton && NetworkManager.Singleton.IsClient)
+                NetworkManager.Singleton.NetworkTickSystem.Tick += WritePlayerData;
+        }
+
+        private void UnsubscribeFromEvents()
+        {
+            if (NetworkManager.Singleton && NetworkManager.Singleton.IsClient)
+                NetworkManager.Singleton.NetworkTickSystem.Tick -= WritePlayerData;
+        }
+
+        private void WritePlayerData()
+        {
+            if (_playerState)
             {
-                _playerState.SetDataLocally(PlayerData);
+                _playerState.SetNetworkPlayerData(PlayerData);
             }
         }
 
         private IEnumerator FindLocalUserPlayer()
         {
-            while(!_playerState)
+            while (!_playerState)
             {
                 Debug.Log("searching");
                 var players = FindObjectsOfType<PlayerState>();
-                foreach(var p in players)
+                foreach (var p in players)
                 {
-                    if(p.OwnerClientId == PlayerId)
+                    if (p.OwnerClientId == PlayerId)
                     {
                         _playerState = p;
                     }
-                    
+
                     yield return null;
                 }
 

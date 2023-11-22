@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 8165136997974950445}
   - component: {fileID: 629803474196238852}
   - component: {fileID: 3651271519098219539}
-  - component: {fileID: 4043596211988081168}
-  - component: {fileID: 4037086363126044905}
+  - component: {fileID: 37042501971279403}
   - component: {fileID: 7538113248946367209}
   - component: {fileID: 6754224990347707719}
   m_Layer: 0
@@ -81,11 +80,7 @@ MonoBehaviour:
     AmmoCount: 1
   _canShoot: 1
   _rigidbody: {fileID: 6754224990347707719}
-  _gunVisual:
-    ReadyImage: {fileID: 4442103086213139869}
-    ReadyColor: {r: 0.15686275, g: 0.2627451, b: 0.7137255, a: 0.4}
-    NotReadyColor: {r: 1, g: 0, b: 0, a: 0.4}
---- !u!114 &4043596211988081168
+--- !u!114 &37042501971279403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,39 +89,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 708597562642381594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 107b94801c1b24940a35db0203286106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  Interpolate: 1
-  SlerpPosition: 0
---- !u!114 &4037086363126044905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708597562642381594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  Transform:
+    m_InternalValue: {fileID: 0}
 --- !u!65 &7538113248946367209
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ namespace SpaceShooter.Guns
             {
                 _currentItemPicker = playerItemPicker;
                 _rigidbody.isKinematic = true;
-                transform.parent = playerItemPicker.transform;
+                //transform.parent = playerItemPicker.transform;
             }
         }
 
