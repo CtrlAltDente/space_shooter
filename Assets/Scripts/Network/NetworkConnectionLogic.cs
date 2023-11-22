@@ -68,7 +68,8 @@ namespace SpaceShooter.Network
         private void RaiseOnClientConnectedOrDisconnectedEvent(ulong clientId)
         {
             OnClientConnectedOrDisconnectedEvent?.Invoke();
-            Debug.Log($"New count of clients: {NetworkManager.Singleton.ConnectedClientsList.Count}");
+            if (NetworkManager.Singleton.IsHost)
+                Debug.Log($"New count of clients: {NetworkManager.Singleton.ConnectedClientsList.Count}");
         }
     }
 }

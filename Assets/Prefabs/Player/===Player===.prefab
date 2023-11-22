@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 450552757912439837}
   - component: {fileID: 7619855615802743659}
   - component: {fileID: 415803244127628572}
+  - component: {fileID: 2573073094572882100}
   m_Layer: 0
   m_Name: ===Player===
   m_TagString: Untagged
@@ -66,8 +67,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5309488d047a65645ac587ab924aa268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerId: 0
   _skin: {fileID: 8540944887665351963}
+  _playerInteractor: {fileID: 2573073094572882100}
+--- !u!114 &2573073094572882100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450552757912439836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9757b1aedc1c84ab181255f7ec7567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftHandItemPicker: {fileID: 8258053719576316620}
+  RightHandItemPicker: {fileID: 4441125377595299458}
 --- !u!1 &1364314446070860424
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +200,7 @@ GameObject:
   - component: {fileID: 157851488999833374}
   - component: {fileID: 4791679946306646942}
   - component: {fileID: 1163156186569351286}
+  - component: {fileID: 4441125377595299458}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -202,7 +218,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4920372412740704883}
@@ -272,12 +288,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4441125377595299458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3496203541786536095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f34abcf260edc40b13765be2a6393c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8396866721270372166
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +382,7 @@ GameObject:
   - component: {fileID: 3392435449719142650}
   - component: {fileID: 7039068651869656530}
   - component: {fileID: 9047271064184823354}
+  - component: {fileID: 8258053719576316620}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -371,7 +400,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4920372412740704883}
@@ -441,9 +470,21 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8258053719576316620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8722422383975086329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f34abcf260edc40b13765be2a6393c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

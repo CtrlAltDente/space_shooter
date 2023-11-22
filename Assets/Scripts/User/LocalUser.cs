@@ -12,7 +12,7 @@ namespace SpaceShooter.User
     {
         public ulong PlayerId => NetworkManager.Singleton.IsClient ? NetworkManager.Singleton.LocalClientId : 0;
         public PlayerBodyData PlayerBodyData => new PlayerBodyData(_playerBodyReferences.Head, _playerBodyReferences.LeftHand, _playerBodyReferences.RightHand);
-        public PlayerInputData PlayerInputData => new PlayerInputData(_playerInputReferences.LeftTriggerPressed, _playerInputReferences.RightTriggerPressed);
+        public PlayerInputData PlayerInputData => new PlayerInputData(_playerInputReferences.LeftTriggerPressed, _playerInputReferences.RightTriggerPressed, _playerInputReferences.LeftStickPressed, _playerInputReferences.RightStickPressed);
 
         public PlayerData PlayerData
         {
@@ -23,8 +23,62 @@ namespace SpaceShooter.User
         }
 
         [SerializeField]
+        private PlayerState _playerState;
+
+        [SerializeField]
         private PlayerBodyReferences _playerBodyReferences;
         [SerializeField]
         private PlayerInputReferences _playerInputReferences;
+
+        private void Start()
+        {
+            SubscriveOnEvents();
+            StartCoroutine(FindLocalUserPlayer());
+        }
+
+        private void OnDestroy()
+        {
+            UnsubscribeFromEvents();
+        }
+
+        private void SubscriveOnEvents()
+        {
+            if (NetworkManager.Singleton && NetworkManager.Singleton.IsClient)
+                NetworkManager.Singleton.NetworkTickSystem.Tick += WritePlayerData;
+        }
+
+        private void UnsubscribeFromEvents()
+        {
+            if (NetworkManager.Singleton && NetworkManager.Singleton.IsClient)
+                NetworkManager.Singleton.NetworkTickSystem.Tick -= WritePlayerData;
+        }
+
+        private void WritePlayerData()
+        {
+            if (_playerState)
+            {
+                _playerState.SetNetworkPlayerData(PlayerData);
+            }
+        }
+
+        private IEnumerator FindLocalUserPlayer()
+        {
+            while (!_playerState)
+            {
+                Debug.Log("searching");
+                var players = FindObjectsOfType<PlayerState>();
+                foreach (var p in players)
+                {
+                    if (p.OwnerClientId == PlayerId)
+                    {
+                        _playerState = p;
+                    }
+
+                    yield return null;
+                }
+
+                yield return null;
+            }
+        }
     }
 }

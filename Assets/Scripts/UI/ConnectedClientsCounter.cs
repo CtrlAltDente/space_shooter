@@ -13,7 +13,8 @@ namespace SpaceShooter.UI
 
         public void UpdateClientsCount()
         {
-            StartCoroutine(UpdateClientsCountWithDelay(1f));
+            if (NetworkManager.Singleton.IsHost)
+                StartCoroutine(UpdateClientsCountWithDelay(1f));
         }
 
         private IEnumerator UpdateClientsCountWithDelay(float delay)

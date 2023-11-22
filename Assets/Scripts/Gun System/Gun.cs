@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SpaceShooter.Interfaces;
+using Unity.Netcode;
+using System;
 
-namespace SpaceShooter.GunSystem
+namespace SpaceShooter.Guns
 {
-    public class Gun : MonoBehaviour
+    public class Gun : NetworkBehaviour
     {
         [SerializeField]
         private GunSettings _gunSettings;
 
         [SerializeField]
-        private bool _canShoot = true;
+        protected bool _canShoot = true;
 
-        public void Shoot()
+        protected void Shoot()
         {
             if (!_canShoot)
                 return;
@@ -28,7 +31,7 @@ namespace SpaceShooter.GunSystem
                 for (int i = 0; i < _gunSettings.AmmoCount; i++)
                 {
                     Quaternion fireSpread = Quaternion.Euler(new Vector3(_gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue));
-                    Ammo ammo = Instantiate(_gunSettings.AmmoPrefab, spawnPosition.position, spawnPosition.rotation * fireSpread);
+                    Bullet bullet = Instantiate(_gunSettings.BulletPrefab, spawnPosition.position, spawnPosition.rotation * fireSpread);
                 }
             }
         }
@@ -36,16 +39,16 @@ namespace SpaceShooter.GunSystem
         private IEnumerator ShootPause()
         {
             _canShoot = false;
-            yield return new WaitForSeconds(60f / _gunSettings.RateOfFire);
+            yield return new WaitForSeconds(_gunSettings.ShootDelay);
             _canShoot = true;
         }
     }
 
-    [System.Serializable]
+    [Serializable]
     public struct GunSettings
     {
-        public Ammo AmmoPrefab;
-        public int RateOfFire;
+        public Bullet BulletPrefab;
+        public float ShootDelay;
         public float FireSpreadDegrees;
         public Transform[] SpawnPositions;
         public int AmmoCount;
@@ -54,7 +57,7 @@ namespace SpaceShooter.GunSystem
         {
             get
             {
-                return Random.Range(0f, FireSpreadDegrees);
+                return UnityEngine.Random.Range(0f, FireSpreadDegrees);
             }
         }
     }
