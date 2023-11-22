@@ -26,7 +26,6 @@ namespace SpaceShooter.GameLogic
                 foreach (ulong id in NetworkManager.Singleton.ConnectedClientsIds)
                 {
                     PlayerState newPlayer = Instantiate(_playerStatePrefab, null);
-                    newPlayer.PlayerId = id;
                     newPlayer.GetComponent<NetworkObject>().SpawnWithOwnership(id);
                     _playerStates.Add(newPlayer);
                 }
@@ -36,7 +35,7 @@ namespace SpaceShooter.GameLogic
         [ServerRpc(RequireOwnership = false)]
         public void SetPlayerDataServerRpc(PlayerData playerData)
         {
-            PlayerState playerState = _playerStates.Find(playerState => playerState.PlayerId == playerData.PlayerId);
+            PlayerState playerState = _playerStates.Find(playerState => playerState.OwnerClientId == playerData.PlayerId);
             
             if (playerState)
                 playerState.SetData(playerData);

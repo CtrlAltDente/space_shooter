@@ -7,8 +7,6 @@ namespace SpaceShooter.Player
 {
     public class PlayerState : NetworkBehaviour
     {
-        public ulong PlayerId = 0;
-
         [SerializeField]
         private PlayerSkin _skin;
         [SerializeField]
