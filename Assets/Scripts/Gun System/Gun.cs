@@ -30,7 +30,7 @@ namespace SpaceShooter.Guns
                 for (int i = 0; i < _gunSettings.AmmoCount; i++)
                 {
                     Quaternion fireSpread = Quaternion.Euler(new Vector3(_gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue));
-                    Ammo ammo = Instantiate(_gunSettings.AmmoPrefab, spawnPosition.position, spawnPosition.rotation * fireSpread);
+                    Bullet ammo = Instantiate(_gunSettings.AmmoPrefab, spawnPosition.position, spawnPosition.rotation * fireSpread);
                 }
             }
         }
@@ -38,7 +38,7 @@ namespace SpaceShooter.Guns
         private IEnumerator ShootPause()
         {
             _canShoot = false;
-            yield return new WaitForSeconds(60f / _gunSettings.RateOfFire);
+            yield return new WaitForSeconds(_gunSettings.ShootDelay);
             _canShoot = true;
         }
     }
@@ -46,8 +46,8 @@ namespace SpaceShooter.Guns
     [System.Serializable]
     public struct GunSettings
     {
-        public Ammo AmmoPrefab;
-        public int RateOfFire;
+        public Bullet AmmoPrefab;
+        public float ShootDelay;
         public float FireSpreadDegrees;
         public Transform[] SpawnPositions;
         public int AmmoCount;

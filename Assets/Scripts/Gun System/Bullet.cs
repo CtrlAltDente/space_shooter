@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SpaceShooter.Guns
 {
-    public class Ammo : NetworkBehaviour
+    public class Bullet : NetworkBehaviour
     {
         [SerializeField]
         private float _movementSpeed = 50f;
@@ -45,8 +45,11 @@ namespace SpaceShooter.Guns
         private IEnumerator SelfDestroy()
         {
             yield return new WaitForSeconds(_destroyTime);
-
-            Destroy(gameObject);
+            if (NetworkManager.Singleton.IsHost)
+            {
+                GetComponent<NetworkObject>().Despawn();
+                Destroy(gameObject);
+            }
         }
     }
 }

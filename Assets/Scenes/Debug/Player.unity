@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3360292838
+  GlobalObjectIdHash: 578438656
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -1112,7 +1112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2761261521
+  GlobalObjectIdHash: 1983206194
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 532074295
+  GlobalObjectIdHash: 780619180
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1353817946
+  GlobalObjectIdHash: 1352156285
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -1172,7 +1172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1040426565
+  GlobalObjectIdHash: 3696505801
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -1192,7 +1192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3845508187
+  GlobalObjectIdHash: 775371976
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -1212,7 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 4266207869
+  GlobalObjectIdHash: 2855470766
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -1232,7 +1232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3673223319
+  GlobalObjectIdHash: 529559937
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -1252,7 +1252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 529299400
+  GlobalObjectIdHash: 251973907
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -2318,7 +2318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunSettings:
     AmmoPrefab: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
-    RateOfFire: 60
+    ShootDelay: 0
     FireSpreadDegrees: 2
     SpawnPositions:
     - {fileID: 2713427378598477471}
@@ -2339,7 +2339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunSettings:
     AmmoPrefab: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
-    RateOfFire: 60
+    ShootDelay: 0
     FireSpreadDegrees: 2
     SpawnPositions:
     - {fileID: 2713427378651319579}
@@ -2360,7 +2360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunSettings:
     AmmoPrefab: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
-    RateOfFire: 60
+    ShootDelay: 0
     FireSpreadDegrees: 2
     SpawnPositions:
     - {fileID: 2713427378860470721}
@@ -2381,7 +2381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunSettings:
     AmmoPrefab: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
-    RateOfFire: 60
+    ShootDelay: 0
     FireSpreadDegrees: 2
     SpawnPositions:
     - {fileID: 2713427378982469937}
@@ -2402,7 +2402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunSettings:
     AmmoPrefab: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
-    RateOfFire: 60
+    ShootDelay: 0
     FireSpreadDegrees: 2
     SpawnPositions:
     - {fileID: 2713427379419343376}
@@ -2423,7 +2423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunSettings:
     AmmoPrefab: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
-    RateOfFire: 60
+    ShootDelay: 0
     FireSpreadDegrees: 2
     SpawnPositions:
     - {fileID: 2713427379715701997}
@@ -2444,7 +2444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunSettings:
     AmmoPrefab: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
-    RateOfFire: 60
+    ShootDelay: 0
     FireSpreadDegrees: 2
     SpawnPositions:
     - {fileID: 2713427379737357526}
@@ -2465,7 +2465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunSettings:
     AmmoPrefab: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
-    RateOfFire: 60
+    ShootDelay: 0
     FireSpreadDegrees: 2
     SpawnPositions:
     - {fileID: 2713427380043403751}
@@ -2486,7 +2486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunSettings:
     AmmoPrefab: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
-    RateOfFire: 60
+    ShootDelay: 0
     FireSpreadDegrees: 2
     SpawnPositions:
     - {fileID: 2713427380070115829}
