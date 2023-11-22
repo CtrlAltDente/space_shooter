@@ -39,16 +39,8 @@ namespace SpaceShooter.Guns
         private IEnumerator ShootPause()
         {
             _canShoot = false;
-            UpdateVisualClientRpc();
             yield return new WaitForSeconds(_gunSettings.ShootDelay);
             _canShoot = true;
-            UpdateVisualClientRpc();
-        }
-
-        [ClientRpc]
-        protected virtual void UpdateVisualClientRpc ()
-        {
-            
         }
     }
 
