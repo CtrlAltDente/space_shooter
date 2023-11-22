@@ -14,8 +14,7 @@ namespace SpaceShooter.Player
         [SerializeField]
         private PlayerInteractor _playerInteractor;
 
-        [ClientRpc]
-        public void SetDataClientRpc(PlayerData playerData)
+        public void SetData(PlayerData playerData)
         {
             _skin.SetBodyData(playerData.PlayerBodyData);
             _playerInteractor.SetInputData(playerData.PlayerInputData);

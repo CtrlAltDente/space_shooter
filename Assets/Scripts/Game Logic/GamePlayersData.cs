@@ -39,7 +39,7 @@ namespace SpaceShooter.GameLogic
             PlayerState playerState = _playerStates.Find(playerState => playerState.PlayerId == playerData.PlayerId);
             
             if (playerState)
-                playerState.SetDataClientRpc(playerData);
+                playerState.SetData(playerData);
         }
     }
 }
