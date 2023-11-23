@@ -7,20 +7,20 @@ namespace SpaceShooter.Player
 {
     public class PlayerInteractor : MonoBehaviour
     {
-        public OneHandedPlayerGun LeftHandGun;
-        public OneHandedPlayerGun RightHandGun;
+        public PlayerItemPicker LeftHandPicker;
+        public PlayerItemPicker RightHandPicker;
 
         public void SetInputData(PlayerInputData playerInputData)
         {
-            InteractWithItem(LeftHandGun, playerInputData.LeftStickPressed, playerInputData.LeftTriggerPressed);
-            InteractWithItem(RightHandGun, playerInputData.RightStickPressed, playerInputData.RightTriggerPressed);
+            InteractWithItem(LeftHandPicker, playerInputData.LeftStickPressed, playerInputData.LeftTriggerPressed);
+            InteractWithItem(RightHandPicker, playerInputData.RightStickPressed, playerInputData.RightTriggerPressed);
         }
 
-        private void InteractWithItem(OneHandedPlayerGun playerGun, bool isPick, bool isInteract)
+        private void InteractWithItem(PlayerItemPicker picker, bool isPick, bool isInteract)
         {
-            if (isInteract)
+            if (isPick)
             {
-                playerGun.Interact();
+                picker.PickOrDropAvailableObjects();
             }
         }
     }

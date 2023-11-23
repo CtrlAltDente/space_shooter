@@ -39,6 +39,5 @@ namespace SpaceShooter.Player
         {
             PlayerData.Value = playerData;
         }
-
     }
 }

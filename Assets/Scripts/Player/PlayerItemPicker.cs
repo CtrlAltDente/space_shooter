@@ -23,7 +23,6 @@ namespace SpaceShooter.Player
             {
                 CurrentPickableObject = _pickableObjectsList[0];
                 CurrentPickableObject.Pick(this);
-                CurrentPickableObject.ChangeOwnerServerRpc(OwnerClientId);
             }
         }
 
