@@ -22,6 +22,11 @@ namespace SpaceShooter.Player
             {
                 picker.PickOrDropAvailableObjects();
             }
+
+            if(isInteract)
+            {
+                picker.InteractWithPickedObject();
+            }
         }
     }
 }
