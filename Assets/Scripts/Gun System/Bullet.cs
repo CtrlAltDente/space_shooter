@@ -8,6 +8,9 @@ namespace SpaceShooter.Guns
 {
     public class Bullet : NetworkBehaviour
     {
+        public NetworkVariable<Vector3> Position = new NetworkVariable<Vector3>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+        public NetworkVariable<Quaternion> Rotation = new NetworkVariable<Quaternion>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+
         [SerializeField]
         private float _movementSpeed = 50f;
 
@@ -17,18 +20,15 @@ namespace SpaceShooter.Guns
         [SerializeField]
         private float _destroyTime = 30f;
 
-        private void Start()
-        {
-            if(NetworkManager.Singleton.IsHost)
-            {
-                GetComponent<NetworkObject>().Spawn();
-                StartCoroutine(SelfDestroy());
-            }
-        }
-
         private void Update()
         {
-            transform.position += transform.forward * _movementSpeed * Time.deltaTime;
+            UpdateTransform();
+        }
+
+        public override void OnNetworkSpawn()
+        {
+            base.OnNetworkSpawn();
+            StartCoroutine(SelfDestroy());
         }
 
         private void OnTriggerEnter(Collider other)
@@ -41,6 +41,27 @@ namespace SpaceShooter.Guns
             }
         }
 
+        private void UpdateTransform()
+        {
+            Debug.Log($"IsSpawned {IsSpawned}, IsOwner {IsOwner}");
+            Debug.Log($"Position {Position.Value}, Rotation {Rotation.Value}");
+
+            if (!IsSpawned)
+                return;
+
+            if (IsOwner)
+            {
+                transform.position += transform.forward * _movementSpeed * Time.deltaTime;
+
+                Position.Value = transform.position;
+                Rotation.Value = transform.rotation;
+            }
+            else
+            {
+                transform.position = Position.Value;
+                transform.rotation = Rotation.Value;
+            }
+        }
 
         private IEnumerator SelfDestroy()
         {

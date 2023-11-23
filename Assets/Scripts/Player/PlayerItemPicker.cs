@@ -1,11 +1,12 @@
 using SpaceShooter.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace SpaceShooter.Player
 {
-    public class PlayerItemPicker : MonoBehaviour
+    public class PlayerItemPicker : NetworkBehaviour
     {
         public IPickableObject CurrentPickableObject { get; private set; }
 
@@ -22,6 +23,7 @@ namespace SpaceShooter.Player
             {
                 CurrentPickableObject = _pickableObjectsList[0];
                 CurrentPickableObject.Pick(this);
+                CurrentPickableObject.ChangeOwnerServerRpc(OwnerClientId);
             }
         }
 

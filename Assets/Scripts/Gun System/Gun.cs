@@ -30,10 +30,17 @@ namespace SpaceShooter.Guns
             {
                 for (int i = 0; i < _gunSettings.AmmoCount; i++)
                 {
-                    Quaternion fireSpread = Quaternion.Euler(new Vector3(_gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue));
-                    Bullet bullet = Instantiate(_gunSettings.BulletPrefab, spawnPosition.position, spawnPosition.rotation * fireSpread);
+                    SpawnBulletServerRpc(spawnPosition.position, spawnPosition.rotation, NetworkManager.Singleton.LocalClientId);
                 }
             }
+        }
+        
+        [ServerRpc(RequireOwnership = false)]
+        private void SpawnBulletServerRpc(Vector3 position, Quaternion rotation, ulong playerId)
+        {
+            Quaternion fireSpread = Quaternion.Euler(new Vector3(_gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue));
+            Bullet bullet = Instantiate(_gunSettings.BulletPrefab, position, rotation * fireSpread);
+            bullet.GetComponent<NetworkObject>().SpawnAsPlayerObject(playerId);
         }
 
         private IEnumerator ShootPause()

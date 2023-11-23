@@ -9,5 +9,7 @@ namespace SpaceShooter.Interfaces
     {
         public void Pick(PlayerItemPicker playerItemPicker);
         public void Drop();
+
+        public void ChangeOwnerServerRpc(ulong playerId);
     }
 }
