@@ -7,7 +7,7 @@ namespace SpaceShooter.Player
 {
     public class PlayerState : NetworkBehaviour
     {
-        public NetworkVariable<PlayerData> PlayerData = new NetworkVariable<PlayerData>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+        public NetworkVariable<PlayerData> PlayerData;
 
         [SerializeField]
         private PlayerSkin _skin;
@@ -16,31 +16,29 @@ namespace SpaceShooter.Player
 
         private void Update()
         {
-            ApplyPlayerData();
+            if (!IsLocalPlayer)
+            {
+                _skin.SetBodyData(PlayerData.Value.PlayerBodyData);
+            }
         }
 
-        [ClientRpc]
-        public void SetDataClientRpc(PlayerData playerData)
+        public void SetPlayerData(PlayerData playerData)
         {
-            if (playerData.PlayerId == NetworkManager.Singleton.LocalClientId)
-                return;
+            SetLocalPlayerData(playerData);
+            SetNetworkPlayerDataServerRpc(playerData);
+        }
+
+        private void SetLocalPlayerData(PlayerData playerData)
+        {
             _skin.SetBodyData(playerData.PlayerBodyData);
             _playerInteractor.SetInputData(playerData.PlayerInputData);
         }
 
-        public void SetNetworkPlayerData(PlayerData playerData)
+        [ServerRpc]
+        private void SetNetworkPlayerDataServerRpc(PlayerData playerData)
         {
             PlayerData.Value = playerData;
         }
 
-        private void ApplyPlayerData()
-        {
-            _skin.SetBodyData(PlayerData.Value.PlayerBodyData);
-            
-            if (NetworkManager.Singleton.IsHost)
-            {
-                _playerInteractor.SetInputData(PlayerData.Value.PlayerInputData);
-            }
-        }
     }
 }
