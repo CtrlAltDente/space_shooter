@@ -76,7 +76,7 @@ MonoBehaviour:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 0}
   _movementSpeed: 25
   _damage: 20
-  _destroyTime: 30
+  _destroyTime: 10
 --- !u!33 &3695806593649996518
 MeshFilter:
   m_ObjectHideFlags: 0
