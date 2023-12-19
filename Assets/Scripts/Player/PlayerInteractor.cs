@@ -1,6 +1,7 @@
 using SpaceShooter.Guns;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace SpaceShooter.Player
@@ -12,20 +13,20 @@ namespace SpaceShooter.Player
 
         public void SetInputData(PlayerInputData playerInputData)
         {
-            InteractWithItem(LeftHandPicker, playerInputData.LeftStickPressed, playerInputData.LeftTriggerPressed);
-            InteractWithItem(RightHandPicker, playerInputData.RightStickPressed, playerInputData.RightTriggerPressed);
+            DoInputOperations(LeftHandPicker, playerInputData.LeftStickPressed, playerInputData.LeftTriggerPressed);
+            DoInputOperations(RightHandPicker, playerInputData.RightStickPressed, playerInputData.RightTriggerPressed);
         }
 
-        private void InteractWithItem(PlayerItemPicker picker, bool isPick, bool isInteract)
+        private void DoInputOperations(PlayerItemPicker picker, bool isPick, bool isInteract)
         {
             if (isPick)
             {
-                picker.PickOrDropAvailableObjects();
+                picker.PickOrDropAvailableItems();
             }
 
             if(isInteract)
             {
-                picker.InteractWithPickedObject();
+                picker.InteractWithPickedItem();
             }
         }
     }

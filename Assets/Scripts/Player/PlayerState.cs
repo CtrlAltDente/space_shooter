@@ -16,7 +16,7 @@ namespace SpaceShooter.Player
 
         private void Update()
         {
-            if (!IsLocalPlayer)
+            if (!IsOwner)
             {
                 _skin.SetBodyData(PlayerData.Value.PlayerBodyData);
             }
@@ -31,7 +31,7 @@ namespace SpaceShooter.Player
         private void SetLocalPlayerData(PlayerData playerData)
         {
             _skin.SetBodyData(playerData.PlayerBodyData);
-            _playerInteractor.SetInputData(playerData.PlayerInputData);
+            _playerInteractor.SetInputData(PlayerData.Value.PlayerInputData);
         }
 
         [ServerRpc]

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1213745166
+  GlobalObjectIdHash: 4106567166
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f34abcf260edc40b13765be2a6393c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerState: {fileID: 415803244127628572}
 --- !u!135 &2137781198816724802
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -395,6 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f34abcf260edc40b13765be2a6393c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerState: {fileID: 415803244127628572}
 --- !u!135 &1481835827937561460
 SphereCollider:
   m_ObjectHideFlags: 0

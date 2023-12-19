@@ -23,7 +23,7 @@ namespace SpaceShooter.GameLogic
                 foreach (ulong id in NetworkManager.Singleton.ConnectedClientsIds)
                 {
                     PlayerState newPlayer = Instantiate(_playerStatePrefab, null);
-                    newPlayer.GetComponent<NetworkObject>().SpawnAsPlayerObject(id);
+                    newPlayer.GetComponent<NetworkObject>().SpawnWithOwnership(id);
                 }
             }
         }

@@ -809,6 +809,12 @@ MonoBehaviour:
     - {fileID: 804431716}
     AmmoCount: 1
   _canShoot: 1
+  Position:
+    m_InternalValue: {x: 0, y: 0, z: 0}
+  Rotation:
+    m_InternalValue: {x: 0, y: 0, z: 0, w: 0}
+  _isPicked:
+    m_InternalValue: 0
   _rigidbody: {fileID: 556214129}
 --- !u!114 &556214133
 MonoBehaviour:
@@ -1038,6 +1044,12 @@ MonoBehaviour:
     - {fileID: 795454347}
     AmmoCount: 1
   _canShoot: 1
+  Position:
+    m_InternalValue: {x: 0, y: 0, z: 0}
+  Rotation:
+    m_InternalValue: {x: 0, y: 0, z: 0, w: 0}
+  _isPicked:
+    m_InternalValue: 0
   _rigidbody: {fileID: 600687390}
 --- !u!114 &600687394
 MonoBehaviour:
@@ -2301,6 +2313,12 @@ MonoBehaviour:
     - {fileID: 2063591504}
     AmmoCount: 1
   _canShoot: 1
+  Position:
+    m_InternalValue: {x: 0, y: 0, z: 0}
+  Rotation:
+    m_InternalValue: {x: 0, y: 0, z: 0, w: 0}
+  _isPicked:
+    m_InternalValue: 0
   _rigidbody: {fileID: 1550964045}
 --- !u!114 &1550964049
 MonoBehaviour:
@@ -2556,6 +2574,12 @@ MonoBehaviour:
     - {fileID: 1342593822}
     AmmoCount: 1
   _canShoot: 1
+  Position:
+    m_InternalValue: {x: 0, y: 0, z: 0}
+  Rotation:
+    m_InternalValue: {x: 0, y: 0, z: 0, w: 0}
+  _isPicked:
+    m_InternalValue: 0
   _rigidbody: {fileID: 1961127341}
 --- !u!114 &1961127345
 MonoBehaviour:

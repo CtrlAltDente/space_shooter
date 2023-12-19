@@ -9,50 +9,64 @@ using Unity.Netcode;
 
 namespace SpaceShooter.Guns
 {
-    public class OneHandedGun : Gun, IPickableObject, IInteractableObject
+    public class OneHandedGun : Gun, IPickableItem
     {
+        [SerializeField]
         private NetworkVariable<Vector3> Position = new NetworkVariable<Vector3>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+        [SerializeField]
         private NetworkVariable<Quaternion> Rotation = new NetworkVariable<Quaternion>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+
+        [SerializeField]
+        private NetworkVariable<bool> _isPicked = new NetworkVariable<bool>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
         [SerializeField]
         private Rigidbody _rigidbody;
 
-        private PlayerItemPicker _currentItemPicker;
+        private Transform _pickTransform;
 
-        private void Update()
+        public bool IsPicked => _isPicked.Value;
+
+        public override void OnNetworkSpawn()
         {
-            UpdatePositionAndRotation();
+            base.OnNetworkSpawn();
+            if (IsServer)
+                SetTransformValuesServerRpc(transform.position, transform.rotation);
         }
 
-        public void Pick(PlayerItemPicker playerItemPicker)
+        private void Start()
         {
-            if (!_currentItemPicker)
+            if (!IsServer)
             {
-                _currentItemPicker = playerItemPicker;
                 _rigidbody.isKinematic = true;
-                ChangeOwnerServerRpc(playerItemPicker.OwnerClientId);
             }
         }
 
-        public void Drop()
+        private void Update()
         {
-            ChangeOwnerServerRpc(0);
-            _currentItemPicker = null;
-            transform.parent = null;
-            _rigidbody.isKinematic = false;
-        }
+            if (IsPicked)
+            {
+                if (_pickTransform)
+                {
+                    transform.position = _pickTransform.position;
+                    transform.rotation = _pickTransform.rotation;
 
-        [ServerRpc(RequireOwnership = false)]
-        public void ChangeOwnerServerRpc(ulong playerId)
-        {
-            Debug.Log($"Player {playerId}");
-
-            if (playerId == 0)
-                playerId = NetworkManager.Singleton.LocalClientId;
-            NetworkObject.Despawn(false);
-            NetworkObject.SpawnWithOwnership(playerId);
-
-            Debug.Log($"Respawned! Id {playerId}");
+                    SetTransformValuesServerRpc(transform.position, transform.rotation);
+                }
+                else
+                {
+                    transform.position = Position.Value;
+                    transform.rotation = Rotation.Value;
+                }
+            }
+            else if (IsServer)
+            {
+                SetTransformValuesServerRpc(transform.position, transform.rotation);
+            }
+            else
+            {
+                transform.position = Position.Value;
+                transform.rotation = Rotation.Value;
+            }
         }
 
         public void Interact()
@@ -60,27 +74,44 @@ namespace SpaceShooter.Guns
             Shoot();
         }
 
-        private void UpdatePositionAndRotation()
+        public void Pick(Transform transform)
         {
-            if (!IsSpawned)
-                return;
+            if (!_isPicked.Value)
+            {
+                PickServerRpc();
+                _pickTransform = transform;
+            }
+        }
 
+        public void Drop()
+        {
+            _pickTransform = null;
+            DropServerRpc();
+        }
+
+        [ServerRpc(RequireOwnership = false)]
+        private void PickServerRpc()
+        {
             if (IsOwner)
-            {
-                if (_currentItemPicker)
-                {
-                    transform.position = _currentItemPicker.transform.position;
-                    transform.rotation = _currentItemPicker.transform.rotation;
-                }
+                _isPicked.Value = true;
 
-                Position.Value = transform.position;
-                Rotation.Value = transform.rotation;
-            }
-            else
-            {
-                transform.position = Position.Value;
-                transform.rotation = Rotation.Value;
-            }
+            _rigidbody.isKinematic = true;
+        }
+
+        [ServerRpc(RequireOwnership = false)]
+        private void DropServerRpc()
+        {
+            if (IsOwner)
+                _isPicked.Value = false;
+
+            _rigidbody.isKinematic = false;
+        }
+
+        [ServerRpc(RequireOwnership = false)]
+        private void SetTransformValuesServerRpc(Vector3 position, Quaternion rotation)
+        {
+            Position.Value = position;
+            Rotation.Value = rotation;
         }
     }
 }
