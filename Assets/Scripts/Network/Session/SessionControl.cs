@@ -14,7 +14,7 @@ namespace SpaceShooter.Network
         [ClientRpc]
         public void StartGameForSessionClientRpc()
         {
-            _sceneLoader.LoadNetworkScene("Player");
+            _sceneLoader.LoadNetworkScene("Fight Scene");
         }
     }
 }

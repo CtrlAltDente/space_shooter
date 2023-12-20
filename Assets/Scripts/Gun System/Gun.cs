@@ -40,7 +40,8 @@ namespace SpaceShooter.Guns
         {
             Quaternion fireSpread = Quaternion.Euler(new Vector3(_gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue));
             Bullet bullet = Instantiate(_gunSettings.BulletPrefab, position, rotation * fireSpread);
-            bullet.GetComponent<NetworkObject>().SpawnAsPlayerObject(playerId);
+            bullet.SetBulletType(_gunSettings.BulletType);
+            bullet.GetComponent<NetworkObject>().Spawn();
         }
 
         private IEnumerator ShootPause()
@@ -59,6 +60,7 @@ namespace SpaceShooter.Guns
         public float FireSpreadDegrees;
         public Transform[] SpawnPositions;
         public int AmmoCount;
+        public BulletType BulletType;
 
         public float RandomFireSpreadValue
         {

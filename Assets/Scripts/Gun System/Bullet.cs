@@ -12,13 +12,24 @@ namespace SpaceShooter.Guns
         public NetworkVariable<Quaternion> Rotation = new NetworkVariable<Quaternion>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
         [SerializeField]
-        private float _movementSpeed = 50f;
+        private BulletType _type;
+
+        [SerializeField]
+        private Rigidbody _rigidbody;
+
+        [SerializeField]
+        private float _movementSpeed = 10;
 
         [SerializeField]
         private float _damage = 20f;
 
         [SerializeField]
         private float _destroyTime = 30f;
+
+        private void Start()
+        {
+            StartMoving();
+        }
 
         private void Update()
         {
@@ -31,28 +42,39 @@ namespace SpaceShooter.Guns
             StartCoroutine(SelfDestroy());
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter(Collision collision)
         {
-            Debug.Log(other.gameObject.name);
-            if (other.transform.GetComponent<IDamagable>() != null)
+            Debug.Log(collision.gameObject.name);
+            if (collision.transform.GetComponent<IDamagable>() != null)
             {
-                other.gameObject.GetComponent<IDamagable>().TakeDamage(_damage);
-                Destroy(gameObject);
+                collision.gameObject.GetComponent<IDamagable>().TakeDamage(_type, _damage);
+
+                Debug.Log("Damage");
+            }
+
+            Destroy(gameObject);
+        }
+
+        public void SetBulletType(BulletType bulletType)
+        {
+            _type = bulletType;
+        }
+
+        private void StartMoving()
+        {
+            if (IsOwnedByServer)
+            {
+                _rigidbody.AddForce(transform.forward * _movementSpeed, ForceMode.Impulse);
             }
         }
 
         private void UpdateTransform()
         {
-            Debug.Log($"IsSpawned {IsSpawned}, IsOwner {IsOwner}");
-            Debug.Log($"Position {Position.Value}, Rotation {Rotation.Value}");
-
             if (!IsSpawned)
                 return;
 
             if (IsOwner)
             {
-                transform.position += transform.forward * _movementSpeed * Time.deltaTime;
-
                 Position.Value = transform.position;
                 Rotation.Value = transform.rotation;
             }
