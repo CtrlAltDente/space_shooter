@@ -15,7 +15,7 @@ namespace SpaceShooter.Guns
         [SerializeField]
         protected bool _canShoot = true;
 
-        protected void Shoot()
+        public void Shoot()
         {
             if (!_canShoot)
                 return;
