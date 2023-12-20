@@ -1,52 +1,59 @@
 using SpaceShooter.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace SpaceShooter.Player
 {
     public class PlayerItemPicker : MonoBehaviour
     {
-        public IPickableObject CurrentPickableObject { get; private set; }
+        public IPickableItem CurrentPickableItem { get; private set; }
 
-        private List<IPickableObject> _pickableObjectsList = new List<IPickableObject>();
+        private List<IPickableItem> _pickableItemsList = new List<IPickableItem>();
 
-        public void PickOrDropAvailableObjects()
+        [SerializeField]
+        private PlayerState _playerState;
+
+        public void PickOrDropAvailableItems()
         {
-            if(CurrentPickableObject != null)
+            if (CurrentPickableItem != null)
             {
-                CurrentPickableObject.Drop();
-                CurrentPickableObject = null;
+                CurrentPickableItem.Drop();
+                CurrentPickableItem = null;
             }
-            else if(_pickableObjectsList.Count > 0)
+            else if (_pickableItemsList.Count > 0)
             {
-                CurrentPickableObject = _pickableObjectsList[0];
-                CurrentPickableObject.Pick(this);
+                if (!_pickableItemsList[0].IsPicked)
+                {
+                    CurrentPickableItem = _pickableItemsList[0];
+                    CurrentPickableItem.Pick(transform);
+                }
             }
         }
 
-        public void InteractWithPickedObject()
+        public void InteractWithPickedItem()
         {
-            if(CurrentPickableObject != null)
+            if (CurrentPickableItem != null)
             {
-                CurrentPickableObject.Interact();
+                CurrentPickableItem.Interact();
             }
         }
 
         private void OnTriggerEnter(Collider other)
         {
             Debug.Log("ENTER IN TRIGGER");
-            if(other.GetComponent<IPickableObject>() != null)
+            if (other.GetComponent<IPickableItem>() != null)
             {
-                _pickableObjectsList.Add(other.GetComponent<IPickableObject>());
+                _pickableItemsList.Add(other.GetComponent<IPickableItem>());
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.GetComponent<IPickableObject>() != null)
+            if (other.GetComponent<IPickableItem>() != null)
             {
-                _pickableObjectsList.Remove(other.GetComponent<IPickableObject>());
+                _pickableItemsList.Remove(other.GetComponent<IPickableItem>());
             }
         }
     }

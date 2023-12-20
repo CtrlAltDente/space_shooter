@@ -32,32 +32,19 @@ namespace SpaceShooter.User
 
         private void Start()
         {
-            SubscriveOnEvents();
             StartCoroutine(FindLocalUserPlayer());
         }
 
-        private void OnDestroy()
+        private void Update()
         {
-            UnsubscribeFromEvents();
+            SetPlayerData();
         }
 
-        private void SubscriveOnEvents()
-        {
-            if (NetworkManager.Singleton && NetworkManager.Singleton.IsClient)
-                NetworkManager.Singleton.NetworkTickSystem.Tick += WritePlayerData;
-        }
-
-        private void UnsubscribeFromEvents()
-        {
-            if (NetworkManager.Singleton && NetworkManager.Singleton.IsClient)
-                NetworkManager.Singleton.NetworkTickSystem.Tick -= WritePlayerData;
-        }
-
-        private void WritePlayerData()
+        private void SetPlayerData()
         {
             if (_playerState)
             {
-                _playerState.SetNetworkPlayerData(PlayerData);
+                _playerState.SetPlayerData(PlayerData);
             }
         }
 

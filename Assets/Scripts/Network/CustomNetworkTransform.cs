@@ -11,34 +11,12 @@ namespace SpaceShooter.Network
     public class CustomNetworkTransform : NetworkBehaviour
     {
         [SerializeField]
-        private NetworkVariable<CoreTransformValue> Transform;
-
-        private void Start()
-        {
-            SubscribeOnEvents();
-        }
+        private NetworkVariable<CoreTransformValue> Transform = new NetworkVariable<CoreTransformValue>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
         private void Update()
         {
+            WriteValue();
             SetValue();
-        }
-
-        private void OnDestroy()
-        {
-            UnsubscribeFromEvents();
-            base.OnDestroy();
-        }
-
-        private void SubscribeOnEvents()
-        {
-            if (NetworkManager.Singleton)
-                NetworkManager.Singleton.NetworkTickSystem.Tick += WriteValue;
-        }
-
-        private void UnsubscribeFromEvents()
-        {
-            if (NetworkManager.Singleton)
-                NetworkManager.Singleton.NetworkTickSystem.Tick -= WriteValue;
         }
 
         private void WriteValue()

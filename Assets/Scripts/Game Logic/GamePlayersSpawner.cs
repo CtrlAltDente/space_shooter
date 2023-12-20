@@ -6,13 +6,10 @@ using UnityEngine;
 
 namespace SpaceShooter.GameLogic
 {
-    public class GamePlayersData : NetworkBehaviour
+    public class GamePlayersSpawner : NetworkBehaviour
     {
         [SerializeField]
         private PlayerState _playerStatePrefab;
-
-        [SerializeField]
-        private List<PlayerState> _playerStates = new List<PlayerState>();
 
         private void Start()
         {
@@ -27,20 +24,7 @@ namespace SpaceShooter.GameLogic
                 {
                     PlayerState newPlayer = Instantiate(_playerStatePrefab, null);
                     newPlayer.GetComponent<NetworkObject>().SpawnWithOwnership(id);
-                    _playerStates.Add(newPlayer);
                 }
-            }
-        }
-
-        [ServerRpc(RequireOwnership = false)]
-        public void SetPlayerDataServerRpc(PlayerData playerData)
-        {
-            if (NetworkManager.Singleton.IsHost)
-            {
-                PlayerState playerState = _playerStates.Find(playerState => playerState.OwnerClientId == playerData.PlayerId);
-
-                if (playerState)
-                    playerState.SetDataClientRpc(playerData);
             }
         }
     }

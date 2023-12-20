@@ -13,28 +13,6 @@ namespace SpaceShooter.User
         private LocalUser _localUser;
 
         [SerializeField]
-        private GamePlayersData _gamePlayersData;
-
-        private void Update()
-        {
-            SetPlayerData();
-        }
-
-        private void SetPlayerData()
-        {
-            try
-            {
-                SetPlayerBodyReferences();
-            }
-            catch (Exception e)
-            {
-                Debug.LogError(e);
-            }
-        }
-
-        private void SetPlayerBodyReferences()
-        {
-            _gamePlayersData.SetPlayerDataServerRpc(_localUser.PlayerData);
-        }
+        private GamePlayersSpawner _gamePlayersData;
     }
 }

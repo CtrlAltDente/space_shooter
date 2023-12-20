@@ -1,30 +1,32 @@
+using SpaceShooter.Guns;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace SpaceShooter.Player
 {
     public class PlayerInteractor : MonoBehaviour
     {
-        public PlayerItemPicker LeftHandItemPicker;
-        public PlayerItemPicker RightHandItemPicker;
+        public PlayerItemPicker LeftHandPicker;
+        public PlayerItemPicker RightHandPicker;
 
         public void SetInputData(PlayerInputData playerInputData)
         {
-            InteractWithItem(LeftHandItemPicker, playerInputData.LeftStickPressed, playerInputData.LeftTriggerPressed);
-            InteractWithItem(RightHandItemPicker, playerInputData.RightStickPressed, playerInputData.RightTriggerPressed);
+            DoInputOperations(LeftHandPicker, playerInputData.LeftStickPressed, playerInputData.LeftTriggerPressed);
+            DoInputOperations(RightHandPicker, playerInputData.RightStickPressed, playerInputData.RightTriggerPressed);
         }
 
-        private void InteractWithItem(PlayerItemPicker playerItemPicker, bool isPick, bool isInteract)
+        private void DoInputOperations(PlayerItemPicker picker, bool isPick, bool isInteract)
         {
-            if(isPick)
+            if (isPick)
             {
-                playerItemPicker.PickOrDropAvailableObjects();
+                picker.PickOrDropAvailableItems();
             }
 
             if(isInteract)
             {
-                playerItemPicker.InteractWithPickedObject();
+                picker.InteractWithPickedItem();
             }
         }
     }

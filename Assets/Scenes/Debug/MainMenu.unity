@@ -1987,6 +1987,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ==LocalUser_XR Origin==
       objectReference: {fileID: 0}
+    - target: {fileID: 8249708914666929991, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
