@@ -16,6 +16,11 @@ namespace SpaceShooter.Player
 
         private void Update()
         {
+            if(IsServer)
+            {
+                SetPlayerStatePosition(PlayerData.Value);
+            }
+
             if (!IsOwner)
             {
                 _skin.SetBodyData(PlayerData.Value.PlayerBodyData);
@@ -38,6 +43,11 @@ namespace SpaceShooter.Player
         private void SetNetworkPlayerDataServerRpc(PlayerData playerData)
         {
             PlayerData.Value = playerData;
+        }
+
+        private void SetPlayerStatePosition(PlayerData playerData)
+        {
+            transform.position = playerData.PlayerBodyData.Head.Position;
         }
     }
 }

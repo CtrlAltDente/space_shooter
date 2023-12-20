@@ -20,10 +20,7 @@ namespace SpaceShooter.Enemies
         private float _flyingHeight;
 
         [SerializeField]
-        private float _timeAttackPause = 5f;
-
-        [SerializeField]
-        private List<PlayerState> _playerStates = new List<PlayerState>();
+        private List<Transform> _players = new List<Transform>();
 
         private void Start()
         {
@@ -35,23 +32,23 @@ namespace SpaceShooter.Enemies
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.GetComponent<PlayerState>())
+            if (other.gameObject.tag == "Player")
             {
                 Debug.Log("FINDED PLAYER");
-                if (!_playerStates.Contains(other.gameObject.GetComponent<PlayerState>()))
+                if (!_players.Contains(other.transform))
                 {
-                    _playerStates.Add(other.GetComponent<PlayerState>());
+                    _players.Add(other.transform);
                 }
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.gameObject.GetComponent<PlayerState>())
+            if (other.gameObject.tag == "Player")
             {
-                if (_playerStates.Contains(other.gameObject.GetComponent<PlayerState>()))
+                if (_players.Contains(other.transform))
                 {
-                    _playerStates.Remove(other.GetComponent<PlayerState>());
+                    _players.Remove(other.transform);
                 }
             }
         }
@@ -69,11 +66,20 @@ namespace SpaceShooter.Enemies
             }
         }
 
+        public void Destroy()
+        {
+            if(IsHost)
+            {
+                NetworkObject.Despawn(true);
+            }
+        }
+
         private IEnumerator MainLogic()
         {
             while (_healthSystem.Health > 0)
             {
                 Fly();
+                AttackNearPlayer();
 
                 yield return null;
             }
@@ -94,6 +100,20 @@ namespace SpaceShooter.Enemies
                 {
                     Vector3 direction = (hit.point - transform.position);
                     transform.position += (direction + Vector3.up * _flyingHeight) * Time.deltaTime;
+                }
+            }
+        }
+
+        private void AttackNearPlayer()
+        {
+            if (_players.Count > 0)
+            {
+                Vector3 direction = _players[0].transform.position - transform.position;
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), 30 * Time.deltaTime);
+
+                if (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction)) < 20f)
+                {
+                    Attack();
                 }
             }
         }
