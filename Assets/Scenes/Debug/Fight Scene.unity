@@ -1124,6 +1124,7 @@ MonoBehaviour:
     SpawnPositions:
     - {fileID: 804431716}
     AmmoCount: 1
+    BulletType: 0
   _canShoot: 1
   Position:
     m_InternalValue: {x: 0, y: 0, z: 0}
@@ -1359,6 +1360,7 @@ MonoBehaviour:
     SpawnPositions:
     - {fileID: 795454347}
     AmmoCount: 1
+    BulletType: 0
   _canShoot: 1
   Position:
     m_InternalValue: {x: 0, y: 0, z: 0}
@@ -1829,7 +1831,7 @@ Transform:
   m_GameObject: {fileID: 795454346}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.04, z: 0.26}
+  m_LocalPosition: {x: 0, y: 0.04, z: 0.4}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1860,7 +1862,7 @@ Transform:
   m_GameObject: {fileID: 804431715}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.04, z: 0.26}
+  m_LocalPosition: {x: 0, y: 0.04, z: 0.4}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2759,7 +2761,7 @@ Transform:
   m_GameObject: {fileID: 1342593821}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.04, z: 0.26}
+  m_LocalPosition: {x: 0, y: 0.04, z: 0.4}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3080,6 +3082,7 @@ MonoBehaviour:
     SpawnPositions:
     - {fileID: 2063591504}
     AmmoCount: 1
+    BulletType: 0
   _canShoot: 1
   Position:
     m_InternalValue: {x: 0, y: 0, z: 0}
@@ -3446,6 +3449,7 @@ MonoBehaviour:
     SpawnPositions:
     - {fileID: 1342593822}
     AmmoCount: 1
+    BulletType: 0
   _canShoot: 1
   Position:
     m_InternalValue: {x: 0, y: 0, z: 0}
@@ -3569,7 +3573,7 @@ Transform:
   m_GameObject: {fileID: 2063591503}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.04, z: 0.26}
+  m_LocalPosition: {x: 0, y: 0.04, z: 0.4}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children: []
