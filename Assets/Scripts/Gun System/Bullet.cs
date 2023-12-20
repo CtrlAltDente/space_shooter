@@ -49,9 +49,10 @@ namespace SpaceShooter.Guns
             {
                 collision.gameObject.GetComponent<IDamagable>().TakeDamage(_type, _damage);
 
-                Destroy(gameObject);
                 Debug.Log("Damage");
             }
+
+            Destroy(gameObject);
         }
 
         public void SetBulletType(BulletType bulletType)

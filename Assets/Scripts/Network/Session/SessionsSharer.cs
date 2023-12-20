@@ -30,8 +30,15 @@ namespace SpaceShooter.Network
             _sessionId.text = $"Session Id: {_createdSessionInfo.SessionId}";
             _sessionIp.text = $"Session Ip: {_createdSessionInfo.SessionIp}";
 
-            StartUdpClient(LocalNetworkInfo.DefaultPort + 1);
-            _networkCoroutine = StartCoroutine(StartSessionSharing());
+            try
+            {
+                StartUdpClient(LocalNetworkInfo.DefaultPort + 1);
+                _networkCoroutine = StartCoroutine(StartSessionSharing());
+            }
+            catch
+            {
+                _sessionIp.text = "Session sharing is not started";
+            }
         }
 
         public void CloseUdpClient()
