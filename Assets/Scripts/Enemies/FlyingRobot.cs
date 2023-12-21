@@ -113,6 +113,8 @@ namespace SpaceShooter.Enemies
 
                 if (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction)) < 20f)
                 {
+                    _gun.transform.rotation = Quaternion.RotateTowards(_gun.transform.rotation, Quaternion.LookRotation(_players[0].transform.position - _gun.transform.position), 15 * Time.deltaTime);
+
                     Attack();
                 }
             }
