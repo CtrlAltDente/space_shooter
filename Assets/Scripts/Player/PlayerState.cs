@@ -40,7 +40,7 @@ namespace SpaceShooter.Player
         public void SetPlayerSettingsClientRpc()
         {
             _skin.SetSkin(0);
-            _playerGunSystem.SetGun(0);
+            _playerGunSystem.InitializeGuns(0);
         }
 
         private void SetLocalPlayerData(PlayerData playerData)

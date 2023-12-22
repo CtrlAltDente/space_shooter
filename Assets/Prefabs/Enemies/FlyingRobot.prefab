@@ -78,13 +78,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunSettings:
-    BulletPrefab: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
+    BulletPrefab: {fileID: -3252124928523212622, guid: 0e292c6514e06c84db0d25252fe7bc67, type: 3}
     ShootDelay: 2
     FireSpreadDegrees: 4
     SpawnPositions:
     - {fileID: 815231098690100432}
     AmmoCount: 1
     BulletType: 1
+  _shootSystem: {fileID: 2357795767973015830}
   _canShoot: 1
 --- !u!114 &3466278405877819421
 MonoBehaviour:
@@ -212,6 +213,7 @@ GameObject:
   - component: {fileID: 2635476464700935578}
   - component: {fileID: 8236257894412072806}
   - component: {fileID: 7412959923195090077}
+  - component: {fileID: 2357795767973015830}
   - component: {fileID: 6237652330729230604}
   - component: {fileID: 7744187317267522651}
   - component: {fileID: 8444164026860832105}
@@ -250,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1396092381
+  GlobalObjectIdHash: 1545197461
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -306,6 +308,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2357795767973015830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7300298371343995882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aadd57d7d3b0b7142a747b9f06d376a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: -3252124928523212622, guid: 0e292c6514e06c84db0d25252fe7bc67, type: 3}
 --- !u!95 &6237652330729230604
 Animator:
   serializedVersion: 5

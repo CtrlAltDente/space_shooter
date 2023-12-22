@@ -17,22 +17,15 @@ namespace SpaceShooter.Guns
         [SerializeField]
         private GunsPreset[] _gunsPresets;
 
-        private Bullet _bulletPrefab;
+        [SerializeField]
+        private ShootSystem _shootSystem;
 
-        public void SetGun(int gunIndex)
+        public void InitializeGuns(int gunIndex)
         {
             EnableGun(_rightHand, _gunsPresets[gunIndex].Guns[0]);
             EnableGun(_leftHand, _gunsPresets[gunIndex].Guns[1]);
 
-            _bulletPrefab = _gunsPresets[gunIndex].Guns[0].GunSettings.BulletPrefab;
-        }
-
-        [ServerRpc]
-        public void SpawnBulletServerRpc(Vector3 position, Quaternion rotation, Quaternion fireSpread, ulong playerId)
-        {
-            Bullet bullet = Instantiate(_bulletPrefab, position, rotation * fireSpread);
-            bullet.SetBulletType(BulletType.PlayerBullet);
-            bullet.GetComponent<NetworkObject>().Spawn();
+            _shootSystem.SetBulletPrefab(_gunsPresets[gunIndex].Guns[0].GunSettings.BulletPrefab);
         }
 
         private void EnableGun(PlayerHand playerHand, Gun gun)

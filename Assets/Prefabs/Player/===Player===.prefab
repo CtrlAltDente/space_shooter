@@ -96,8 +96,9 @@ GameObject:
   - component: {fileID: 7619855615802743659}
   - component: {fileID: 7799960615018840780}
   - component: {fileID: 415803244127628572}
-  - component: {fileID: 7847983125229847093}
   - component: {fileID: 4399654936231850971}
+  - component: {fileID: 7847983125229847093}
+  - component: {fileID: 2658817883518188371}
   - component: {fileID: 1149063013965273532}
   - component: {fileID: 2518118850983193279}
   m_Layer: 0
@@ -192,6 +193,20 @@ MonoBehaviour:
   _skin: {fileID: 8540944887665351963}
   _playerGunSystem: {fileID: 7847983125229847093}
   _playerHandInput: {fileID: 4399654936231850971}
+--- !u!114 &4399654936231850971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450552757912439836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6aaf216d8419f42820ecd5bd4121c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leftHand: {fileID: 7559532424538442742}
+  _rightHand: {fileID: 6173619596811537717}
 --- !u!114 &7847983125229847093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +223,8 @@ MonoBehaviour:
   _leftHand: {fileID: 7559532424538442742}
   _gunsPresets:
   - {fileID: 8091476727460066725}
---- !u!114 &4399654936231850971
+  _shootSystem: {fileID: 2658817883518188371}
+--- !u!114 &2658817883518188371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,11 +233,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 450552757912439836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf6aaf216d8419f42820ecd5bd4121c1, type: 3}
+  m_Script: {fileID: 11500000, guid: aadd57d7d3b0b7142a747b9f06d376a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftHand: {fileID: 7559532424538442742}
-  _rightHand: {fileID: 6173619596811537717}
+  _bulletPrefab: {fileID: 0}
 --- !u!136 &1149063013965273532
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -783,7 +798,7 @@ MonoBehaviour:
     - {fileID: 1343793413542503091}
     AmmoCount: 1
     BulletType: 0
-  _playerGunSystem: {fileID: 7847983125229847093}
+  _shootSystem: {fileID: 2658817883518188371}
   _canShoot: 1
 --- !u!1 &4695561138079413893
 GameObject:
@@ -994,8 +1009,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Guns:
-  - {fileID: 3192037850425055795}
   - {fileID: 9201691115366478691}
+  - {fileID: 3192037850425055795}
 --- !u!1 &6969146230119771770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,7 +1264,7 @@ MonoBehaviour:
     - {fileID: 4708654350737820643}
     AmmoCount: 1
     BulletType: 0
-  _playerGunSystem: {fileID: 7847983125229847093}
+  _shootSystem: {fileID: 2658817883518188371}
   _canShoot: 1
 --- !u!1 &8209541941035404507
 GameObject:

@@ -14,7 +14,7 @@ namespace SpaceShooter.Guns
         private GunSettings _gunSettings;
 
         [SerializeField]
-        private GunsInitializer _playerGunSystem;
+        private ShootSystem _shootSystem;
 
         [SerializeField]
         protected bool _canShoot = true;
@@ -49,7 +49,7 @@ namespace SpaceShooter.Guns
         private void SpawnBullet(Vector3 position, Quaternion rotation, ulong playerId)
         {
             Quaternion fireSpread = Quaternion.Euler(new Vector3(_gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue));
-            _playerGunSystem.SpawnBulletServerRpc(position, rotation, fireSpread, playerId);
+            _shootSystem.SpawnBulletServerRpc(position, rotation, fireSpread, playerId);
         }
 
         private IEnumerator ShootPause()
