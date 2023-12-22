@@ -56,6 +56,10 @@ namespace SpaceShooter.Base
                 {
                     EnergyShield += _restorationSpeed * Time.deltaTime;
                 }
+                if (EnergyShield >= BaseEnergyShield)
+                {
+                    EnergyShield = BaseEnergyShield;
+                }
 
                 yield return null;
             }
