@@ -10,6 +10,14 @@ namespace SpaceShooter.Player
     {
         public IInteractableObject CurrentInteractableObject { get; private set; }
 
+        [SerializeField]
+        private bool _hasInteractableObject;
+
+        private void Update()
+        {
+            _hasInteractableObject = CurrentInteractableObject != null;
+        }
+
         public void SetInteractableItem(IInteractableObject interactableObject)
         {
             CurrentInteractableObject = interactableObject;

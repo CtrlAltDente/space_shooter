@@ -1,3 +1,4 @@
+using SpaceShooter.Guns;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -12,7 +13,9 @@ namespace SpaceShooter.Player
         [SerializeField]
         private PlayerSkin _skin;
         [SerializeField]
-        private PlayerGunSystem _playerGunSystem;
+        private GunsInitializer _playerGunSystem;
+        [SerializeField]
+        private PlayerHandsInput _playerHandInput;
 
         private void Update()
         {
@@ -43,7 +46,7 @@ namespace SpaceShooter.Player
         private void SetLocalPlayerData(PlayerData playerData)
         {
             _skin.SetBodyData(playerData.PlayerBodyData);
-            _playerGunSystem.SetInputData(PlayerData.Value.PlayerInputData);
+            _playerHandInput.SetInputData(PlayerData.Value.PlayerInputData);
         }
 
         [ServerRpc]

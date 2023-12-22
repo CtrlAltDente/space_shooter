@@ -4,16 +4,27 @@ using UnityEngine;
 using SpaceShooter.Interfaces;
 using Unity.Netcode;
 using System;
+using SpaceShooter.Player;
 
 namespace SpaceShooter.Guns
 {
-    public class Gun : NetworkBehaviour
+    public class Gun : MonoBehaviour, IInteractableObject
     {
         [SerializeField]
         private GunSettings _gunSettings;
 
         [SerializeField]
+        private GunsInitializer _playerGunSystem;
+
+        [SerializeField]
         protected bool _canShoot = true;
+
+        public GunSettings GunSettings => _gunSettings;
+
+        public void Interact()
+        {
+            Shoot();
+        }
 
         public void Shoot()
         {
@@ -30,18 +41,15 @@ namespace SpaceShooter.Guns
             {
                 for (int i = 0; i < _gunSettings.AmmoCount; i++)
                 {
-                    SpawnBulletServerRpc(spawnPosition.position, spawnPosition.rotation, NetworkManager.Singleton.LocalClientId);
+                    SpawnBullet(spawnPosition.position, spawnPosition.rotation, NetworkManager.Singleton.LocalClientId);
                 }
             }
         }
         
-        [ServerRpc(RequireOwnership = false)]
-        private void SpawnBulletServerRpc(Vector3 position, Quaternion rotation, ulong playerId)
+        private void SpawnBullet(Vector3 position, Quaternion rotation, ulong playerId)
         {
             Quaternion fireSpread = Quaternion.Euler(new Vector3(_gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue));
-            Bullet bullet = Instantiate(_gunSettings.BulletPrefab, position, rotation * fireSpread);
-            bullet.SetBulletType(_gunSettings.BulletType);
-            bullet.GetComponent<NetworkObject>().Spawn();
+            _playerGunSystem.SpawnBulletServerRpc(position, rotation, fireSpread, playerId);
         }
 
         private IEnumerator ShootPause()

@@ -5,11 +5,8 @@ using SpaceShooter.Interfaces;
 
 namespace SpaceShooter.Guns
 {
-    public class OneHandedPlayerGun : Gun, IInteractableObject
+    public class OneHandedPlayerGun : Gun
     {
-        public void Interact()
-        {
-            Shoot();
-        }
+
     }
 }
