@@ -5,7 +5,7 @@ using DG.Tweening;
 using System;
 using UnityEngine.UI;
 
-namespace SpaceShooter.GameLogic
+namespace SpaceShooter.UI
 {
     public class LoadingScreen : MonoBehaviour
     {

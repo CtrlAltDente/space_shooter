@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SpaceShooter.GameLogic
+namespace SpaceShooter.UI
 {
     public class Loadbar : MonoBehaviour
     {
