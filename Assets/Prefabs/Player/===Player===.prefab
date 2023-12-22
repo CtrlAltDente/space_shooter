@@ -114,8 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9757b1aedc1c84ab181255f7ec7567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftHandPicker: {fileID: 7559532424538442742}
-  RightHandPicker: {fileID: 6173619596811537717}
+  LeftHand: {fileID: 7559532424538442742}
+  RightHand: {fileID: 6173619596811537717}
 --- !u!136 &1149063013965273532
 CapsuleCollider:
   m_ObjectHideFlags: 0

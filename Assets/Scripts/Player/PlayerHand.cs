@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SpaceShooter.Player
 {
-    public class PlayerItemPicker : MonoBehaviour
+    public class PlayerHand : MonoBehaviour
     {
         public IPickableItem CurrentPickableItem { get; private set; }
 
