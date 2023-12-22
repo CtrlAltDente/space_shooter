@@ -8,18 +8,18 @@ namespace SpaceShooter.Player
 {
     public class PlayerHand : MonoBehaviour
     {
-        public IPickableItem CurrentPickableItem { get; private set; }
+        public IInteractableObject CurrentInteractableObject { get; private set; }
 
-        public void SetPickableItem(IPickableItem pickableItem)
+        public void SetInteractableItem(IInteractableObject interactableObject)
         {
-            CurrentPickableItem = pickableItem;
+            CurrentInteractableObject = interactableObject;
         }
 
         public void InteractWithPickedItem()
         {
-            if (CurrentPickableItem != null)
+            if (CurrentInteractableObject != null)
             {
-                CurrentPickableItem.Interact();
+                CurrentInteractableObject.Interact();
             }
         }
     }

@@ -6,10 +6,15 @@ using UnityEngine;
 
 namespace SpaceShooter.Player
 {
-    public class PlayerInteractor : MonoBehaviour
+    public class PlayerGunSystem : MonoBehaviour
     {
         public PlayerHand LeftHand;
         public PlayerHand RightHand;
+
+        public void SetGun(int gunIndex)
+        {
+
+        }
 
         public void SetInputData(PlayerInputData playerInputData)
         {

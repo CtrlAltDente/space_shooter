@@ -12,7 +12,7 @@ namespace SpaceShooter.Player
         [SerializeField]
         private PlayerSkin _skin;
         [SerializeField]
-        private PlayerInteractor _playerInteractor;
+        private PlayerGunSystem _playerGunSystem;
 
         private void Update()
         {
@@ -33,10 +33,17 @@ namespace SpaceShooter.Player
             SetNetworkPlayerDataServerRpc(playerData);
         }
 
+        [ClientRpc]
+        public void SetPlayerSettingsClientRpc()
+        {
+            _skin.SetSkin(0);
+            _playerGunSystem.SetGun(0);
+        }
+
         private void SetLocalPlayerData(PlayerData playerData)
         {
             _skin.SetBodyData(playerData.PlayerBodyData);
-            _playerInteractor.SetInputData(PlayerData.Value.PlayerInputData);
+            _playerGunSystem.SetInputData(PlayerData.Value.PlayerInputData);
         }
 
         [ServerRpc]
