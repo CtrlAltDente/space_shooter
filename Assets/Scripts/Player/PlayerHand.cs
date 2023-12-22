@@ -10,26 +10,9 @@ namespace SpaceShooter.Player
     {
         public IPickableItem CurrentPickableItem { get; private set; }
 
-        private List<IPickableItem> _pickableItemsList = new List<IPickableItem>();
-
-        [SerializeField]
-        private PlayerState _playerState;
-
-        public void PickOrDropAvailableItems()
+        public void SetPickableItem(IPickableItem pickableItem)
         {
-            if (CurrentPickableItem != null)
-            {
-                CurrentPickableItem.Drop();
-                CurrentPickableItem = null;
-            }
-            else if (_pickableItemsList.Count > 0)
-            {
-                if (!_pickableItemsList[0].IsPicked)
-                {
-                    CurrentPickableItem = _pickableItemsList[0];
-                    CurrentPickableItem.Pick(transform);
-                }
-            }
+            CurrentPickableItem = pickableItem;
         }
 
         public void InteractWithPickedItem()
@@ -37,23 +20,6 @@ namespace SpaceShooter.Player
             if (CurrentPickableItem != null)
             {
                 CurrentPickableItem.Interact();
-            }
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            Debug.Log("ENTER IN TRIGGER");
-            if (other.GetComponent<IPickableItem>() != null)
-            {
-                _pickableItemsList.Add(other.GetComponent<IPickableItem>());
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.GetComponent<IPickableItem>() != null)
-            {
-                _pickableItemsList.Remove(other.GetComponent<IPickableItem>());
             }
         }
     }

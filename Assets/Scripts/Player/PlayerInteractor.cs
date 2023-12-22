@@ -19,11 +19,6 @@ namespace SpaceShooter.Player
 
         private void DoInputOperations(PlayerHand hand, bool isPick, bool isInteract)
         {
-            if (isPick)
-            {
-                hand.PickOrDropAvailableItems();
-            }
-
             if(isInteract)
             {
                 hand.InteractWithPickedItem();
