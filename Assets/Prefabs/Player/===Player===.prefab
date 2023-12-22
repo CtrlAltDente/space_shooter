@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 415803244127628572}
   - component: {fileID: 4399654936231850971}
   - component: {fileID: 2658817883518188371}
+  - component: {fileID: 2146326668479933264}
   - component: {fileID: 1149063013965273532}
   m_Layer: 0
   m_Name: ===Player===
@@ -138,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 4106567166
+  GlobalObjectIdHash: 1213745166
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -220,6 +221,26 @@ MonoBehaviour:
   _bullets:
   - Bullet: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
     BulletType: 0
+--- !u!114 &2146326668479933264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450552757912439836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbe700b644e57342904dfc5fb83b2d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseEnergyShield: 0
+  BaseHealth: 0
+  EnergyShield: 0
+  Health: 0
+  _restorationSpeed: 2
+  OnDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &1149063013965273532
 CapsuleCollider:
   m_ObjectHideFlags: 0
