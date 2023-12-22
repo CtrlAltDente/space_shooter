@@ -219,8 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9757b1aedc1c84ab181255f7ec7567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rightHand: {fileID: 6173619596811537717}
-  _leftHand: {fileID: 7559532424538442742}
   _gunsPresets:
   - {fileID: 8091476727460066725}
 --- !u!114 &2658817883518188371
@@ -801,6 +799,7 @@ MonoBehaviour:
     BulletOwnerType: 0
   _shootSystem: {fileID: 2658817883518188371}
   _canShoot: 1
+  _playerHand: {fileID: 7559532424538442742}
 --- !u!1 &4695561138079413893
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +975,7 @@ GameObject:
   - component: {fileID: 5854662248836192062}
   - component: {fileID: 8091476727460066725}
   m_Layer: 0
-  m_Name: Gun Preset
+  m_Name: Gun Preset 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1009,9 +1008,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463ab509caf675c4583d509746e492b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Guns:
-  - {fileID: 9201691115366478691}
+  _guns:
   - {fileID: 3192037850425055795}
+  - {fileID: 9201691115366478691}
 --- !u!1 &6969146230119771770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,6 +1266,7 @@ MonoBehaviour:
     BulletOwnerType: 0
   _shootSystem: {fileID: 2658817883518188371}
   _canShoot: 1
+  _playerHand: {fileID: 6173619596811537717}
 --- !u!1 &8209541941035404507
 GameObject:
   m_ObjectHideFlags: 0

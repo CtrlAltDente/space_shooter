@@ -9,6 +9,15 @@ namespace SpaceShooter.Guns
 {
     public class GunsPreset : MonoBehaviour
     {
-        public Gun[] Guns;
+        [SerializeField]
+        private Gun[] _guns;
+
+        public void SetActiveGuns(bool isActive)
+        {
+            foreach (Gun guns in _guns)
+            {
+                guns.gameObject.SetActive(isActive);
+            }
+        }
     }
 }

@@ -17,10 +17,8 @@ namespace SpaceShooter.Player
         [SerializeField]
         private PlayerHandsInput _playerHandInput;
 
-        public override void OnNetworkSpawn()
+        public void Start()
         {
-            base.OnNetworkSpawn();
-
             SetPlayerSettingsClientRpc();
         }
 
