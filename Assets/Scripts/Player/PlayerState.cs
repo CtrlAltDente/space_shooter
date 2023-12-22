@@ -11,11 +11,12 @@ namespace SpaceShooter.Player
         public NetworkVariable<PlayerData> PlayerData;
 
         [SerializeField]
+        private PlayerHandsInput _playerHandInput;
+
+        [SerializeField]
         private PlayerSkin _skin;
         [SerializeField]
-        private GunsInitializer _playerGunSystem;
-        [SerializeField]
-        private PlayerHandsInput _playerHandInput;
+        private GunsInitializer _gunsInitializer;
 
         public void Start()
         {
@@ -45,7 +46,7 @@ namespace SpaceShooter.Player
         public void SetPlayerSettingsClientRpc()
         {
             _skin.SetSkin(0);
-            _playerGunSystem.InitializeGuns(0);
+            _gunsInitializer.InitializeGuns(0);
             Debug.Log($"Call setting settings: {NetworkManager.Singleton.LocalClientId}");
         }
 
