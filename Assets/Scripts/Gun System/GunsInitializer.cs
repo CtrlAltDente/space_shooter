@@ -17,15 +17,10 @@ namespace SpaceShooter.Guns
         [SerializeField]
         private GunsPreset[] _gunsPresets;
 
-        [SerializeField]
-        private ShootSystem _shootSystem;
-
         public void InitializeGuns(int gunIndex)
         {
             EnableGun(_rightHand, _gunsPresets[gunIndex].Guns[0]);
             EnableGun(_leftHand, _gunsPresets[gunIndex].Guns[1]);
-
-            _shootSystem.SetBulletPrefab(_gunsPresets[gunIndex].Guns[0].GunSettings.BulletPrefab);
         }
 
         private void EnableGun(PlayerHand playerHand, Gun gun)

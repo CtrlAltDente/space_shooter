@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SpaceShooter.Guns
+public enum BulletOwnerType
 {
-    public enum BulletType
-    {
-        Lazer
-    }
+    PlayerBullet,
+    EnemyNpcBullet
 }

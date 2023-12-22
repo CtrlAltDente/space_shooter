@@ -30,7 +30,7 @@ namespace SpaceShooter.Base
             StartCoroutine(RestoreEnergyShield());
         }
 
-        public void TakeDamage(BulletType bulletType, float damage)
+        public void TakeDamage(BulletOwnerType bulletType, float damage)
         {
             EnergyShield -= damage;
 

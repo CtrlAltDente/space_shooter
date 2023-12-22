@@ -8,11 +8,8 @@ namespace SpaceShooter.Guns
 {
     public class Bullet : NetworkBehaviour
     {
-        public NetworkVariable<Vector3> Position = new NetworkVariable<Vector3>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
-        public NetworkVariable<Quaternion> Rotation = new NetworkVariable<Quaternion>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
-
         [SerializeField]
-        private BulletType _type;
+        private BulletOwnerType _type;
 
         [SerializeField]
         private Rigidbody _rigidbody;
@@ -31,11 +28,6 @@ namespace SpaceShooter.Guns
             StartMoving();
         }
 
-        private void Update()
-        {
-            UpdateTransform();
-        }
-
         public override void OnNetworkSpawn()
         {
             base.OnNetworkSpawn();
@@ -44,6 +36,9 @@ namespace SpaceShooter.Guns
 
         private void OnCollisionEnter(Collision collision)
         {
+            if (!IsHost)
+                return;
+
             Debug.Log(collision.gameObject.name);
             if (collision.transform.GetComponent<IDamagable>() != null)
             {
@@ -52,10 +47,10 @@ namespace SpaceShooter.Guns
                 Debug.Log("Damage");
             }
 
-            Destroy(gameObject);
+            NetworkObject.Despawn(true);
         }
 
-        public void SetBulletType(BulletType bulletType)
+        public void SetBulletType(BulletOwnerType bulletType)
         {
             _type = bulletType;
         }
@@ -65,23 +60,6 @@ namespace SpaceShooter.Guns
             if (IsOwnedByServer)
             {
                 _rigidbody.AddForce(transform.forward * _movementSpeed, ForceMode.Impulse);
-            }
-        }
-
-        private void UpdateTransform()
-        {
-            if (!IsSpawned)
-                return;
-
-            if (IsOwner)
-            {
-                Position.Value = transform.position;
-                Rotation.Value = transform.rotation;
-            }
-            else
-            {
-                transform.position = Position.Value;
-                transform.rotation = Rotation.Value;
             }
         }
 

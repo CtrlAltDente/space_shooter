@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5309488d047a65645ac587ab924aa268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skin: {fileID: 8540944887665351963}
+  _skin: {fileID: 9043373194860410391}
   _playerGunSystem: {fileID: 7847983125229847093}
   _playerHandInput: {fileID: 4399654936231850971}
 --- !u!114 &4399654936231850971
@@ -223,7 +223,6 @@ MonoBehaviour:
   _leftHand: {fileID: 7559532424538442742}
   _gunsPresets:
   - {fileID: 8091476727460066725}
-  _shootSystem: {fileID: 2658817883518188371}
 --- !u!114 &2658817883518188371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aadd57d7d3b0b7142a747b9f06d376a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 0}
+  _bullets:
+  - Bullet: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
+    BulletType: 0
 --- !u!136 &1149063013965273532
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -759,7 +760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5070630937245122216
 Transform:
   m_ObjectHideFlags: 0
@@ -791,13 +792,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunSettings:
-    BulletPrefab: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
+    BulletType: 0
     ShootDelay: 0.2
     FireSpreadDegrees: 2
     SpawnPositions:
     - {fileID: 1343793413542503091}
     AmmoCount: 1
-    BulletType: 0
+    BulletOwnerType: 0
   _shootSystem: {fileID: 2658817883518188371}
   _canShoot: 1
 --- !u!1 &4695561138079413893
@@ -1225,7 +1226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1558495242913535992
 Transform:
   m_ObjectHideFlags: 0
@@ -1257,13 +1258,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunSettings:
-    BulletPrefab: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
+    BulletType: 0
     ShootDelay: 0.2
     FireSpreadDegrees: 2
     SpawnPositions:
     - {fileID: 4708654350737820643}
     AmmoCount: 1
-    BulletType: 0
+    BulletOwnerType: 0
   _shootSystem: {fileID: 2658817883518188371}
   _canShoot: 1
 --- !u!1 &8209541941035404507
@@ -1484,8 +1485,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4920372412740704883}
-  - component: {fileID: 8540944887665351963}
   - component: {fileID: 56310296755389008}
+  - component: {fileID: 9043373194860410391}
   m_Layer: 0
   m_Name: --PlayerSkin--
   m_TagString: Untagged
@@ -1509,21 +1510,6 @@ Transform:
   - {fileID: 307743343573703677}
   m_Father: {fileID: 450552757912439837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8540944887665351963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8396866721270372166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2ed60cb61b6e074bbe9f2c743ddc8f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerBodyReferences: {fileID: 56310296755389008}
-  _skins:
-  - {fileID: 2490246779150582074}
 --- !u!114 &56310296755389008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1539,6 +1525,21 @@ MonoBehaviour:
   Head: {fileID: 9049740521370138363}
   LeftHand: {fileID: 1456712893891652520}
   RightHand: {fileID: 8453190835267804442}
+--- !u!114 &9043373194860410391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396866721270372166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ed60cb61b6e074bbe9f2c743ddc8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerBodyReferences: {fileID: 56310296755389008}
+  _skins:
+  - {fileID: 2490246779150582074}
 --- !u!1 &8722422383975086329
 GameObject:
   m_ObjectHideFlags: 0

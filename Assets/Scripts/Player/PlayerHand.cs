@@ -25,10 +25,7 @@ namespace SpaceShooter.Player
 
         public void InteractWithPickedItem()
         {
-            if (CurrentInteractableObject != null)
-            {
-                CurrentInteractableObject.Interact();
-            }
+            CurrentInteractableObject.Interact();
         }
     }
 }

@@ -58,9 +58,9 @@ namespace SpaceShooter.Enemies
             _gun.Shoot();
         }
 
-        public void TakeDamage(BulletType bulletType, float damage)
+        public void TakeDamage(BulletOwnerType bulletType, float damage)
         {
-            if (bulletType == BulletType.PlayerBullet)
+            if (bulletType == BulletOwnerType.PlayerBullet)
             {
                 _healthSystem.TakeDamage(bulletType, damage);
             }

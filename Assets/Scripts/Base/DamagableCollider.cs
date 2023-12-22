@@ -8,7 +8,7 @@ namespace SpaceShooter.Base
 {
     public class DamagableCollider : MonoBehaviour, IDamagable
     {
-        public UnityEvent<BulletType, float> OnDamageTaked;
+        public UnityEvent<BulletOwnerType, float> OnDamageTaked;
 
         private void Start()
         {
@@ -18,7 +18,7 @@ namespace SpaceShooter.Base
             }
         }
 
-        public void TakeDamage(BulletType bulletType, float damage)
+        public void TakeDamage(BulletOwnerType bulletType, float damage)
         {
             OnDamageTaked?.Invoke(bulletType, damage);
         }

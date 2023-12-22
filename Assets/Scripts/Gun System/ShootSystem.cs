@@ -8,19 +8,29 @@ namespace SpaceShooter.Guns
     public class ShootSystem : NetworkBehaviour
     {
         [SerializeField]
-        private Bullet _bulletPrefab;
-
-        public void SetBulletPrefab(Bullet bulletPrefab)
-        {
-            _bulletPrefab = bulletPrefab;
-        }
+        private BulletContainer[] _bullets;
 
         [ServerRpc]
-        public void SpawnBulletServerRpc(Vector3 position, Quaternion rotation, Quaternion fireSpread, ulong playerId)
+        public void SpawnBulletServerRpc(Vector3 position, Quaternion rotation, Quaternion fireSpread, BulletType bulletType, BulletOwnerType bulletOwnerType, ulong playerId)
         {
-            Bullet bullet = Instantiate(_bulletPrefab, position, rotation * fireSpread);
-            bullet.SetBulletType(BulletType.PlayerBullet);
+            Bullet bulletPrefab = GetBulletByType(bulletType);
+
+            Bullet bullet = Instantiate(bulletPrefab, position, rotation * fireSpread);
+            bullet.SetBulletType(bulletOwnerType);
             bullet.GetComponent<NetworkObject>().Spawn();
+        }
+
+        private Bullet GetBulletByType(BulletType bulletType)
+        {
+            foreach (BulletContainer bulletContainer in _bullets)
+            {
+                if(bulletContainer.BulletType == bulletType)
+                {
+                    return bulletContainer.Bullet;
+                }
+            }
+
+            return null;
         }
     }
 }

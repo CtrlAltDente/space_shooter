@@ -17,6 +17,13 @@ namespace SpaceShooter.Player
         [SerializeField]
         private PlayerHandsInput _playerHandInput;
 
+        public override void OnNetworkSpawn()
+        {
+            base.OnNetworkSpawn();
+
+            SetPlayerSettingsClientRpc();
+        }
+
         private void Update()
         {
             if(IsServer)
@@ -41,6 +48,7 @@ namespace SpaceShooter.Player
         {
             _skin.SetSkin(0);
             _playerGunSystem.InitializeGuns(0);
+            Debug.Log($"Call setting settings: {NetworkManager.Singleton.LocalClientId}");
         }
 
         private void SetLocalPlayerData(PlayerData playerData)

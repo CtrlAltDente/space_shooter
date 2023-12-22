@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IDamagable
 {
-    public void TakeDamage(BulletType bulletType, float damage);
+    public void TakeDamage(BulletOwnerType bulletType, float damage);
 }

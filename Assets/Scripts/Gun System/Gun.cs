@@ -45,11 +45,11 @@ namespace SpaceShooter.Guns
                 }
             }
         }
-        
+
         private void SpawnBullet(Vector3 position, Quaternion rotation, ulong playerId)
         {
             Quaternion fireSpread = Quaternion.Euler(new Vector3(_gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue));
-            _shootSystem.SpawnBulletServerRpc(position, rotation, fireSpread, playerId);
+            _shootSystem.SpawnBulletServerRpc(position, rotation, fireSpread, _gunSettings.BulletType, _gunSettings.BulletOwnerType, playerId);
         }
 
         private IEnumerator ShootPause()
@@ -63,12 +63,12 @@ namespace SpaceShooter.Guns
     [Serializable]
     public struct GunSettings
     {
-        public Bullet BulletPrefab;
+        public BulletType BulletType;
         public float ShootDelay;
         public float FireSpreadDegrees;
         public Transform[] SpawnPositions;
         public int AmmoCount;
-        public BulletType BulletType;
+        public BulletOwnerType BulletOwnerType;
 
         public float RandomFireSpreadValue
         {

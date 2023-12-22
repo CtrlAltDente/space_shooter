@@ -52,7 +52,6 @@ namespace SpaceShooter.User
         {
             while (!_playerState)
             {
-                Debug.Log("searching");
                 var players = FindObjectsOfType<PlayerState>();
                 foreach (var p in players)
                 {
@@ -66,8 +65,6 @@ namespace SpaceShooter.User
 
                 yield return null;
             }
-
-            _playerState.SetPlayerSettingsClientRpc();
         }
     }
 }
