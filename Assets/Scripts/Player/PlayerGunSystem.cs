@@ -11,9 +11,12 @@ namespace SpaceShooter.Player
         public PlayerHand LeftHand;
         public PlayerHand RightHand;
 
+        [SerializeField]
+        private GunsPreset[] _gunsPresets;
+
         public void SetGun(int gunIndex)
         {
-
+            _gunsPresets[gunIndex].SetActiveGuns(true);
         }
 
         public void SetInputData(PlayerInputData playerInputData)

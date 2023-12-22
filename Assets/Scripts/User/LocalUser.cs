@@ -66,6 +66,8 @@ namespace SpaceShooter.User
 
                 yield return null;
             }
+
+            _playerState.SetPlayerSettingsClientRpc();
         }
     }
 }

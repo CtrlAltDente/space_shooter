@@ -21,7 +21,7 @@ namespace SpaceShooter.Player
 
         public void SetSkin(int skinIndex)
         {
-            _skins[skinIndex].gameObject.SetActive(true);
+            _skins[skinIndex].SetActiveSkin(true);
         }
 
         private void SetDataForPart(PlayerBodyPartInformation playerBodyPart, Transform part)

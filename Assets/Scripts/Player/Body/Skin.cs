@@ -9,7 +9,7 @@ namespace SpaceShooter.Player
         [SerializeField]
         private GameObject[] _skinParts;
 
-        public void SetActoveSkin(bool isActive)
+        public void SetActiveSkin(bool isActive)
         {
             foreach (GameObject part in _skinParts)
             {
