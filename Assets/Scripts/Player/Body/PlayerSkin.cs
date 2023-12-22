@@ -10,9 +10,7 @@ namespace SpaceShooter.Player
         private PlayerBodyReferences _playerBodyReferences;
 
         [SerializeField]
-        private MeshFilter _meshFilter;
-        [SerializeField]
-        private MeshRenderer _meshRenderer;
+        private Skin[] _skins;
 
         public void SetBodyData(PlayerBodyData playerSkinData)
         {
@@ -23,7 +21,7 @@ namespace SpaceShooter.Player
 
         public void SetSkin(int skinIndex)
         {
-
+            _skins[skinIndex].gameObject.SetActive(true);
         }
 
         private void SetDataForPart(PlayerBodyPartInformation playerBodyPart, Transform part)
