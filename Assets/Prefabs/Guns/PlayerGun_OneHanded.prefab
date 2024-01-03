@@ -48,15 +48,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunSettings:
-    BulletPrefab: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
+    BulletType: 0
     ShootDelay: 0.2
     FireSpreadDegrees: 2
     SpawnPositions:
     - {fileID: 2713427380233199158}
     AmmoCount: 1
-    BulletType: 0
-  _playerGunSystem: {fileID: 0}
+    BulletOwnerType: 0
+  _shootSystem: {fileID: 0}
   _canShoot: 1
+  _playerHand: {fileID: 0}
 --- !u!1 &1521830859141486862
 GameObject:
   m_ObjectHideFlags: 0
