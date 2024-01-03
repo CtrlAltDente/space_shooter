@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputReferences : MonoBehaviour
 {
-    public bool LeftTriggerPressed => LeftTriggerActionReference.action.triggered;
-    public bool RightTriggerPressed => RightTriggerActionReference.action.triggered;
+    public bool LeftTriggerPressed => LeftTriggerActionReference.action.IsPressed();
+    public bool RightTriggerPressed => RightTriggerActionReference.action.IsPressed();
 
     public bool LeftStickPressed => LeftStickActionReference.action.triggered;
     public bool RightStickPressed => RightStickActionReference.action.triggered;
