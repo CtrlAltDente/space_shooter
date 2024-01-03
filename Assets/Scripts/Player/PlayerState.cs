@@ -46,7 +46,7 @@ namespace SpaceShooter.Player
         public void SetPlayerSettingsClientRpc()
         {
             _skin.SetSkin(0);
-            _gunsInitializer.InitializeGuns(0);
+            _gunsInitializer.InitializeGuns(1);
             Debug.Log($"Call setting settings: {NetworkManager.Singleton.LocalClientId}");
         }
 
