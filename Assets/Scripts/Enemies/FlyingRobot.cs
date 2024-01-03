@@ -1,4 +1,5 @@
 using SpaceShooter.Base;
+using SpaceShooter.Enums;
 using SpaceShooter.Guns;
 using SpaceShooter.Player;
 using System.Collections;

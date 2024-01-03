@@ -5,6 +5,7 @@ using SpaceShooter.Interfaces;
 using Unity.Netcode;
 using System;
 using SpaceShooter.Player;
+using SpaceShooter.Enums;
 
 namespace SpaceShooter.Guns
 {

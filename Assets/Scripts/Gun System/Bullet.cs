@@ -1,4 +1,5 @@
 using SpaceShooter.Base;
+using SpaceShooter.Enums;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
