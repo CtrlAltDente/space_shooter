@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDamagable
+namespace SpaceShooter.Interfaces
 {
-    public void TakeDamage(BulletOwnerType bulletType, float damage);
+    public interface IDamagable
+    {
+        public void TakeDamage(BulletOwnerType bulletType, float damage);
+    }
 }

@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IEnemy
+namespace SpaceShooter.Interfaces
 {
-    public void Attack();
+    public interface IEnemy
+    {
+        public void Attack();
+    }
 }
