@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 70387353
+  GlobalObjectIdHash: 1021573702
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6371161f378cf2547a1e3daa3e4445e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _afterParticle: {fileID: 3999290645853808730, guid: 56f4ea8b0d2f577438bda8afd09f19e7, type: 3}
+  _destroyParticle: {fileID: 3999290645853808730, guid: 56f4ea8b0d2f577438bda8afd09f19e7, type: 3}
 --- !u!33 &3695806593649996518
 MeshFilter:
   m_ObjectHideFlags: 0

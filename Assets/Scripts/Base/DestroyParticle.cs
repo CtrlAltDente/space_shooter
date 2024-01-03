@@ -5,8 +5,11 @@ using UnityEngine;
 
 namespace SpaceShooter.Base
 {
-    public class AfterParticle : NetworkBehaviour
+    public class DestroyParticle : NetworkBehaviour
     {
+        [SerializeField]
+        private ParticleSystem _particleSystem;
+
         [SerializeField]
         private float _destroyTime;
 
@@ -17,7 +20,7 @@ namespace SpaceShooter.Base
                 StartCoroutine(SelfDestroy());
             }
 
-            GetComponent<ParticleSystem>().Play();
+            _particleSystem.Play();
         }
 
         private IEnumerator SelfDestroy()
