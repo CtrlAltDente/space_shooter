@@ -22,5 +22,13 @@ namespace SpaceShooter.Player
         private InputActionReference LeftStickActionReference;
         [SerializeField]
         private InputActionReference RightStickActionReference;
+
+        public PlayerInputData InputData
+        {
+            get
+            {
+                return new PlayerInputData(LeftTriggerPressed, RightTriggerPressed, LeftStickPressed, RightStickPressed);
+            }
+        }
     }
 }

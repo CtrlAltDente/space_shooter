@@ -10,9 +10,13 @@ namespace SpaceShooter.User
 {
     public class LocalUser : MonoBehaviour
     {
-        public ulong PlayerId => NetworkManager.Singleton.IsClient ? NetworkManager.Singleton.LocalClientId : 0;
-        public PlayerBodyData PlayerBodyData => new PlayerBodyData(_playerBodyReferences.Head, _playerBodyReferences.LeftHand, _playerBodyReferences.RightHand);
-        public PlayerInputData PlayerInputData => new PlayerInputData(_playerInputReferences.LeftTriggerPressed, _playerInputReferences.RightTriggerPressed, _playerInputReferences.LeftStickPressed, _playerInputReferences.RightStickPressed);
+        [SerializeField]
+        private PlayerState _playerState;
+
+        [SerializeField]
+        private PlayerBodyReferences _playerBodyReferences;
+        [SerializeField]
+        private PlayerInputReferences _playerInputReferences;
 
         public PlayerData PlayerData
         {
@@ -22,13 +26,10 @@ namespace SpaceShooter.User
             }
         }
 
-        [SerializeField]
-        private PlayerState _playerState;
+        public ulong PlayerId => NetworkManager.Singleton.IsClient ? NetworkManager.Singleton.LocalClientId : 0;
 
-        [SerializeField]
-        private PlayerBodyReferences _playerBodyReferences;
-        [SerializeField]
-        private PlayerInputReferences _playerInputReferences;
+        public PlayerBodyData PlayerBodyData => _playerBodyReferences.BodyData;
+        public PlayerInputData PlayerInputData => _playerInputReferences.InputData;
 
         private void Start()
         {
