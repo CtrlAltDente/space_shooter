@@ -1,4 +1,5 @@
 using SpaceShooter.Player;
+using SpaceShooter.User;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace SpaceShooter.GameLogic
 {
-    public class GamePlayersSpawner : NetworkBehaviour
+    public class PlayersSpawner : MonoBehaviour
     {
         [SerializeField]
         private PlayerState _playerStatePrefab;
@@ -15,7 +16,7 @@ namespace SpaceShooter.GameLogic
         {
             InitializePlayers();
         }
-
+        
         private void InitializePlayers()
         {
             if (NetworkManager.Singleton.IsHost)

@@ -31,40 +31,36 @@ namespace SpaceShooter.User
         public PlayerBodyData PlayerBodyData => _playerBodyReferences.BodyData;
         public PlayerInputData PlayerInputData => _playerInputReferences.InputData;
 
-        private void Start()
-        {
-            StartCoroutine(FindLocalUserPlayer());
-        }
-
         private void Update()
         {
-            SetPlayerData();
-        }
-
-        private void SetPlayerData()
-        {
-            if (_playerState)
+            if(_playerState)
             {
                 _playerState.SetPlayerData(PlayerData);
             }
+            else
+            {
+                GetPlayerState();
+            }
         }
 
-        private IEnumerator FindLocalUserPlayer()
+        private void GetPlayerState()
         {
-            while (!_playerState)
+            if (NetworkManager.Singleton.IsClient)
             {
-                var players = FindObjectsOfType<PlayerState>();
-                foreach (var p in players)
+                List<NetworkObject> clientNetworkObjects = NetworkManager.Singleton.SpawnManager.GetClientOwnedObjects(PlayerId);
+
+                if (clientNetworkObjects.Count > 0)
                 {
-                    if (p.OwnerClientId == PlayerId)
+                    PlayerState playerState = clientNetworkObjects.
+                        Find(networkObject => networkObject.
+                        GetComponent<PlayerState>() != null).
+                        GetComponent<PlayerState>();
+
+                    if (playerState)
                     {
-                        _playerState = p;
+                        _playerState = playerState;
                     }
-
-                    yield return null;
                 }
-
-                yield return null;
             }
         }
     }

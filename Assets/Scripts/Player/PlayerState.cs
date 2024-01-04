@@ -53,6 +53,11 @@ namespace SpaceShooter.Player
             Debug.Log($"Call setting settings: {NetworkManager.Singleton.LocalClientId}");
         }
 
+        public void Spawn(ulong ownerId)
+        {
+            NetworkObject.SpawnWithOwnership(ownerId);
+        }
+
         private void SetLocalPlayerData(PlayerData playerData)
         {
             _playerBodyReferences.BodyData = playerData.PlayerBodyData;
