@@ -23,9 +23,33 @@ namespace SpaceShooter.GameLogic
             }
             set
             {
-                if (PlayerPrefs.HasKey(GameDataKeys.PLAYER_CONFIGURATION_INDEX))
+                PlayerPrefs.SetInt(GameDataKeys.PLAYER_CONFIGURATION_INDEX, value);
+            }
+        }
+
+        public static string PlayerName
+        {
+            get
+            {
+                if (PlayerPrefs.HasKey(GameDataKeys.PLAYER_NAME))
                 {
-                    PlayerPrefs.SetInt(GameDataKeys.PLAYER_CONFIGURATION_INDEX, value);
+                    return PlayerPrefs.GetString(GameDataKeys.PLAYER_NAME);
+                }
+                else
+                {
+                    PlayerPrefs.SetString(GameDataKeys.PLAYER_NAME, string.Empty);
+                    return string.Empty;
+                }
+            }
+            set
+            {
+                if (value != null)
+                {
+                    PlayerPrefs.SetString(GameDataKeys.PLAYER_NAME, value);
+                }
+                else
+                {
+                    PlayerPrefs.SetString(GameDataKeys.PLAYER_NAME, string.Empty);
                 }
             }
         }

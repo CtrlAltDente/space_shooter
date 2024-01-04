@@ -7,5 +7,6 @@ namespace SpaceShooter.GameLogic
     public static class GameDataKeys
     {
         public static readonly string PLAYER_CONFIGURATION_INDEX = "PlayerConfigurationIndex";
+        public static readonly string PLAYER_NAME = "PlayerName";
     }
 }
