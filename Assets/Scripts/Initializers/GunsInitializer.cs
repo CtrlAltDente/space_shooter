@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-namespace SpaceShooter.Guns
+namespace SpaceShooter.Initializers
 {
     public class GunsInitializer : NetworkBehaviour
     {
         [SerializeField]
         private GunsPreset[] _gunsPresets;
 
-        public void InitializeGuns(int gunIndex)
+        public void InitializeGun(int gunIndex)
         {
             _gunsPresets[gunIndex].SetActiveGuns(true);
         }

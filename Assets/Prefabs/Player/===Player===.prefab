@@ -190,7 +190,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerHandInput: {fileID: 4399654936231850971}
-  _skin: {fileID: 9043373194860410391}
+  _playerBodyReferences: {fileID: 56310296755389008}
+  _skinInitializer: {fileID: 9043373194860410391}
   _gunsInitializer: {fileID: 1229969941486112938}
 --- !u!114 &4399654936231850971
 MonoBehaviour:
@@ -454,38 +455,6 @@ Transform:
   m_Children:
   - {fileID: 3356342200638585497}
   m_Father: {fileID: 450552757912439837}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1401710190312913788
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 307743343573703677}
-  m_Layer: 0
-  m_Name: --Skins--
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &307743343573703677
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1401710190312913788}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6245924870456561227}
-  m_Father: {fileID: 4920372412740704883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2382730412843217344
 GameObject:
@@ -917,7 +886,7 @@ GameObject:
   - component: {fileID: 6245924870456561227}
   - component: {fileID: 2490246779150582074}
   m_Layer: 0
-  m_Name: Skin 1
+  m_Name: Skin Preset 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -931,12 +900,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4695561138079413893}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 307743343573703677}
+  m_Father: {fileID: 4920372412740704883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2490246779150582074
 MonoBehaviour:
@@ -947,7 +916,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4695561138079413893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c42d669006809d4495d42b1ac444bd2, type: 3}
+  m_Script: {fileID: 11500000, guid: cc8f25a5dbb1848448d5e7a454349f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _skinParts:
@@ -1625,7 +1594,7 @@ GameObject:
   - component: {fileID: 56310296755389008}
   - component: {fileID: 9043373194860410391}
   m_Layer: 0
-  m_Name: --PlayerSkin--
+  m_Name: --Skins--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1644,7 +1613,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 307743343573703677}
+  - {fileID: 6245924870456561227}
   m_Father: {fileID: 450552757912439837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &56310296755389008
@@ -1674,8 +1643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ed60cb61b6e074bbe9f2c743ddc8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerBodyReferences: {fileID: 56310296755389008}
-  _skins:
+  _skinPresets:
   - {fileID: 2490246779150582074}
 --- !u!1 &8623140582610959891
 GameObject:

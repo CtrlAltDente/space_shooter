@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SpaceShooter.Player
 {
-    public class Skin : MonoBehaviour
+    public class SkinPreset : MonoBehaviour
     {
         [SerializeField]
         private GameObject[] _skinParts;

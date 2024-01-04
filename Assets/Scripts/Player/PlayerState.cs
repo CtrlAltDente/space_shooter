@@ -1,4 +1,5 @@
 using SpaceShooter.Guns;
+using SpaceShooter.Initializers;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -12,9 +13,11 @@ namespace SpaceShooter.Player
 
         [SerializeField]
         private PlayerHandsInput _playerHandInput;
+        [SerializeField]
+        private PlayerBodyReferences _playerBodyReferences;
 
         [SerializeField]
-        private PlayerSkin _skin;
+        private SkinsInitializer _skinInitializer;
         [SerializeField]
         private GunsInitializer _gunsInitializer;
 
@@ -32,7 +35,7 @@ namespace SpaceShooter.Player
 
             if (!IsOwner)
             {
-                _skin.SetBodyData(PlayerData.Value.PlayerBodyData);
+                _playerBodyReferences.BodyData = PlayerData.Value.PlayerBodyData;
             }
         }
 
@@ -45,14 +48,14 @@ namespace SpaceShooter.Player
         [ClientRpc]
         public void SetPlayerSettingsClientRpc()
         {
-            _skin.SetSkin(0);
-            _gunsInitializer.InitializeGuns(1);
+            _skinInitializer.InitializeSkin(0);
+            _gunsInitializer.InitializeGun(1);
             Debug.Log($"Call setting settings: {NetworkManager.Singleton.LocalClientId}");
         }
 
         private void SetLocalPlayerData(PlayerData playerData)
         {
-            _skin.SetBodyData(playerData.PlayerBodyData);
+            _playerBodyReferences.BodyData = playerData.PlayerBodyData;
             _playerHandInput.SetInputData(PlayerData.Value.PlayerInputData);
         }
 
