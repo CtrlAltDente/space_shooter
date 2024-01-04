@@ -13,18 +13,13 @@ MonoBehaviour:
   m_Name: Container_PlayerConfigs
   m_EditorClassIdentifier: 
   Items:
-  - Name: Alex
+  - Name: 
     SkinIndex: 0
     GunIndex: 0
     MaximumHealth: 100
-    MaximumenergyShield: 100
-  - Name: Rey
-    SkinIndex: 1
+    MaximumShieldEnergy: 150
+  - Name: 
+    SkinIndex: 0
     GunIndex: 1
     MaximumHealth: 120
-    MaximumenergyShield: 140
-  - Name: Tomas
-    SkinIndex: 2
-    GunIndex: 2
-    MaximumHealth: 100
-    MaximumenergyShield: 100
+    MaximumShieldEnergy: 120
