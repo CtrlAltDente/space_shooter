@@ -9,6 +9,7 @@ namespace SpaceShooter.Player
 {
     public class PlayerState : NetworkBehaviour
     {
+        public NetworkVariable<PlayerConfig> PlayerConfig;
         public NetworkVariable<PlayerData> PlayerData;
 
         [SerializeField]
@@ -21,9 +22,10 @@ namespace SpaceShooter.Player
         [SerializeField]
         private GunsInitializer _gunsInitializer;
 
-        public void Start()
+        public override void OnNetworkSpawn()
         {
-            SetPlayerSettingsClientRpc();
+            base.OnNetworkSpawn();
+            SetPlayerSettingsClientRpc(PlayerConfig.Value);
         }
 
         private void Update()
@@ -46,16 +48,12 @@ namespace SpaceShooter.Player
         }
 
         [ClientRpc]
-        public void SetPlayerSettingsClientRpc()
+        public void SetPlayerSettingsClientRpc(PlayerConfig playerConfig)
         {
-            _skinInitializer.InitializeSkin(0);
-            _gunsInitializer.InitializeGun(1);
+            PlayerConfig.Value = playerConfig;
+            _skinInitializer.InitializeSkin(playerConfig.SkinIndex);
+            _gunsInitializer.InitializeGun(playerConfig.GunIndex);
             Debug.Log($"Call setting settings: {NetworkManager.Singleton.LocalClientId}");
-        }
-
-        public void Spawn(ulong ownerId)
-        {
-            NetworkObject.SpawnWithOwnership(ownerId);
         }
 
         private void SetLocalPlayerData(PlayerData playerData)

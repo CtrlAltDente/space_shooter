@@ -33,7 +33,7 @@ namespace SpaceShooter.User
 
         private void Update()
         {
-            if(_playerState)
+            if (_playerState)
             {
                 _playerState.SetPlayerData(PlayerData);
             }
@@ -59,6 +59,8 @@ namespace SpaceShooter.User
                     if (playerState)
                     {
                         _playerState = playerState;
+
+                        _playerState.SetPlayerSettingsClientRpc(new PlayerConfig($"Player {PlayerId}", 0, 1, 50, 50));
                     }
                 }
             }
