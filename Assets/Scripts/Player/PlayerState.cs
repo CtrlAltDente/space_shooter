@@ -9,7 +9,7 @@ namespace SpaceShooter.Player
 {
     public class PlayerState : NetworkBehaviour
     {
-        public NetworkVariable<PlayerConfig> PlayerConfig;
+        public NetworkVariable<PlayerConfig> PlayerConfig = new NetworkVariable<PlayerConfig>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
         public NetworkVariable<PlayerData> PlayerData;
 
         [SerializeField]
@@ -21,6 +21,16 @@ namespace SpaceShooter.Player
         private SkinsInitializer _skinInitializer;
         [SerializeField]
         private GunsInitializer _gunsInitializer;
+        [SerializeField]
+        private NameInitializer _nameInitializer;
+
+        private void Start()
+        {
+            if (IsOwner)
+            {
+                _nameInitializer.gameObject.SetActive(false);
+            }
+        }
 
         public override void OnNetworkSpawn()
         {
@@ -30,7 +40,7 @@ namespace SpaceShooter.Player
 
         private void Update()
         {
-            if(IsServer)
+            if (IsServer)
             {
                 SetPlayerStatePosition(PlayerData.Value);
             }
@@ -50,9 +60,14 @@ namespace SpaceShooter.Player
         [ClientRpc]
         public void SetPlayerSettingsClientRpc(PlayerConfig playerConfig)
         {
-            PlayerConfig.Value = playerConfig;
+            if (IsOwner)
+            {
+                PlayerConfig.Value = playerConfig;
+            }
+
             _skinInitializer.InitializeSkin(playerConfig.SkinIndex);
             _gunsInitializer.InitializeGun(playerConfig.GunIndex);
+            _nameInitializer.InitializeName(playerConfig.Name);
             Debug.Log($"Call setting settings: {NetworkManager.Singleton.LocalClientId}");
         }
 
