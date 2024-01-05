@@ -3,6 +3,7 @@ using SpaceShooter.Network;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 namespace SpaceShooter.UI
 {
@@ -14,7 +15,7 @@ namespace SpaceShooter.UI
         private InputActionReference _exitFromSessionAction;
 
         [SerializeField]
-        private GameObject _menuObject;
+        private CanvasGroup _menuObject;
 
         [SerializeField]
         private NetworkControl _networkControl;
@@ -37,7 +38,7 @@ namespace SpaceShooter.UI
 
         private void OpenMenu(InputAction.CallbackContext callbackContext)
         {
-            if(!_menuObject.activeSelf)
+            if(!_menuObject.gameObject.activeSelf)
             {
                 SetActiveMenu(true);
             }
@@ -45,7 +46,7 @@ namespace SpaceShooter.UI
 
         private void CloseMenu(InputAction.CallbackContext callbackContext)
         {
-            if(_menuObject.activeSelf)
+            if(_menuObject.gameObject.activeSelf)
             {
                 SetActiveMenu(false);
             }
@@ -59,16 +60,19 @@ namespace SpaceShooter.UI
 
         private void SetActiveMenu(bool isActive)
         {
-            _menuObject.SetActive(isActive);
-
             if(isActive)
             {
-                _menuAutoClose = StartCoroutine(AutoDisableMenu());
+                _menuObject.gameObject.SetActive(isActive);
+                _menuObject.DOFade(1, 1).OnComplete(() => _menuAutoClose = StartCoroutine(AutoDisableMenu()));
             }
             else
             {
-                StopCoroutine(_menuAutoClose);
-                _menuAutoClose = null;
+                _menuObject.DOFade(0, 1).OnComplete(() =>
+                {
+                    _menuObject.gameObject.SetActive(isActive);
+                    StopCoroutine(_menuAutoClose);
+                    _menuAutoClose = null;
+                });
             }
         }
 

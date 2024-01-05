@@ -807,7 +807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _openMenuAction: {fileID: -7834900362730823207, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _exitFromSessionAction: {fileID: 2225169020558056833, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _menuObject: {fileID: 4867815519573689848}
+  _menuObject: {fileID: 8428808873975586772}
   _networkControl: {fileID: 0}
   _sceneLoader: {fileID: 0}
 --- !u!1 &2664213159739490248
@@ -1736,6 +1736,7 @@ GameObject:
   - component: {fileID: 4069660693392865572}
   - component: {fileID: 3401015742855654397}
   - component: {fileID: 1642140685624005028}
+  - component: {fileID: 8428808873975586772}
   m_Layer: 5
   m_Name: InGameMenu
   m_TagString: Untagged
@@ -1827,6 +1828,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &8428808873975586772
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4867815519573689848}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5467052355566129760
 GameObject:
   m_ObjectHideFlags: 0
