@@ -45,6 +45,9 @@ namespace SpaceShooter.User
 
         private void GetPlayerState()
         {
+            if (!NetworkManager.Singleton)
+                return;
+
             if (NetworkManager.Singleton.IsClient)
             {
                 List<NetworkObject> clientNetworkObjects = NetworkManager.Singleton.SpawnManager.GetClientOwnedObjects(PlayerId);

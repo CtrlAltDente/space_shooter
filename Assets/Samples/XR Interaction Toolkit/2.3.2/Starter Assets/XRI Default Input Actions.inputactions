@@ -1777,6 +1777,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenMenu",
+                    "type": "Button",
+                    "id": "d8ab31a5-1b8b-46af-ad26-b1ed2ef9cf2a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Exit",
+                    "type": "Button",
+                    "id": "36ab18ae-a2ba-4cd0-8d95-8157a5090361",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -2162,6 +2180,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c5a31b06-0046-4304-a124-2286279752b6",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "Hold(duration=1)",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "OpenMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "73f1caf8-e9b2-400e-a3d0-03428e09d956",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "Hold(duration=1)",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Exit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
