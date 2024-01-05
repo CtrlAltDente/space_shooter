@@ -1720,6 +1720,42 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 441509729
       objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_PositionInput.m_Reference
+      value: 
+      objectReference: {fileID: 7862207684358717888, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_RotationInput.m_Reference
+      value: 
+      objectReference: {fileID: -530380113134220495, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_PositionInput.m_Action.m_Id
+      value: 2e467e5a-4609-4729-860e-1f1c4b6ee479
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_RotationInput.m_Action.m_Id
+      value: 55dff3cc-259d-4719-bf19-de639235ee3e
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_PositionInput.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_RotationInput.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_PositionInput.m_Action.m_Name
+      value: Main Camera - TPD - Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_RotationInput.m_Action.m_Name
+      value: Main Camera - TPD - Rotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_TrackingStateInput.m_Action.m_Name
+      value: Main Camera - TPD - Tracking State
+      objectReference: {fileID: 0}
     - target: {fileID: 7873867311997879081, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
       propertyPath: m_Name
       value: ==LocalUser_XR Origin==
