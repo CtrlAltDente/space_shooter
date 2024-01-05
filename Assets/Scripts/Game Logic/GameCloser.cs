@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace SpaceShooter.Base
+namespace SpaceShooter.GameLogic
 {
     public class GameCloser : MonoBehaviour
     {
