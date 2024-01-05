@@ -13,23 +13,50 @@ namespace SpaceShooter.User
         public UnityEvent<int> OnPlayerConfigurationUpdated;
 
         [SerializeField]
-        public TMP_InputField _inputField;
+        private PlayersContainer _playersContainer;
+
+        [SerializeField]
+        private TMP_InputField _nameField;
 
         private void Start()
         {
-            _inputField.text = GameData.PlayerName;
+            _nameField.text = GameData.PlayerName;
             SelectPlayerConfig(GameData.PlayerConfigurationIndex);
-        }
-
-        public void SelectPlayerConfig(int index)
-        {
-            GameData.PlayerConfigurationIndex = index;
-            OnPlayerConfigurationUpdated?.Invoke(index);
         }
 
         public void SetUserName(string name)
         {
             GameData.PlayerName = name;
+        }
+
+        public void SelectNextConfig()
+        {
+            GameData.PlayerConfigurationIndex++;
+
+            if (GameData.PlayerConfigurationIndex > _playersContainer.Items.Length - 1)
+            {
+                GameData.PlayerConfigurationIndex = 0;
+            }
+
+            SelectPlayerConfig(GameData.PlayerConfigurationIndex);
+        }
+
+        public void SelectPreviousConfig()
+        {
+            GameData.PlayerConfigurationIndex--;
+
+            if (GameData.PlayerConfigurationIndex < 0)
+            {
+                GameData.PlayerConfigurationIndex = _playersContainer.Items.Length - 1;
+            }
+
+            SelectPlayerConfig(GameData.PlayerConfigurationIndex);
+        }
+
+        private void SelectPlayerConfig(int index)
+        {
+            GameData.PlayerConfigurationIndex = index;
+            OnPlayerConfigurationUpdated?.Invoke(index);
         }
     }
 }

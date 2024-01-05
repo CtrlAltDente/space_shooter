@@ -37,8 +37,8 @@ namespace SpaceShooter.GameLogic
                 }
                 else
                 {
-                    PlayerPrefs.SetString(GameDataKeys.PLAYER_NAME, string.Empty);
-                    return string.Empty;
+                    PlayerPrefs.SetString(GameDataKeys.PLAYER_NAME, "Player");
+                    return PlayerPrefs.GetString(GameDataKeys.PLAYER_NAME);
                 }
             }
             set

@@ -1063,9 +1063,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1352364590}
-        m_TargetAssemblyTypeName: SpaceShooter.User.UserConfiguratorSelector, Assembly-CSharp
-        m_MethodName: SelectPlayerConfig
-        m_Mode: 3
+        m_TargetAssemblyTypeName: SpaceShooter.User.UserConfigurator, Assembly-CSharp
+        m_MethodName: SelectNextConfig
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2246,9 +2246,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1352364590}
-        m_TargetAssemblyTypeName: SpaceShooter.User.UserConfiguratorSelector, Assembly-CSharp
-        m_MethodName: SelectPlayerConfig
-        m_Mode: 3
+        m_TargetAssemblyTypeName: SpaceShooter.User.UserConfigurator, Assembly-CSharp
+        m_MethodName: SelectPreviousConfig
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4255,7 +4255,7 @@ GameObject:
   - component: {fileID: 1352364590}
   - component: {fileID: 1352364591}
   m_Layer: 0
-  m_Name: ---UserConfiguration---
+  m_Name: ---UserConfigurator---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4304,7 +4304,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _inputField: {fileID: 582437534}
+  _playersContainer: {fileID: 11400000, guid: 5cf1441f0883e384fbe33525cb231fa2, type: 2}
+  _nameField: {fileID: 582437534}
 --- !u!114 &1352364591
 MonoBehaviour:
   m_ObjectHideFlags: 0
