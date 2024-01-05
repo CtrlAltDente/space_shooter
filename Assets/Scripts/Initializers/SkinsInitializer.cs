@@ -13,7 +13,17 @@ namespace SpaceShooter.Initializers
 
         public void InitializeSkin(int skinPresetIndex)
         {
+            ResetSkins();
+
             _skinPresets[skinPresetIndex].SetActiveSkin(true);
+        }
+
+        private void ResetSkins()
+        {
+            foreach(SkinPreset skinPreset in _skinPresets)
+            {
+                skinPreset.SetActiveSkin(false);
+            }
         }
     }
 }

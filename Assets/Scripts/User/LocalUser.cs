@@ -1,5 +1,7 @@
 
+using SpaceShooter.GameLogic;
 using SpaceShooter.Player;
+using SpaceShooter.ScriptableObjects;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +19,9 @@ namespace SpaceShooter.User
         private PlayerBodyReferences _playerBodyReferences;
         [SerializeField]
         private PlayerInputReferences _playerInputReferences;
+
+        [SerializeField]
+        private PlayersContainer _playersContainer;
 
         public PlayerData PlayerData
         {
@@ -50,23 +55,38 @@ namespace SpaceShooter.User
 
             if (NetworkManager.Singleton.IsClient)
             {
-                List<NetworkObject> clientNetworkObjects = NetworkManager.Singleton.SpawnManager.GetClientOwnedObjects(PlayerId);
+                PlayerState playerState = FindPlayerStateInOwnedNetworkObjects();
 
-                if (clientNetworkObjects.Count > 0)
+                if (playerState)
                 {
-                    PlayerState playerState = clientNetworkObjects.
-                        Find(networkObject => networkObject.
-                        GetComponent<PlayerState>() != null).
-                        GetComponent<PlayerState>();
+                    _playerState = playerState;
 
-                    if (playerState)
-                    {
-                        _playerState = playerState;
-
-                        _playerState.SetPlayerSettingsClientRpc(new PlayerConfig($"Player {PlayerId}", 0, 1, 50, 50));
-                    }
+                    SetupPlayerConfig();
                 }
             }
+        }
+
+        private PlayerState FindPlayerStateInOwnedNetworkObjects()
+        {
+            List<NetworkObject> clientNetworkObjects = NetworkManager.Singleton.SpawnManager.GetClientOwnedObjects(PlayerId);
+            
+            if (clientNetworkObjects.Count > 0)
+            {
+                 return clientNetworkObjects.
+                    Find(networkObject => networkObject.
+                    GetComponent<PlayerState>() != null).
+                    GetComponent<PlayerState>();
+            }
+
+            return null;
+        }
+
+        private void SetupPlayerConfig()
+        {
+            PlayerConfig playerConfig = _playersContainer.Items[GameData.PlayerConfigurationIndex];
+            playerConfig.Name = GameData.PlayerName;
+
+            _playerState.SetPlayerSettingsClientRpc(playerConfig);
         }
     }
 }

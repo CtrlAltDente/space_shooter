@@ -14,7 +14,17 @@ namespace SpaceShooter.Initializers
 
         public void InitializeGun(int gunIndex)
         {
+            ResetGuns();
+
             _gunsPresets[gunIndex].SetActiveGuns(true);
+        }
+
+        private void ResetGuns()
+        {
+            foreach (GunsPreset gunPreset in _gunsPresets)
+            {
+                gunPreset.SetActiveGuns(false);
+            }
         }
     }
 }

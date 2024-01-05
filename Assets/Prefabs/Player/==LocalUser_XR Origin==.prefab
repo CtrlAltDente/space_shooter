@@ -1693,6 +1693,7 @@ MonoBehaviour:
   _playerState: {fileID: 0}
   _playerBodyReferences: {fileID: 5171984219904222429}
   _playerInputReferences: {fileID: 1248588189430892075}
+  _playersContainer: {fileID: 11400000, guid: 5cf1441f0883e384fbe33525cb231fa2, type: 2}
 --- !u!114 &5171984219904222429
 MonoBehaviour:
   m_ObjectHideFlags: 0
