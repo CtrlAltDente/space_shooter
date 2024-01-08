@@ -38,17 +38,22 @@ namespace SpaceShooter.User
 
         private void Update()
         {
+            DoLocalUserLogic();
+        }
+
+        private void DoLocalUserLogic()
+        {
             if (_playerState)
             {
                 _playerState.SetPlayerData(PlayerData);
             }
             else
             {
-                GetPlayerState();
+                FindPlayerState();
             }
         }
 
-        private void GetPlayerState()
+        private void FindPlayerState()
         {
             if (!NetworkManager.Singleton)
                 return;

@@ -67,7 +67,6 @@ namespace SpaceShooter.Player
             _skinInitializer.InitializeSkin(playerConfig.SkinIndex);
             _gunsInitializer.InitializeGun(playerConfig.GunIndex);
             _nameInitializer.InitializeName(playerConfig.Name);
-            Debug.Log($"Call setting settings: {NetworkManager.Singleton.LocalClientId}");
         }
 
         private void SetLocalPlayerData(PlayerData playerData)
