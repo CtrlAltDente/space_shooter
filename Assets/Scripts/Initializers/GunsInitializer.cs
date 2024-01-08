@@ -9,22 +9,6 @@ namespace SpaceShooter.Initializers
 {
     public class GunsInitializer : NetworkBehaviour
     {
-        [SerializeField]
-        private GunsPreset[] _gunsPresets;
 
-        public void InitializeGun(int gunIndex)
-        {
-            ResetGuns();
-
-            _gunsPresets[gunIndex].SetActiveGuns(true);
-        }
-
-        private void ResetGuns()
-        {
-            foreach (GunsPreset gunPreset in _gunsPresets)
-            {
-                gunPreset.SetActiveGuns(false);
-            }
-        }
     }
 }

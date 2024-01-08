@@ -16,10 +16,6 @@ namespace SpaceShooter.User
         [SerializeField]
         private TextMeshProUGUI _configurationInformationLabel;
 
-        [SerializeField]
-        private GunsPreset[] _gunsPresets;
-        [SerializeField]
-        private SkinPreset[] _skinsPresets;
 
         public void ShowContainerInformation(int index)
         {
@@ -28,28 +24,6 @@ namespace SpaceShooter.User
             _configurationInformationLabel.text =
                 $"Health: {playerConfig.MaximumHealth}\n" +
                 $"Shield: {playerConfig.MaximumShieldEnergy}\n";
-
-            ResetGuns();
-            _gunsPresets[playerConfig.GunIndex].SetActiveGuns(true);
-
-            ResetSkin();
-            _skinsPresets[playerConfig.SkinIndex].SetActiveSkin(true);
-        }
-
-        private void ResetGuns()
-        {
-            foreach(GunsPreset gunsPreset in _gunsPresets)
-            {
-                gunsPreset.SetActiveGuns(false);
-            }
-        }
-
-        private void ResetSkin()
-        {
-            foreach(SkinPreset skinPreset in _skinsPresets)
-            {
-                skinPreset.SetActiveSkin(false);
-            }
         }
     }
 }
