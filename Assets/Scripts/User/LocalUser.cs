@@ -73,8 +73,7 @@ namespace SpaceShooter.User
             if (clientNetworkObjects.Count > 0)
             {
                  return clientNetworkObjects.
-                    Find(networkObject => networkObject.
-                    GetComponent<PlayerState>() != null).
+                    Find(networkObject => networkObject.GetComponent<PlayerState>() != null).
                     GetComponent<PlayerState>();
             }
 
@@ -86,7 +85,7 @@ namespace SpaceShooter.User
             PlayerConfig playerConfig = _playersContainer.Items[GameData.PlayerConfigurationIndex];
             playerConfig.Name = GameData.PlayerName;
 
-            _playerState.SetPlayerSettingsClientRpc(playerConfig);
+            _playerState.SetPlayerSettingsServerRpc(playerConfig);
         }
     }
 }
