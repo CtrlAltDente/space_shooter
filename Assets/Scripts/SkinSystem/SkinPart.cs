@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SpaceShooter.Player
+namespace SpaceShooter.Skins
 {
-    public class Skin : MonoBehaviour
+    public class SkinPart : MonoBehaviour
     {
 
     }

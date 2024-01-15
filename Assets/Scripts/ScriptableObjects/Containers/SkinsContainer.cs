@@ -1,4 +1,4 @@
-using SpaceShooter.Player;
+using SpaceShooter.Skins;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
