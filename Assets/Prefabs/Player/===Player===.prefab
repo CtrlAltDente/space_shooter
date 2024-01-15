@@ -114,8 +114,8 @@ MonoBehaviour:
       MaximumShieldEnergy: 0
   _playerHandInput: {fileID: 4399654936231850971}
   _playerBodyReferences: {fileID: 6687809728033915464}
-  _skinInitializer: {fileID: 0}
-  _gunsInitializer: {fileID: 0}
+  _skinInitializer: {fileID: 8247109771745818154}
+  _gunsInitializer: {fileID: 2417562029269715298}
   _nameInitializer: {fileID: 311054040313547288}
 --- !u!114 &4399654936231850971
 MonoBehaviour:
@@ -213,6 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9049740521370138363}
+  - component: {fileID: 996751163018743808}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -236,6 +237,19 @@ Transform:
   - {fileID: 7993205363809402171}
   m_Father: {fileID: 450552757912439837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &996751163018743808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364314446070860424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78376d238a5349e4dbb8c1150eacd98f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkinModel: {fileID: 0}
 --- !u!1 &3496203541786536095
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8453190835267804442}
   - component: {fileID: 6173619596811537717}
+  - component: {fileID: 4862999306494402789}
   - component: {fileID: 2137781198816724802}
   m_Layer: 0
   m_Name: RightHand
@@ -282,6 +297,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasInteractableObject: 0
+--- !u!114 &4862999306494402789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3496203541786536095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78376d238a5349e4dbb8c1150eacd98f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkinModel: {fileID: 0}
 --- !u!135 &2137781198816724802
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -303,6 +331,98 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5163968203117221158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2097951494777402632}
+  - component: {fileID: 8247109771745818154}
+  m_Layer: 0
+  m_Name: --SkinsInitializer--
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2097951494777402632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5163968203117221158}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6587340694628195029}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8247109771745818154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5163968203117221158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ed60cb61b6e074bbe9f2c743ddc8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skinsContainer: {fileID: 11400000, guid: 2f0c6396fe947224dbe73ac8db13bf26, type: 2}
+  _head: {fileID: 996751163018743808}
+  _leftHand: {fileID: 5335360178148754701}
+  _rightHand: {fileID: 4862999306494402789}
+--- !u!1 &7762902732052722388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5865651247243693262}
+  - component: {fileID: 2417562029269715298}
+  m_Layer: 0
+  m_Name: --GunsInitializer--
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5865651247243693262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762902732052722388}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6587340694628195029}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2417562029269715298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762902732052722388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9757b1aedc1c84ab181255f7ec7567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8040469288148383190
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +687,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2097951494777402632}
+  - {fileID: 5865651247243693262}
   m_Father: {fileID: 450552757912439837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8424721337015747609
@@ -626,6 +748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1456712893891652520}
   - component: {fileID: 7559532424538442742}
+  - component: {fileID: 5335360178148754701}
   - component: {fileID: 1481835827937561460}
   m_Layer: 0
   m_Name: LeftHand
@@ -662,6 +785,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasInteractableObject: 0
+--- !u!114 &5335360178148754701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8722422383975086329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78376d238a5349e4dbb8c1150eacd98f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkinModel: {fileID: 0}
 --- !u!135 &1481835827937561460
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -6,6 +6,6 @@ namespace SpaceShooter.Skins
 {
     public class SkinPart : MonoBehaviour
     {
-
+        public GameObject SkinModel;
     }
 }
