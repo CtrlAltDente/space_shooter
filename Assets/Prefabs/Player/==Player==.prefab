@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2146326668479933264}
   - component: {fileID: 1149063013965273532}
   m_Layer: 0
-  m_Name: ===Player===
+  m_Name: ==Player==
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,6 +423,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9757b1aedc1c84ab181255f7ec7567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gunsContainer: {fileID: 11400000, guid: e6847ed035cf1ab4f9d16a5f1cc1e6e3, type: 2}
+  _shootSystem: {fileID: 2658817883518188371}
+  _leftHand: {fileID: 5335360178148754701}
+  _rightHand: {fileID: 4862999306494402789}
 --- !u!1 &8040469288148383190
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6587340694628195029}
   m_Layer: 0
-  m_Name: ===Logic===
+  m_Name: ==Logic==
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
