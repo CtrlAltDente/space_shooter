@@ -65,7 +65,7 @@ namespace SpaceShooter.Player
         public void InitializeSettingsClientRpc(PlayerConfig playerConfig)
         {
             _skinInitializer.InitializeSkin(playerConfig.SkinIndex);
-            //_gunsInitializer.InitializeGun(playerConfig.GunIndex);
+            _gunsInitializer.InitializeGun(playerConfig.GunIndex);
             _nameInitializer.InitializeName(playerConfig.Name);
         }
 
