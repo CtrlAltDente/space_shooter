@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8f741635d14a448955d80476b27884, type: 3}
   m_Name: Container_Guns
   m_EditorClassIdentifier: 
-  Items: []
+  Items:
+  - {fileID: 8208229501890144546, guid: 7f1f3ee1b258d2d44b3a0b785679c2f4, type: 3}
+  - {fileID: 5653086607007687610, guid: d4b64d842f37de640a9e63075e243892, type: 3}
