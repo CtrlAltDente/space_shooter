@@ -9,7 +9,6 @@ namespace SpaceShooter.Guns
     {
         [SerializeField]
         private PlayerHand _corePlayerHand;
-
         [SerializeField]
         private PlayerHand _secondPlayerHand;
 
@@ -23,6 +22,14 @@ namespace SpaceShooter.Guns
             SetPositionAndRotationOfGun();
         }
 
+        public override void SetHands(PlayerHand coreHand, PlayerHand additionalHand = null)
+        {
+            _corePlayerHand = coreHand;
+            _secondPlayerHand = additionalHand;
+
+            coreHand.SetInteractableItem(this);
+        }
+
         private void SetGunToHand()
         {
             if (_corePlayerHand != null)
@@ -33,7 +40,10 @@ namespace SpaceShooter.Guns
 
         private void SetPositionAndRotationOfGun()
         {
-            transform.rotation = Quaternion.LookRotation(_secondPlayerHand.transform.position - _corePlayerHand.transform.position);
+            if (_corePlayerHand != null && _secondPlayerHand != null)
+            {
+                transform.rotation = Quaternion.LookRotation(_secondPlayerHand.transform.position - _corePlayerHand.transform.position);
+            }
         }
     }
 }

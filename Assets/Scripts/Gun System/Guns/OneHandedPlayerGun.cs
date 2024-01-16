@@ -16,6 +16,13 @@ namespace SpaceShooter.Guns
             SetGunToHand();
         }
 
+        public override void SetHands(PlayerHand coreHand, PlayerHand additionalHand = null)
+        {
+            _playerHand = coreHand;
+
+            coreHand.SetInteractableItem(this);
+        }
+
         private void SetGunToHand()
         {
             if (_playerHand != null)
