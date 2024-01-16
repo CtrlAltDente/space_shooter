@@ -6,6 +6,8 @@ namespace SpaceShooter.Interfaces
 {
     public interface IInteractableObject
     {
+        public GameObject GameObject { get; }
+
         public void Interact();
     }
 }

@@ -6,6 +6,7 @@ using Unity.Netcode;
 using System;
 using SpaceShooter.Player;
 using SpaceShooter.Enums;
+using SpaceShooter.Skins;
 
 namespace SpaceShooter.Guns
 {
@@ -20,6 +21,7 @@ namespace SpaceShooter.Guns
         [SerializeField]
         protected bool _canShoot = true;
 
+        public GameObject GameObject => gameObject;
         public GunSettings GunSettings => _gunSettings;
 
         public void Interact()
@@ -34,6 +36,16 @@ namespace SpaceShooter.Guns
 
             SpawnBullets();
             StartCoroutine(ShootPause());
+        }
+
+        public void SetShootSystem(ShootSystem shootSystem)
+        {
+            _shootSystem = shootSystem;
+        }
+
+        public virtual void SetHands(PlayerHand coreHand, PlayerHand additionalHand = null)
+        {
+
         }
 
         private void SpawnBullets()
