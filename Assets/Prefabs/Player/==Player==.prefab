@@ -176,6 +176,7 @@ MonoBehaviour:
   BaseHealth: 0
   EnergyShield: 0
   Health: 0
+  _damageFromType: 1
   _restorationSpeed: 2
   OnDestroyed:
     m_PersistentCalls:
@@ -193,6 +194,7 @@ GameObject:
   - component: {fileID: 6811652397008505655}
   - component: {fileID: 12250409139081082}
   - component: {fileID: 2555362245436657745}
+  - component: {fileID: 805226959436794604}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -303,6 +305,33 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &805226959436794604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364314446070860424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e840d0fbaff750743837f35c14d3012d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDamageTaked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2146326668479933264}
+        m_TargetAssemblyTypeName: SpaceShooter.Base.HealthSystem, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3496203541786536095
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,6 +346,7 @@ GameObject:
   - component: {fileID: 7862823197834332781}
   - component: {fileID: 8068629970748291055}
   - component: {fileID: 5515302822057851818}
+  - component: {fileID: 5668012950151064492}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -439,6 +469,33 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &5668012950151064492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3496203541786536095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e840d0fbaff750743837f35c14d3012d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDamageTaked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2146326668479933264}
+        m_TargetAssemblyTypeName: SpaceShooter.Base.HealthSystem, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5163968203117221158
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +921,7 @@ GameObject:
   - component: {fileID: 7324794411885774254}
   - component: {fileID: 3069762038128672026}
   - component: {fileID: 7930381179150134355}
+  - component: {fileID: 5500625656599778205}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -986,3 +1044,30 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &5500625656599778205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8722422383975086329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e840d0fbaff750743837f35c14d3012d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDamageTaked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2146326668479933264}
+        m_TargetAssemblyTypeName: SpaceShooter.Base.HealthSystem, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

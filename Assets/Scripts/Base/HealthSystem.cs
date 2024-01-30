@@ -16,6 +16,9 @@ namespace SpaceShooter.Base
         public float Health;
 
         [SerializeField]
+        private BulletOwnerType _damageFromType;
+
+        [SerializeField]
         private float _restorationSpeed = 2f;
 
         public UnityEvent OnDestroyed;
@@ -34,6 +37,9 @@ namespace SpaceShooter.Base
 
         public void TakeDamage(BulletOwnerType bulletType, float damage)
         {
+            if (bulletType != _damageFromType)
+                return;
+
             EnergyShield -= damage;
 
             if (EnergyShield < 0)
