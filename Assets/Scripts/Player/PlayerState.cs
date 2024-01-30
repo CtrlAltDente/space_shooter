@@ -26,11 +26,6 @@ namespace SpaceShooter.Player
 
         private void Start()
         {
-            if (IsOwner)
-            {
-                _nameInitializer.gameObject.SetActive(false);
-            }
-
             InitializeSettingsClientRpc(PlayerConfig.Value);
         }
 
@@ -65,8 +60,11 @@ namespace SpaceShooter.Player
         public void InitializeSettingsClientRpc(PlayerConfig playerConfig)
         {
             _skinInitializer.InitializeSkin(playerConfig.SkinIndex);
+            
             _gunsInitializer.InitializeGun(playerConfig.GunIndex);
-            _nameInitializer.InitializeName(playerConfig.Name);
+
+            _nameInitializer.InitializeName(playerConfig.Name, !IsOwner);
+
         }
 
         private void SetLocalPlayerData(PlayerData playerData)

@@ -1,3 +1,4 @@
+using SpaceShooter.Base;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,25 +9,12 @@ namespace SpaceShooter.Initializers
     public class NameInitializer : MonoBehaviour
     {
         [SerializeField]
-        private TextMeshProUGUI _nameLabel;
+        private LookAtCameraText _lookAtCameraText;
 
-        private void Update()
+        public void InitializeName(string name, bool isActive)
         {
-            LookAtCamera();
-        }
-
-        public void InitializeName(string name)
-        {
-            _nameLabel.text = name;
-        }
-
-        private void LookAtCamera()
-        {
-            if(Camera.main)
-            {
-                transform.position = transform.parent.position + Vector3.up;
-                transform.LookAt(Camera.main.transform.position);
-            }
+            _lookAtCameraText.Label.text = name;
+            _lookAtCameraText.gameObject.SetActive(isActive);
         }
     }
 }
