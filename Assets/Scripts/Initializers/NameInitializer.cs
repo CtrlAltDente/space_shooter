@@ -24,6 +24,7 @@ namespace SpaceShooter.Initializers
         {
             if(Camera.main)
             {
+                transform.position = transform.parent.position + Vector3.up;
                 transform.LookAt(Camera.main.transform.position);
             }
         }
