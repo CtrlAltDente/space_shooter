@@ -29,17 +29,9 @@ namespace SpaceShooter.Initializers
 
         private void InstantiateSkinPartModel(SkinPart playerPart, SkinPart containerPart)
         {
-            RemoveSpawnedSkin(playerPart);
-            playerPart.SkinModel = Instantiate(containerPart.SkinModel, playerPart.transform.position, Quaternion.identity, playerPart.transform);
-        }
-
-        private void RemoveSpawnedSkin(SkinPart playerPart)
-        {
-            if(playerPart.SkinModel)
-            {
-                Destroy(playerPart.SkinModel);
-                playerPart.SkinModel = null;
-            }
+            playerPart.MeshFilter.sharedMesh = containerPart.MeshFilter.sharedMesh;
+            playerPart.MeshRenderer.sharedMaterials= containerPart.MeshRenderer.sharedMaterials;
+            playerPart.MeshCollider.sharedMesh = playerPart.MeshFilter.sharedMesh;
         }
     }
 }

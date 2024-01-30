@@ -6,6 +6,8 @@ namespace SpaceShooter.Skins
 {
     public class SkinPart : MonoBehaviour
     {
-        public GameObject SkinModel;
+        public MeshFilter MeshFilter;
+        public MeshRenderer MeshRenderer;
+        public MeshCollider MeshCollider;
     }
 }
