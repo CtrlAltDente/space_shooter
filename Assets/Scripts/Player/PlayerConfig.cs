@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using SpaceShooter.Base;
 
 namespace SpaceShooter.Player
 {
@@ -14,18 +15,16 @@ namespace SpaceShooter.Player
         public int SkinIndex;
         public int GunIndex;
 
-        public int MaximumHealth;
-        public int MaximumShieldEnergy;
+        public SubjectHealth Health;
 
-        public PlayerConfig(string name, int skinIndex, int gunIndex, int maximumHealth, int maximumShieldEnergy)
+        public PlayerConfig(string name, int skinIndex, int gunIndex, SubjectHealth subjectHealth)
         {
             Name = name;
             
             SkinIndex = skinIndex;
             GunIndex = gunIndex;
 
-            MaximumHealth = maximumHealth;
-            MaximumShieldEnergy = maximumShieldEnergy;
+            Health = subjectHealth;
         }
 
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
@@ -33,8 +32,7 @@ namespace SpaceShooter.Player
             serializer.SerializeValue(ref Name);
             serializer.SerializeValue(ref SkinIndex);
             serializer.SerializeValue(ref GunIndex);
-            serializer.SerializeValue(ref MaximumHealth);
-            serializer.SerializeValue(ref MaximumShieldEnergy);
+            serializer.SerializeValue(ref Health);
         }
     }
 }

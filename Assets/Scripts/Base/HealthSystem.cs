@@ -9,26 +9,19 @@ namespace SpaceShooter.Base
 {
     public class HealthSystem : MonoBehaviour, IDamagable
     {
-        public float BaseEnergyShield;
-        public float BaseHealth;
+        public UnityEvent OnDestroyed;
 
-        public float EnergyShield;
-        public float Health;
+        public SubjectHealth BaseHealth;
 
         [SerializeField]
         private BulletOwnerType _damageFromType;
 
-        [SerializeField]
-        private float _restorationSpeed = 2f;
-
-        public UnityEvent OnDestroyed;
+        public SubjectHealth CurrentHealth { get; private set; }
 
         private void Awake()
         {
-            Health = BaseHealth;
-            EnergyShield = BaseEnergyShield;
+            CurrentHealth = BaseHealth;
         }
-
 
         private void Start()
         {
@@ -40,34 +33,26 @@ namespace SpaceShooter.Base
             if (bulletType != _damageFromType)
                 return;
 
-            EnergyShield -= damage;
-
-            if (EnergyShield < 0)
+            if (CurrentHealth.TakeDamage(damage))
             {
-                Health += EnergyShield;
-                EnergyShield = 0;
+                Debug.Log("Damage");
             }
-
-            if (Health < 0)
+            else
             {
                 OnDestroyed?.Invoke();
             }
-
-            Debug.Log("Damage");
         }
 
-        private IEnumerator RestoreEnergyShield()
+        public void RestoreHealth(float health)
         {
-            while (Health > 0)
+            CurrentHealth.RestoreHealth(BaseHealth.Health, health);
+        }
+
+        public IEnumerator RestoreEnergyShield()
+        {
+            while(true)
             {
-                if (EnergyShield <= BaseEnergyShield)
-                {
-                    EnergyShield += _restorationSpeed * Time.deltaTime;
-                }
-                if (EnergyShield >= BaseEnergyShield)
-                {
-                    EnergyShield = BaseEnergyShield;
-                }
+                CurrentHealth.RestoreEnergyShield(BaseHealth.EnergyShield);
 
                 yield return null;
             }

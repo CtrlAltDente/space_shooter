@@ -22,8 +22,8 @@ namespace SpaceShooter.User
             PlayerConfig playerConfig = _playersContainer.Items[index];
 
             _configurationInformationLabel.text =
-                $"Health: {playerConfig.MaximumHealth}\n" +
-                $"Shield: {playerConfig.MaximumShieldEnergy}\n";
+                $"Health: {playerConfig.Health.Health}\n" +
+                $"Shield: {playerConfig.Health.EnergyShield}\n";
         }
     }
 }
