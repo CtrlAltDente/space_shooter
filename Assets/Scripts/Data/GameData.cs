@@ -13,7 +13,7 @@ namespace SpaceShooter.GameLogic
         {
             get
             {
-                return GetStringValue(GameDataKeys.PLAYER_CONFIGURATION_INDEX);
+                return GetIntValue(GameDataKeys.PLAYER_CONFIGURATION_INDEX);
             }
             set
             {
