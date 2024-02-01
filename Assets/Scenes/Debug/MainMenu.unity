@@ -3999,6 +3999,7 @@ GameObject:
   - component: {fileID: 1352364589}
   - component: {fileID: 1352364590}
   - component: {fileID: 1352364591}
+  - component: {fileID: 1352364592}
   m_Layer: 0
   m_Name: ---UserConfigurator---
   m_TagString: Untagged
@@ -4033,22 +4034,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f61324ea9a1054788f839f4b346dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPlayerConfigurationUpdated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1352364591}
-        m_TargetAssemblyTypeName: SpaceShooter.User.UserConfigurationVisualizer,
-          Assembly-CSharp
-        m_MethodName: ShowContainerInformation
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _playersContainer: {fileID: 11400000, guid: 5cf1441f0883e384fbe33525cb231fa2, type: 2}
   _nameField: {fileID: 582437534}
 --- !u!114 &1352364591
@@ -4065,6 +4050,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playersContainer: {fileID: 11400000, guid: 5cf1441f0883e384fbe33525cb231fa2, type: 2}
   _configurationInformationLabel: {fileID: 306803174}
+--- !u!114 &1352364592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352364588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f3185693da216459a68252272a864a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPlayerConfigurationUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+  _container: {fileID: 11400000, guid: 2f0c6396fe947224dbe73ac8db13bf26, type: 2}
 --- !u!1 &1363434993
 GameObject:
   m_ObjectHideFlags: 0
