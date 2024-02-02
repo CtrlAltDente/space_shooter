@@ -11,7 +11,7 @@ namespace SpaceShooter.Player
     public class PlayerState : NetworkBehaviour
     {
         public NetworkVariable<UserConfig> UserConfig;
-        public NetworkVariable<PlayerData> PlayerData;
+        public NetworkVariable<PlayerData> NetworkPlayerData;
 
         [SerializeField]
         private PlayerHandsInput _playerHandInput;
@@ -25,6 +25,8 @@ namespace SpaceShooter.Player
         [SerializeField]
         private NameInitializer _nameInitializer;
 
+        private PlayerData _localPlayerData;
+
         private void Start()
         {
             InitializeUserConfigClientRpc(UserConfig.Value);
@@ -34,19 +36,22 @@ namespace SpaceShooter.Player
         {
             if (IsServer)
             {
-                SetPlayerStatePosition(PlayerData.Value);
+                SetPlayerStatePosition(NetworkPlayerData.Value);
             }
 
-            if (!IsOwner)
+            if (IsOwner)
             {
-                _playerBodyReferences.BodyData = PlayerData.Value.PlayerBodyData;
+                SetNetworkPlayerDataServerRpc(_localPlayerData);
+            }
+            else
+            {
+                _playerBodyReferences.BodyData = NetworkPlayerData.Value.PlayerBodyData;
             }
         }
 
         public void SetPlayerData(PlayerData playerData)
         {
             SetLocalPlayerData(playerData);
-            SetNetworkPlayerDataServerRpc(playerData);
         }
 
         [ServerRpc]
@@ -67,14 +72,15 @@ namespace SpaceShooter.Player
 
         private void SetLocalPlayerData(PlayerData playerData)
         {
+            _playerHandInput.SetInputData(NetworkPlayerData.Value.PlayerInputData);
             _playerBodyReferences.BodyData = playerData.PlayerBodyData;
-            _playerHandInput.SetInputData(PlayerData.Value.PlayerInputData);
+            _localPlayerData = playerData;
         }
 
         [ServerRpc]
         private void SetNetworkPlayerDataServerRpc(PlayerData playerData)
         {
-            PlayerData.Value = playerData;
+            NetworkPlayerData.Value = playerData;
         }
 
         private void SetPlayerStatePosition(PlayerData playerData)
