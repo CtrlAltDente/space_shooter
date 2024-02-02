@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunSettings:
     BulletType: 0
-    ShootDelay: 0.2
+    ShootDelay: 0.35
     FireSpreadDegrees: 2
     SpawnPositions:
     - {fileID: 2713427380233199158}

@@ -49,8 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunSettings:
     BulletType: 0
-    ShootDelay: 0.25
-    FireSpreadDegrees: 5
+    ShootDelay: 0.2
+    FireSpreadDegrees: 3
     SpawnPositions:
     - {fileID: 3652389988200950685}
     AmmoCount: 1
