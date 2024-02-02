@@ -1,4 +1,4 @@
-using SpaceShooter.Player;
+using SpaceShooter.User;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +8,14 @@ namespace SpaceShooter.GameLogic
     public static class GameData
     {
         #region Values 
+
+        public static UserConfig GameUserConfig
+        {
+            get
+            {
+                return new UserConfig(PlayerName, SkinIndex, GunIndex, new Base.SubjectHealth(100, 100, 5));
+            }
+        }
 
         public static int PlayerConfigurationIndex
         {

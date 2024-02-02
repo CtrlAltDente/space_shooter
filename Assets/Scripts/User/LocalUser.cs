@@ -66,7 +66,7 @@ namespace SpaceShooter.User
                 {
                     _playerState = playerState;
 
-                    SetupPlayerConfig();
+                    SetupUserConfig();
                 }
             }
         }
@@ -85,12 +85,11 @@ namespace SpaceShooter.User
             return null;
         }
 
-        private void SetupPlayerConfig()
+        private void SetupUserConfig()
         {
-            PlayerConfig playerConfig = _playersContainer.Items[GameData.PlayerConfigurationIndex];
-            playerConfig.Name = GameData.PlayerName;
-
-            _playerState.SetPlayerSettingsServerRpc(playerConfig);
+            UserConfig userConfig = GameData.GameUserConfig;
+            
+            _playerState.SetUserConfigServerRpc(userConfig);
         }
     }
 }

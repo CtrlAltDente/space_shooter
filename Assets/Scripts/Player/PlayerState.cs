@@ -1,5 +1,6 @@
 using SpaceShooter.Guns;
 using SpaceShooter.Initializers;
+using SpaceShooter.User;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -9,7 +10,7 @@ namespace SpaceShooter.Player
 {
     public class PlayerState : NetworkBehaviour
     {
-        public NetworkVariable<PlayerConfig> PlayerConfig;
+        public NetworkVariable<UserConfig> UserConfig;
         public NetworkVariable<PlayerData> PlayerData;
 
         [SerializeField]
@@ -26,7 +27,7 @@ namespace SpaceShooter.Player
 
         private void Start()
         {
-            InitializeSettingsClientRpc(PlayerConfig.Value);
+            InitializeUserConfigClientRpc(UserConfig.Value);
         }
 
         private void Update()
@@ -49,22 +50,19 @@ namespace SpaceShooter.Player
         }
 
         [ServerRpc]
-        public void SetPlayerSettingsServerRpc(PlayerConfig playerConfig)
+        public void SetUserConfigServerRpc(UserConfig userConfig)
         {
-            PlayerConfig.Value = playerConfig;
+            UserConfig.Value = userConfig;
 
-            InitializeSettingsClientRpc(PlayerConfig.Value);
+            InitializeUserConfigClientRpc(UserConfig.Value);
         }
 
         [ClientRpc]
-        public void InitializeSettingsClientRpc(PlayerConfig playerConfig)
+        public void InitializeUserConfigClientRpc(UserConfig userConfig)
         {
-            _skinInitializer.InitializeSkin(playerConfig.SkinIndex);
-            
-            _gunsInitializer.InitializeGun(playerConfig.GunIndex);
-
-            _nameInitializer.InitializeName(playerConfig.Name, !IsOwner);
-
+            _skinInitializer.InitializeSkin(userConfig.SkinIndex);
+            _gunsInitializer.InitializeGun(userConfig.GunIndex);
+            _nameInitializer.InitializeName(userConfig.Name, !IsOwner);
         }
 
         private void SetLocalPlayerData(PlayerData playerData)

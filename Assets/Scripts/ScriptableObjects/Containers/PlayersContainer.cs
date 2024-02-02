@@ -1,4 +1,4 @@
-using SpaceShooter.Player;
+using SpaceShooter.User;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +6,7 @@ using UnityEngine;
 namespace SpaceShooter.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "Container_PlayerConfigs", menuName = "Scriptable Objects/Containers/Player Configs", order = 0)]
-    public class PlayersContainer : Container<PlayerConfig>
+    public class PlayersContainer : Container<UserConfig>
     {
 
     }

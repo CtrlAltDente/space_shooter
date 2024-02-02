@@ -5,10 +5,10 @@ using UnityEngine;
 using Unity.Netcode;
 using SpaceShooter.Base;
 
-namespace SpaceShooter.Player
+namespace SpaceShooter.User
 {
     [Serializable]
-    public struct PlayerConfig : INetworkSerializable
+    public struct UserConfig : INetworkSerializable
     {
         public string Name;
 
@@ -17,7 +17,7 @@ namespace SpaceShooter.Player
 
         public SubjectHealth Health;
 
-        public PlayerConfig(string name, int skinIndex, int gunIndex, SubjectHealth subjectHealth)
+        public UserConfig(string name, int skinIndex, int gunIndex, SubjectHealth subjectHealth)
         {
             Name = name;
             
