@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace SpaceShooter.User.Configuration
 {
-    public class GunConfigDisplayer : ConfigDisplayer<GunChooser>
+    public class GunDisplayer : ConfigDisplayer<GunChooser>
     {
         [SerializeField]
-        private Transform _gunTransfrom;
+        private Transform _gunParent;
 
         [SerializeField]
         private Gun _currentGun;
@@ -16,7 +16,7 @@ namespace SpaceShooter.User.Configuration
         public override void DisplayCurrentConfig(int configDataIndex)
         {
             DestroyGun(_currentGun);
-            _currentGun = Instantiate(_configChooser.Container.Items[configDataIndex].Gun, new Vector3(0, 0, 0), Quaternion.identity, _gunTransfrom);
+            _currentGun = Instantiate(_configChooser.Container.Items[configDataIndex].Gun, _gunParent.position, _gunParent.rotation, _gunParent);
             _currentGun.enabled = false;
         }
 
