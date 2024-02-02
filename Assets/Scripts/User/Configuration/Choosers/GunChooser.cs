@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SpaceShooter.User.Configuration
 {
-    public class GunChooser : ConfigChooser<Gun>
+    public class GunChooser : ConfigChooser<GunPreset>
     {
         public override int GameDataConfigIndex 
         {

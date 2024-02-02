@@ -16,7 +16,6 @@ namespace SpaceShooter.User
         [SerializeField]
         private TextMeshProUGUI _configurationInformationLabel;
 
-
         public void ShowContainerInformation(int index)
         {
             PlayerConfig playerConfig = _playersContainer.Items[index];

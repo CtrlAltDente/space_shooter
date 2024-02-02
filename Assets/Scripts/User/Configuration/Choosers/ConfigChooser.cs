@@ -14,6 +14,7 @@ namespace SpaceShooter.User.Configuration
         [SerializeField]
         protected Container<T> _container;
 
+        public Container<T> Container => _container;
         public abstract int GameDataConfigIndex { get; set; }
 
         private void Start()
