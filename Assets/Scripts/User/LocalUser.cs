@@ -20,9 +20,6 @@ namespace SpaceShooter.User
         [SerializeField]
         private PlayerInputReferences _playerInputReferences;
 
-        [SerializeField]
-        private PlayersContainer _playersContainer;
-
         public PlayerData PlayerData
         {
             get
