@@ -14,11 +14,24 @@ namespace SpaceShooter.Guns
         [ServerRpc]
         public void SpawnBulletServerRpc(Vector3 position, Quaternion rotation, Quaternion fireSpread, BulletType bulletType, BulletOwnerType bulletOwnerType, ulong playerId)
         {
+            SpawnBulletClientRpc(position, rotation, fireSpread, bulletType, bulletOwnerType, playerId);
+        }
+
+        [ClientRpc]
+        public void SpawnBulletClientRpc(Vector3 position, Quaternion rotation, Quaternion fireSpread, BulletType bulletType, BulletOwnerType bulletOwnerType, ulong playerId)
+        {
+            if (playerId != NetworkManager.Singleton.LocalClientId)
+            {
+                SpawnBulletLocally(position, rotation, fireSpread, bulletType, bulletOwnerType);
+            }
+        }
+
+        public void SpawnBulletLocally(Vector3 position, Quaternion rotation, Quaternion fireSpread, BulletType bulletType, BulletOwnerType bulletOwnerType)
+        {
             Bullet bulletPrefab = GetBulletByType(bulletType);
 
             Bullet bullet = Instantiate(bulletPrefab, position, rotation * fireSpread);
             bullet.SetBulletType(bulletOwnerType);
-            bullet.GetComponent<NetworkObject>().Spawn();
         }
 
         private Bullet GetBulletByType(BulletType bulletType)

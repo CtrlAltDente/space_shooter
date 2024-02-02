@@ -5,20 +5,14 @@ using UnityEngine;
 
 namespace SpaceShooter.Base
 {
-    public class DestroyParticleSpawner : NetworkBehaviour
+    public class DestroyParticleSpawner : MonoBehaviour
     {
         [SerializeField]
         private DestroyParticle _destroyParticle;
 
-        public override void OnDestroy()
+        public void OnDestroy()
         {
-            if (IsHost)
-            {
-                DestroyParticle afterParticle = Instantiate(_destroyParticle, transform.position, transform.rotation, null);
-                afterParticle.NetworkObject.Spawn();
-            }
-
-            base.OnDestroy();
+            DestroyParticle afterParticle = Instantiate(_destroyParticle, transform.position, transform.rotation, null);
         }
     }
 }

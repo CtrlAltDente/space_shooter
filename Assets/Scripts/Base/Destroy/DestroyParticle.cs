@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SpaceShooter.Base
 {
-    public class DestroyParticle : NetworkBehaviour
+    public class DestroyParticle : MonoBehaviour
     {
         [SerializeField]
         private ParticleSystem _particleSystem;
@@ -15,18 +15,14 @@ namespace SpaceShooter.Base
 
         private void Start()
         {
-            if (IsHost)
-            {
-                StartCoroutine(SelfDestroy());
-            }
-
+            StartCoroutine(SelfDestroy());
             _particleSystem.Play();
         }
 
         private IEnumerator SelfDestroy()
         {
             yield return new WaitForSeconds(_destroyTime);
-            NetworkObject.Despawn(true);
+            Destroy(gameObject);
         }
     }
 }

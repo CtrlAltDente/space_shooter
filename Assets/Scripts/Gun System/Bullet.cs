@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace SpaceShooter.Guns
 {
-    public class Bullet : NetworkBehaviour
+    public class Bullet : MonoBehaviour
     {
         [SerializeField]
         private BulletOwnerType _type;
@@ -28,28 +28,24 @@ namespace SpaceShooter.Guns
         private void Start()
         {
             StartMoving();
-        }
-
-        public override void OnNetworkSpawn()
-        {
-            base.OnNetworkSpawn();
             StartCoroutine(SelfDestroy());
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (!IsHost)
-                return;
-
             Debug.Log(collision.gameObject.name);
-            if (collision.transform.GetComponent<IDamagable>() != null)
+            
+            if (NetworkManager.Singleton.IsHost)
             {
-                collision.gameObject.GetComponent<IDamagable>().TakeDamage(_type, _damage);
+                if (collision.transform.GetComponent<IDamagable>() != null)
+                {
+                    collision.gameObject.GetComponent<IDamagable>().TakeDamage(_type, _damage);
 
-                Debug.Log("Damage");
+                    Debug.Log("Damage");
+                }
             }
 
-            NetworkObject.Despawn(true);
+            Destroy(gameObject);
         }
 
         public void SetBulletType(BulletOwnerType bulletType)
@@ -59,20 +55,13 @@ namespace SpaceShooter.Guns
 
         private void StartMoving()
         {
-            if (IsOwnedByServer)
-            {
-                _rigidbody.AddForce(transform.forward * _movementSpeed, ForceMode.Impulse);
-            }
+            _rigidbody.AddForce(transform.forward * _movementSpeed, ForceMode.Impulse);
         }
 
         private IEnumerator SelfDestroy()
         {
             yield return new WaitForSeconds(_destroyTime);
-            if (NetworkManager.Singleton.IsHost)
-            {
-                GetComponent<NetworkObject>().Despawn();
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 }
