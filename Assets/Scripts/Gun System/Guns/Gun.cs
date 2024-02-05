@@ -34,8 +34,11 @@ namespace SpaceShooter.Guns
             if (!_canShoot)
                 return;
 
-            SpawnBullets();
-            StartCoroutine(ShootPause());
+            if (_shootSystem.UseEnergy(_gunSettings.EnergyCost))
+            {
+                SpawnBullets();
+                StartCoroutine(ShootPause());
+            }
         }
 
         public void SetShootSystem(ShootSystem shootSystem)
@@ -79,6 +82,7 @@ namespace SpaceShooter.Guns
     {
         public BulletType BulletType;
         public float ShootDelay;
+        public float EnergyCost;
         public float FireSpreadDegrees;
         public Transform[] SpawnPositions;
         public int AmmoCount;

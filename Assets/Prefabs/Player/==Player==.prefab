@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1213745166
+  GlobalObjectIdHash: 4106567166
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5309488d047a65645ac587ab924aa268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerConfig:
+  UserConfig:
     m_InternalValue:
       Name: 
       SkinIndex: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   _bullets:
   - Bullet: {fileID: -3252124928523212622, guid: 1186d4c6445f34f4d885d3dd50ed3307, type: 3}
     BulletType: 0
+  _healthSystem: {fileID: 2146326668479933264}
 --- !u!114 &2146326668479933264
 MonoBehaviour:
   m_ObjectHideFlags: 0

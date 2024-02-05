@@ -14,13 +14,17 @@ namespace SpaceShooter.Base
         public SubjectHealth BaseHealth;
 
         [SerializeField]
+        private SubjectHealth _currentHealth;
+
+        [SerializeField]
         private BulletOwnerType _damageFromType;
 
-        public SubjectHealth CurrentHealth { get; private set; }
+        public float EnergyShield => _currentHealth.EnergyShield;
+        public float Health => _currentHealth.Health;
 
         private void Awake()
         {
-            CurrentHealth = BaseHealth;
+            _currentHealth = BaseHealth;
         }
 
         private void Start()
@@ -33,7 +37,7 @@ namespace SpaceShooter.Base
             if (bulletType != _damageFromType)
                 return;
 
-            if (CurrentHealth.TakeDamage(damage))
+            if (_currentHealth.TakeDamage(damage))
             {
                 Debug.Log("Damage");
             }
@@ -43,18 +47,23 @@ namespace SpaceShooter.Base
             }
         }
 
+        public bool UseEnergy(float neededEnergy)
+        {
+            return _currentHealth.UseEnergy(neededEnergy);
+        }
+
         public void RestoreHealth(float health)
         {
-            CurrentHealth.RestoreHealth(BaseHealth.Health, health);
+            _currentHealth.RestoreHealth(BaseHealth.Health, health);
         }
 
         public IEnumerator RestoreEnergyShield()
         {
-            while(true)
+            while (_currentHealth.Health > 0)
             {
-                CurrentHealth.RestoreEnergyShield(BaseHealth.EnergyShield);
+                _currentHealth.RestoreEnergyShield(BaseHealth.EnergyShield);
 
-                yield return null;
+                yield return new WaitForEndOfFrame();
             }
         }
     }

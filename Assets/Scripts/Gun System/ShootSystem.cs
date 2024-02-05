@@ -1,3 +1,4 @@
+using SpaceShooter.Base;
 using SpaceShooter.Enums;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,6 +11,9 @@ namespace SpaceShooter.Guns
     {
         [SerializeField]
         private BulletContainer[] _bullets;
+
+        [SerializeField]
+        private HealthSystem _healthSystem;
 
         [ServerRpc]
         public void SpawnBulletServerRpc(Vector3 position, Quaternion rotation, Quaternion fireSpread, BulletType bulletType, BulletOwnerType bulletOwnerType, ulong playerId)
@@ -32,6 +36,12 @@ namespace SpaceShooter.Guns
 
             Bullet bullet = Instantiate(bulletPrefab, position, rotation * fireSpread);
             bullet.SetBulletType(bulletOwnerType);
+        }
+
+        public bool UseEnergy(float neededEnergy)
+        {
+            bool energyUsedSuccessfully = _healthSystem.UseEnergy(neededEnergy);
+            return energyUsedSuccessfully;
         }
 
         private Bullet GetBulletByType(BulletType bulletType)

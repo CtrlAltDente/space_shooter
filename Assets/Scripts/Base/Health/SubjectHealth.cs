@@ -45,7 +45,7 @@ namespace SpaceShooter.Base
         public void RestoreEnergyShield(float maxEnergyShield)
         {
             EnergyShield = EnergyShield <= maxEnergyShield ? EnergyShield + EnergyRestorationSpeed * Time.deltaTime : EnergyShield;
-            EnergyShield = EnergyShield >= maxEnergyShield ? maxEnergyShield : EnergyShield;
+            EnergyShield = EnergyShield > maxEnergyShield ? maxEnergyShield : EnergyShield;
         }
 
         public void RestoreHealth(float maxHealth, float health)
@@ -58,7 +58,10 @@ namespace SpaceShooter.Base
         {
             if (EnergyShield > neededEnergy)
             {
+                Debug.Log($"Energy should be: {EnergyShield - neededEnergy}");
                 EnergyShield -= neededEnergy;
+                Debug.Log($"Energy: {EnergyShield}");
+
                 return true;
             }
 
