@@ -63,10 +63,7 @@ namespace SpaceShooter.Initializers
 
         private void RemoveInitializedGun(PlayerHand coreHand)
         {
-            if (coreHand.CurrentInteractableObject != null)
-            {
-                Destroy(coreHand.CurrentInteractableObject.GameObject);
-            }
+            coreHand.ClearInteractableItem();
         }
     }
 }

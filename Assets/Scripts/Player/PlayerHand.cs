@@ -23,6 +23,16 @@ namespace SpaceShooter.Player
             CurrentInteractableObject = interactableObject;
         }
 
+        public void ClearInteractableItem()
+        {
+            if (CurrentInteractableObject != null)
+            {
+                Destroy(CurrentInteractableObject.GameObject);
+            }
+
+            CurrentInteractableObject = null;
+        }
+
         public void InteractWithPickedItem()
         {
             if (_hasInteractableObject)
