@@ -65,8 +65,8 @@ namespace SpaceShooter.Guns
         private void SpawnBullet(Vector3 position, Quaternion rotation, ulong playerId)
         {
             Quaternion fireSpread = Quaternion.Euler(new Vector3(_gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue, _gunSettings.RandomFireSpreadValue));
-            _shootSystem.SpawnBulletLocally(position, rotation, fireSpread, _gunSettings.BulletType, _gunSettings.BulletOwnerType);
-            _shootSystem.SpawnBulletServerRpc(position, rotation, fireSpread, _gunSettings.BulletType, _gunSettings.BulletOwnerType, playerId);
+            _shootSystem.SpawnBulletLocally(position, rotation, fireSpread, _gunSettings.BulletType, _gunSettings.BulletOwnerType, _gunSettings.Damage);
+            _shootSystem.SpawnBulletServerRpc(position, rotation, fireSpread, _gunSettings.BulletType, _gunSettings.BulletOwnerType, _gunSettings.Damage, playerId);
         }
 
         private IEnumerator ShootPause()
@@ -83,6 +83,7 @@ namespace SpaceShooter.Guns
         public BulletType BulletType;
         public float ShootDelay;
         public float EnergyCost;
+        public float Damage;
         public float FireSpreadDegrees;
         public Transform[] SpawnPositions;
         public int AmmoCount;

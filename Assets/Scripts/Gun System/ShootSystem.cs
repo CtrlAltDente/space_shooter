@@ -16,26 +16,27 @@ namespace SpaceShooter.Guns
         private HealthSystem _healthSystem;
 
         [ServerRpc]
-        public void SpawnBulletServerRpc(Vector3 position, Quaternion rotation, Quaternion fireSpread, BulletType bulletType, BulletOwnerType bulletOwnerType, ulong playerId)
+        public void SpawnBulletServerRpc(Vector3 position, Quaternion rotation, Quaternion fireSpread, BulletType bulletType, BulletOwnerType bulletOwnerType, float damage, ulong playerId)
         {
-            SpawnBulletClientRpc(position, rotation, fireSpread, bulletType, bulletOwnerType, playerId);
+            SpawnBulletClientRpc(position, rotation, fireSpread, bulletType, bulletOwnerType, damage, playerId);
         }
 
         [ClientRpc]
-        public void SpawnBulletClientRpc(Vector3 position, Quaternion rotation, Quaternion fireSpread, BulletType bulletType, BulletOwnerType bulletOwnerType, ulong playerId)
+        public void SpawnBulletClientRpc(Vector3 position, Quaternion rotation, Quaternion fireSpread, BulletType bulletType, BulletOwnerType bulletOwnerType, float damage, ulong playerId)
         {
             if (playerId != NetworkManager.Singleton.LocalClientId)
             {
-                SpawnBulletLocally(position, rotation, fireSpread, bulletType, bulletOwnerType);
+                SpawnBulletLocally(position, rotation, fireSpread, bulletType, bulletOwnerType, damage);
             }
         }
 
-        public void SpawnBulletLocally(Vector3 position, Quaternion rotation, Quaternion fireSpread, BulletType bulletType, BulletOwnerType bulletOwnerType)
+        public void SpawnBulletLocally(Vector3 position, Quaternion rotation, Quaternion fireSpread, BulletType bulletType, BulletOwnerType bulletOwnerType, float damage)
         {
             Bullet bulletPrefab = GetBulletByType(bulletType);
 
             Bullet bullet = Instantiate(bulletPrefab, position, rotation * fireSpread);
             bullet.SetBulletType(bulletOwnerType);
+            bullet.SetDamage(damage);
         }
 
         public bool UseEnergy(float neededEnergy)

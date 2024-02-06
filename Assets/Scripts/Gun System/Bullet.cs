@@ -53,6 +53,11 @@ namespace SpaceShooter.Guns
             _type = bulletType;
         }
 
+        public void SetDamage(float damage)
+        {
+            _damage = damage;
+        }
+
         private void StartMoving()
         {
             _rigidbody.AddForce(transform.forward * _movementSpeed, ForceMode.Impulse);

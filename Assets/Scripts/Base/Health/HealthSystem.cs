@@ -2,13 +2,16 @@ using SpaceShooter.Enums;
 using SpaceShooter.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace SpaceShooter.Base
 {
-    public class HealthSystem : MonoBehaviour, IDamagable
+    public class HealthSystem : NetworkBehaviour, IDamagable
     {
+        public NetworkVariable<SubjectHealth> NetworkHealth;
+
         public UnityEvent OnDestroyed;
 
         public SubjectHealth BaseHealth;
@@ -32,6 +35,18 @@ namespace SpaceShooter.Base
             StartCoroutine(RestoreEnergyShield());
         }
 
+        private void Update()
+        {
+            if (IsHost)
+            {
+                NetworkHealth.Value = _currentHealth;
+            }
+            else if(IsClient)
+            {
+                _currentHealth = NetworkHealth.Value;
+            }
+        }
+
         public void TakeDamage(BulletOwnerType bulletType, float damage)
         {
             if (bulletType != _damageFromType)
@@ -49,7 +64,12 @@ namespace SpaceShooter.Base
 
         public bool UseEnergy(float neededEnergy)
         {
-            return _currentHealth.UseEnergy(neededEnergy);
+            if(_currentHealth.UseEnergy(neededEnergy))
+            {
+                SetHealthServerRpc(_currentHealth);
+                return true;
+            } 
+            else return false;
         }
 
         public void RestoreHealth(float health)
@@ -65,6 +85,13 @@ namespace SpaceShooter.Base
 
                 yield return new WaitForEndOfFrame();
             }
+        }
+
+        [ServerRpc]
+        private void SetHealthServerRpc(SubjectHealth subjectHealth)
+        {
+            NetworkHealth.Value = subjectHealth;
+            _currentHealth = subjectHealth;
         }
     }
 }
