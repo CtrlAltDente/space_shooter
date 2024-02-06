@@ -28,7 +28,7 @@ namespace SpaceShooter.Base
                 return;
 
             _healthBar.SetBarValue(_playerState.HealthSystem.Health, _playerState.HealthSystem.BaseHealth.Health);
-            _energyBar.SetBarValue(_playerState.HealthSystem.EnergyShield, _playerState.HealthSystem.BaseHealth.Health);
+            _energyBar.SetBarValue(_playerState.HealthSystem.EnergyShield, _playerState.HealthSystem.BaseHealth.EnergyShield);
         }
     }
 }
