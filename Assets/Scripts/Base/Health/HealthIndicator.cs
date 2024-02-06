@@ -1,14 +1,16 @@
+using SpaceShooter.Player;
+using SpaceShooter.UI;
 using SpaceShooter.User;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SpaceShooter.UI
+namespace SpaceShooter.Base
 {
     public class HealthIndicator : MonoBehaviour
     {
         [SerializeField]
-        private LocalUser _localUser;
+        protected PlayerState _playerState;
 
         [SerializeField]
         private ValueBar _healthBar;
@@ -22,11 +24,11 @@ namespace SpaceShooter.UI
 
         private void SetBarsValues()
         {
-            if (_localUser.PlayerState == null)
+            if (_playerState == null)
                 return;
 
-            _healthBar.SetBarValue(_localUser.PlayerState.HealthSystem.Health, _localUser.PlayerState.HealthSystem.BaseHealth.Health);
-            _energyBar.SetBarValue(_localUser.PlayerState.HealthSystem.EnergyShield, _localUser.PlayerState.HealthSystem.BaseHealth.Health);
+            _healthBar.SetBarValue(_playerState.HealthSystem.Health, _playerState.HealthSystem.BaseHealth.Health);
+            _energyBar.SetBarValue(_playerState.HealthSystem.EnergyShield, _playerState.HealthSystem.BaseHealth.Health);
         }
     }
 }

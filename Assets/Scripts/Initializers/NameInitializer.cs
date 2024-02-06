@@ -9,12 +9,11 @@ namespace SpaceShooter.Initializers
     public class NameInitializer : MonoBehaviour
     {
         [SerializeField]
-        private LookAtCameraText _lookAtCameraText;
+        private TextMeshProUGUI _name;
 
         public void InitializeName(string name, bool isActive)
         {
-            _lookAtCameraText.Label.text = name;
-            _lookAtCameraText.gameObject.SetActive(isActive);
+            _name.text = name;
         }
     }
 }

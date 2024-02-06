@@ -17,7 +17,7 @@ namespace SpaceShooter.UI
         public override void SetBarValue(float currentValue, float maxValue)
         {
             _valueImage.fillAmount = currentValue / maxValue;
-            _valueText.text = $"{currentValue}/{maxValue}";
+            _valueText.text = $"{Mathf.RoundToInt(currentValue)}/{Mathf.RoundToInt(maxValue)}";
         }
     }
 }

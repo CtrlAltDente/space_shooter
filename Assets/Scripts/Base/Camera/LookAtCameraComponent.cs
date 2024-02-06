@@ -5,9 +5,10 @@ using UnityEngine;
 
 namespace SpaceShooter.Base
 {
-    public class LookAtCameraText : MonoBehaviour
+    public class LookAtCameraComponent : MonoBehaviour
     {
-        public TextMeshProUGUI Label => GetComponentInChildren<TextMeshProUGUI>();
+        [SerializeField]
+        private Vector3 _offset;
 
         private void Update()
         {
@@ -18,7 +19,7 @@ namespace SpaceShooter.Base
         {
             if (Camera.main)
             {
-                transform.position = transform.parent.position + Vector3.up;
+                transform.position = transform.parent.position + _offset;
                 transform.LookAt(Camera.main.transform.position);
             }
         }
