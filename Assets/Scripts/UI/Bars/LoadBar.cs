@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace SpaceShooter.UI
 {
-    public class ValueBar : MonoBehaviour
+    public class LoadBar : ValueBar
     {
         [SerializeField]
         private Image[] _valueImages;
@@ -20,11 +20,19 @@ namespace SpaceShooter.UI
             SetBarValue(0f);
         }
 
-        public void SetBarValue(float progress)
+        public override void SetBarValue(float progress)
         {
             foreach (Image loadbarImage in _valueImages)
             {
                 loadbarImage.fillAmount = progress;
+            }
+        }
+
+        public override void SetBarValue(float currentValue, float maxValue)
+        {
+            foreach(Image loadbarImage in _valueImages)
+            {
+                loadbarImage.fillAmount = currentValue / maxValue;
             }
         }
     }

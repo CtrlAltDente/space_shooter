@@ -33,6 +33,8 @@ namespace SpaceShooter.User
         public PlayerBodyData PlayerBodyData => _playerBodyReferences.BodyData;
         public PlayerInputData PlayerInputData => _playerInputReferences.InputData;
 
+        public PlayerState PlayerState => _playerState;
+
         private void Update()
         {
             DoLocalUserLogic();

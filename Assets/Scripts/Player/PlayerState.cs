@@ -1,3 +1,4 @@
+using SpaceShooter.Base;
 using SpaceShooter.Guns;
 using SpaceShooter.Initializers;
 using SpaceShooter.User;
@@ -26,6 +27,13 @@ namespace SpaceShooter.Player
         private NameInitializer _nameInitializer;
 
         private PlayerData _localPlayerData;
+
+        public HealthSystem HealthSystem { get; private set; }
+
+        private void Awake()
+        {
+            HealthSystem = GetComponent<HealthSystem>();
+    }
 
         private void Start()
         {
