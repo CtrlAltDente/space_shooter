@@ -5,24 +5,24 @@ using UnityEngine.UI;
 
 namespace SpaceShooter.UI
 {
-    public class Loadbar : MonoBehaviour
+    public class ValueBar : MonoBehaviour
     {
         [SerializeField]
-        private Image[] _loadbarImages;
+        private Image[] _valueImages;
 
         private void Start()
         {
-            SetLoadProgress(1f);
+            SetBarValue(1f);
         }
 
         private void OnDisable()
         {
-            SetLoadProgress(0f);
+            SetBarValue(0f);
         }
 
-        public void SetLoadProgress(float progress)
+        public void SetBarValue(float progress)
         {
-            foreach (Image loadbarImage in _loadbarImages)
+            foreach (Image loadbarImage in _valueImages)
             {
                 loadbarImage.fillAmount = progress;
             }

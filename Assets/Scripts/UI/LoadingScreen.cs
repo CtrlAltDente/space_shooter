@@ -13,7 +13,7 @@ namespace SpaceShooter.UI
         private CanvasGroup _canvasGroup;
 
         [SerializeField]
-        private Loadbar _loadbar;
+        private ValueBar _loadbar;
 
         private bool _inProgress = false;
 
@@ -21,7 +21,7 @@ namespace SpaceShooter.UI
         {
             set
             {
-                _loadbar.SetLoadProgress(value);
+                _loadbar.SetBarValue(value);
             }
         }
 
