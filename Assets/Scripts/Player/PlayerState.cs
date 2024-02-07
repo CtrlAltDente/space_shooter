@@ -26,9 +26,6 @@ namespace SpaceShooter.Player
         [SerializeField]
         private NameInitializer _nameInitializer;
 
-        [SerializeField]
-        private GameObject _playerInformation;
-
         private PlayerData _localPlayerData;
 
         public HealthSystem HealthSystem { get; private set; }
@@ -36,15 +33,10 @@ namespace SpaceShooter.Player
         private void Awake()
         {
             HealthSystem = GetComponent<HealthSystem>();
-    }
+        }
 
         private void Start()
         {
-            if(IsOwner)
-            {
-                _playerInformation.SetActive(false);
-            }
-
             InitializeUserConfigClientRpc(UserConfig.Value);
         }
 

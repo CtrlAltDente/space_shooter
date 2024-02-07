@@ -10,12 +10,12 @@ namespace SpaceShooter.Base
     public class HealthIndicator : MonoBehaviour
     {
         [SerializeField]
-        protected PlayerState _playerState;
+        protected HealthSystem _healthSystem;
 
         [SerializeField]
-        private ValueBar _healthBar;
-        [SerializeField]
         private ValueBar _energyBar;
+        [SerializeField]
+        private ValueBar _healthBar;
 
         public void Update()
         {
@@ -24,11 +24,11 @@ namespace SpaceShooter.Base
 
         private void SetBarsValues()
         {
-            if (_playerState == null)
+            if (_healthSystem == null)
                 return;
 
-            _healthBar.SetBarValue(_playerState.HealthSystem.Health, _playerState.HealthSystem.BaseHealth.Health);
-            _energyBar.SetBarValue(_playerState.HealthSystem.EnergyShield, _playerState.HealthSystem.BaseHealth.EnergyShield);
+            _healthBar.SetBarValue(_healthSystem.Health, _healthSystem.BaseHealth.Health);
+            _energyBar.SetBarValue(_healthSystem.EnergyShield, _healthSystem.BaseHealth.EnergyShield);
         }
     }
 }
