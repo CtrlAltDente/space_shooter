@@ -56,7 +56,7 @@ namespace SpaceShooter.Initializers
 
         private void InitializeGun(Gun gun, PlayerHand coreHand, PlayerHand additionalHand = null)
         {
-            Gun spawnedGun = Instantiate(gun, coreHand.transform.position, Quaternion.identity, coreHand.transform);
+            Gun spawnedGun = Instantiate(gun, coreHand.transform.position, coreHand.transform.rotation, coreHand.transform);
             spawnedGun.SetShootSystem(_shootSystem);
             spawnedGun.SetHands(coreHand, additionalHand);
         }
