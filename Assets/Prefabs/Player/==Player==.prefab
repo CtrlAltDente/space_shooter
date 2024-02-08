@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6160609785746666857}
   - component: {fileID: 8831711111304887009}
   - component: {fileID: 4531063071036799379}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 2871653407410889979}
   - component: {fileID: 2658817883518188371}
   - component: {fileID: 2146326668479933264}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ==Player==
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 12250409139081082}
   - component: {fileID: 2555362245436657745}
   - component: {fileID: 805226959436794604}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ MeshCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 8059817307068777639}
   - component: {fileID: 5926163460328957636}
   - component: {fileID: 7161725609137912776}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: --HealthBar--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,7 +589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3448234393949578217}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --Bars--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 1279979234172341284}
   - component: {fileID: 8400353708142819571}
   - component: {fileID: 4830064757885774630}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 7889770542261972972}
   - component: {fileID: 6972850537816987328}
   - component: {fileID: 5719191224598119126}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: --EnergyBar--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -857,7 +857,7 @@ GameObject:
   - component: {fileID: 8068629970748291055}
   - component: {fileID: 5515302822057851818}
   - component: {fileID: 5668012950151064492}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -970,7 +970,7 @@ MeshCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -1016,7 +1016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5896658001229513506}
   - component: {fileID: 9061944638872159022}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --NameInitializer--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1060,7 +1060,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6629256859404634602}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --Bars--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1100,7 +1100,7 @@ GameObject:
   - component: {fileID: 5567737382118500349}
   - component: {fileID: 7673861889183161552}
   - component: {fileID: 1232853599044558273}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: --HealthBar--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1191,7 +1191,7 @@ GameObject:
   - component: {fileID: 311831452762839126}
   - component: {fileID: 3970903756709208655}
   - component: {fileID: 8181655121518500071}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --LifeSupportSystem--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1293,7 +1293,7 @@ GameObject:
   - component: {fileID: 7270721716066521560}
   - component: {fileID: 542297479945011368}
   - component: {fileID: 2041593342677267415}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1426,7 +1426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2097951494777402632}
   - component: {fileID: 8247109771745818154}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --SkinsInitializer--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1476,7 +1476,7 @@ GameObject:
   - component: {fileID: 8446603366256369910}
   - component: {fileID: 3959675966456470244}
   - component: {fileID: 6461990786281570929}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --Canvas--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1567,7 +1567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4097590380735254687}
   - component: {fileID: 2418970491098118114}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --PlayerHealthIndicator--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1617,7 +1617,7 @@ GameObject:
   - component: {fileID: 478641962405975551}
   - component: {fileID: 5201534576679186904}
   - component: {fileID: 6668795776831788590}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: --EnergyBar--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1710,7 +1710,7 @@ GameObject:
   - component: {fileID: 42736806964911028}
   - component: {fileID: 7547060999479239946}
   - component: {fileID: 4504382851865271431}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --Canvas--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1835,7 +1835,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4217754888067948149}
   - component: {fileID: 2241673156806983003}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --HandHealthIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1882,7 +1882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2652458590579371987}
   - component: {fileID: 7702073926509020276}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --LifeSupportSystemInitializer--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1928,7 +1928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5865651247243693262}
   - component: {fileID: 2417562029269715298}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --GunsInitializer--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1977,7 +1977,7 @@ GameObject:
   - component: {fileID: 524187395200745044}
   - component: {fileID: 5969376039352000813}
   - component: {fileID: 4752402638414902449}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2112,7 +2112,7 @@ GameObject:
   - component: {fileID: 231257860683643257}
   - component: {fileID: 8819398419189694310}
   - component: {fileID: 4275343020049972401}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: --Canvas--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2213,7 +2213,7 @@ GameObject:
   - component: {fileID: 7134396350558579915}
   - component: {fileID: 8157564030257542475}
   - component: {fileID: 2363993854961742404}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2345,7 +2345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6587340694628195029}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ==Logic==
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2381,7 +2381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7993205363809402171}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --NameText--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2414,7 +2414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4592236505979595147}
   - component: {fileID: 4044787223541674396}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --LookAtCameraComponents--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2466,7 +2466,7 @@ GameObject:
   - component: {fileID: 3069762038128672026}
   - component: {fileID: 7930381179150134355}
   - component: {fileID: 5500625656599778205}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2580,7 +2580,7 @@ MeshCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

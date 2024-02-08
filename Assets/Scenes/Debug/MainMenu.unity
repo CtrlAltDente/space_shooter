@@ -2836,6 +2836,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 29815458486369567, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 204454464968825412, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 245526594421668750, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 388547506080047661, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 625184118526636716, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 951656482550868760, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1249843178713540454, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2843,6 +2867,10 @@ PrefabInstance:
     - target: {fileID: 1430705701014195454, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492995197242447416, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1698718833329927559, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
       propertyPath: m_Color.a
@@ -2888,9 +2916,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2664213159739490248, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3031875004328268399, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3941651677
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387208328736024646, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670673057012186876, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678902077164334145, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3678902077164334145, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
       propertyPath: m_IsActive
@@ -2899,6 +2943,18 @@ PrefabInstance:
     - target: {fileID: 4253827790783969967, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
       propertyPath: m_fontColor.a
       value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867815519573689848, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467052355566129760, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543907057429634100, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6903632871292456587, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
       propertyPath: m_PositionInput.m_Action.m_Id
@@ -2988,9 +3044,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: ==LocalUser_XR Origin==
       objectReference: {fileID: 0}
+    - target: {fileID: 7873867311997879081, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127647738245422349, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8249708914666929991, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588958433985199654, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8892139595110015176, guid: 5622da33232b9ff46bc8d3c2b98de5f2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7360,7 +7432,7 @@ Transform:
   m_GameObject: {fileID: 2046602413}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.03, z: 0}
+  m_LocalPosition: {x: 0, y: 1.03, z: -0.221}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7672,6 +7744,7 @@ GameObject:
   - component: {fileID: 543450652719217168}
   - component: {fileID: 3469287836569007541}
   - component: {fileID: 1711813855997821311}
+  - component: {fileID: 3469287836569007542}
   m_Layer: 0
   m_Name: SpaceShip_Cabin
   m_TagString: Untagged
@@ -7729,6 +7802,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149070176426}
+  m_Mesh: {fileID: -1117975575181377110, guid: 4b721ac9ab5e7684491a0662be7cecd0, type: 3}
+--- !u!64 &3469287836569007542
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149070176426}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -1117975575181377110, guid: 4b721ac9ab5e7684491a0662be7cecd0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
