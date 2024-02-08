@@ -25,6 +25,8 @@ namespace SpaceShooter.Player
         private GunsInitializer _gunsInitializer;
         [SerializeField]
         private NameInitializer _nameInitializer;
+        [SerializeField]
+        private LifeSupportSystemInitializer _lifeSupportSystemInitializer;
 
         private PlayerData _localPlayerData;
 
@@ -76,6 +78,7 @@ namespace SpaceShooter.Player
             _skinInitializer.InitializeSkin(userConfig.SkinIndex);
             _gunsInitializer.InitializeGun(userConfig.GunIndex);
             _nameInitializer.InitializeName(userConfig.Name, !IsOwner);
+            _lifeSupportSystemInitializer.InitializeLifeSupportSystem(userConfig.LifeSupportSystemIndex);
         }
 
         private void SetLocalPlayerData(PlayerData playerData)
