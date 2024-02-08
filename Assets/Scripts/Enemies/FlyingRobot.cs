@@ -78,7 +78,7 @@ namespace SpaceShooter.Enemies
 
         private IEnumerator MainLogic()
         {
-            while (_healthSystem.Health > 0)
+            while (_healthSystem.CurrentHealth > 0)
             {
                 Fly();
                 AttackNearPlayer();
