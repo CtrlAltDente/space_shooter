@@ -13,7 +13,7 @@ namespace SpaceShooter.GameLogic
         {
             get
             {
-                return new UserConfig(PlayerName, SkinIndex, GunIndex, new Base.SubjectHealth(100, 100, 5));
+                return new UserConfig(PlayerName, SkinIndex, GunIndex, LifeSupportSystemIndex);
             }
         }
 
@@ -50,6 +50,18 @@ namespace SpaceShooter.GameLogic
             set
             {
                 SetValue(GameDataKeys.GUN_INDEX, value);
+            }
+        }
+
+        public static int LifeSupportSystemIndex
+        {
+            get
+            {
+                return GetIntValue(GameDataKeys.LIFE_SUPPORT_SYSTEM_INDEX);
+            }
+            set
+            {
+                SetValue(GameDataKeys.LIFE_SUPPORT_SYSTEM_INDEX, value);
             }
         }
 

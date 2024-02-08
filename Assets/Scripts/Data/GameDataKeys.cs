@@ -9,6 +9,7 @@ namespace SpaceShooter.GameLogic
         public static readonly string PLAYER_CONFIGURATION_INDEX = "PlayerConfigurationIndex";
         public static readonly string SKIN_INDEX = "SkinIndex";
         public static readonly string GUN_INDEX = "GunIndex";
+        public static readonly string LIFE_SUPPORT_SYSTEM_INDEX = "LifeSupportSystemIndex";
         public static readonly string PLAYER_NAME = "PlayerName";
     }
 }
