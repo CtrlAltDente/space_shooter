@@ -16,7 +16,7 @@ namespace SpaceShooter.Initializers
 
         public void InitializeLifeSupportSystem(int lifeSupportSystemIndex)
         {
-            _lifeSupportSystem.SetHealth(_lifeSupportSystemsContainer.Items[lifeSupportSystemIndex]);
+            _lifeSupportSystem.InitializeLifeSupportSystem(_lifeSupportSystemsContainer.Items[lifeSupportSystemIndex]);
         }
     }
 }

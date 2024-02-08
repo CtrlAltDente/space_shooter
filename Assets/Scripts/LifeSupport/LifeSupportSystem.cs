@@ -22,11 +22,20 @@ namespace SpaceShooter.LifeSupport
         public MeshFilter MeshFilter => _meshFilter;
         public MeshRenderer MeshRenderer => _meshRenderer;
 
-        public void SetHealth(LifeSupportSystem lifeSupportSystem)
+        public void InitializeLifeSupportSystem(LifeSupportSystem lifeSupportSystem)
+        {
+            InitilizeMesh(lifeSupportSystem);
+            InitializeHealth(lifeSupportSystem);
+        }
+
+        public void InitilizeMesh(LifeSupportSystem lifeSupportSystem)
         {
             _meshFilter.sharedMesh = lifeSupportSystem.MeshFilter.sharedMesh;
             _meshRenderer.sharedMaterials = lifeSupportSystem.MeshRenderer.sharedMaterials;
+        }
 
+        public void InitializeHealth(LifeSupportSystem lifeSupportSystem)
+        {
             _health = lifeSupportSystem.Health;
             _healthSystem.SetHealth(_health);
         }
