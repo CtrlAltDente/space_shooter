@@ -2142,7 +2142,7 @@ MonoBehaviour:
   _gunSettings:
     BulletType: 0
     ShootDelay: 2
-    EnergyCost: 2
+    EnergyCost: 0
     Damage: 10
     FireSpreadDegrees: 4
     SpawnPositions:
