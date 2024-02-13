@@ -34,7 +34,7 @@ namespace SpaceShooter.Base
 
             if (EnergyShield < 0)
             {
-                Health -= EnergyShield;
+                Health += EnergyShield;
                 EnergyShield = 0;
             }
 
