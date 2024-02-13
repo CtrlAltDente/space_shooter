@@ -247,10 +247,6 @@ MonoBehaviour:
       LifeSupportSystemIndex: 0
   _playerHandInput: {fileID: 4399654936231850971}
   _playerBodyReferences: {fileID: 6687809728033915464}
-  _skinInitializer: {fileID: 8247109771745818154}
-  _gunsInitializer: {fileID: 2417562029269715298}
-  _nameInitializer: {fileID: 9061944638872159022}
-  _lifeSupportSystemInitializer: {fileID: 7702073926509020276}
 --- !u!114 &4399654936231850971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,9 +347,10 @@ GameObject:
   - component: {fileID: 12250409139081082}
   - component: {fileID: 2555362245436657745}
   - component: {fileID: 805226959436794604}
+  - component: {fileID: 5698650029865239402}
   m_Layer: 3
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: PlayerHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,6 +486,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!54 &5698650029865239402
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364314446070860424}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2576997310732343949
 GameObject:
   m_ObjectHideFlags: 0

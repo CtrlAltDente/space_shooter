@@ -24,8 +24,10 @@ namespace SpaceShooter.Enemies
         [SerializeField]
         private List<Transform> _players = new List<Transform>();
 
-        private void Start()
+        private IEnumerator Start()
         {
+            yield return new WaitForSeconds(2f);
+
             if (IsHost || !NetworkManager.Singleton)
             {
                 StartCoroutine(MainLogic());
@@ -34,7 +36,7 @@ namespace SpaceShooter.Enemies
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "PlayerHead")
             {
                 Debug.Log("FINDED PLAYER");
                 if (!_players.Contains(other.transform))
@@ -46,7 +48,7 @@ namespace SpaceShooter.Enemies
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "PlayerHead")
             {
                 if (_players.Contains(other.transform))
                 {

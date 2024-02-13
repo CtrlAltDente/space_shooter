@@ -18,6 +18,8 @@ namespace SpaceShooter.Base
 
         [SerializeField]
         private LifeSupportSystem _lifeSupportSystem;
+        [SerializeField]
+        private bool _useSettedLifeSupportSystem = false;
 
         [SerializeField]
         private SubjectHealth _currentHealth;
@@ -31,6 +33,14 @@ namespace SpaceShooter.Base
         public float CurrentHealth => _currentHealth.Health;
         public float MaximumHealth => _lifeSupportSystem.Health.Health;
         public float MaximumEnergyShield => _lifeSupportSystem.Health.EnergyShield;
+
+        private void Start()
+        {
+            if(_useSettedLifeSupportSystem)
+            {
+                SetHealth(_lifeSupportSystem.Health);
+            }
+        }
 
         private void Update()
         {
