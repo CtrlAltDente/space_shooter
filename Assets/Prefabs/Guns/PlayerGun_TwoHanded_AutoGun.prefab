@@ -51,6 +51,7 @@ MonoBehaviour:
     BulletType: 0
     ShootDelay: 0.2
     EnergyCost: 5
+    Damage: 10
     FireSpreadDegrees: 3
     SpawnPositions:
     - {fileID: 3652389988200950685}
