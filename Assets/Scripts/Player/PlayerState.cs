@@ -1,7 +1,9 @@
 using SpaceShooter.Base;
 using SpaceShooter.Guns;
 using SpaceShooter.Initializers;
+using SpaceShooter.Interfaces;
 using SpaceShooter.User;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -18,15 +20,6 @@ namespace SpaceShooter.Player
         private PlayerHandsInput _playerHandInput;
         [SerializeField]
         private PlayerBodyReferences _playerBodyReferences;
-
-        [SerializeField]
-        private SkinsInitializer _skinInitializer;
-        [SerializeField]
-        private GunsInitializer _gunsInitializer;
-        [SerializeField]
-        private NameInitializer _nameInitializer;
-        [SerializeField]
-        private LifeSupportSystemInitializer _lifeSupportSystemInitializer;
 
         private PlayerData _localPlayerData;
 
@@ -75,10 +68,12 @@ namespace SpaceShooter.Player
         [ClientRpc]
         public void InitializeUserConfigClientRpc(UserConfig userConfig)
         {
-            _skinInitializer.InitializeSkin(userConfig.SkinIndex);
-            _gunsInitializer.InitializeGun(userConfig.GunIndex);
-            _nameInitializer.InitializeName(userConfig.Name, !IsOwner);
-            _lifeSupportSystemInitializer.InitializeLifeSupportSystem(userConfig.LifeSupportSystemIndex);
+            IInitializer[] initializers = GetComponentsInChildren<IInitializer>();
+
+            foreach(IInitializer initializer in initializers)
+            {
+                initializer.Initialize(userConfig);
+            }
         }
 
         private void SetLocalPlayerData(PlayerData playerData)

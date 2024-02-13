@@ -1,6 +1,8 @@
+using SpaceShooter.Interfaces;
 using SpaceShooter.Player;
 using SpaceShooter.ScriptableObjects;
 using SpaceShooter.Skins;
+using SpaceShooter.User;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -8,7 +10,7 @@ using UnityEngine;
 
 namespace SpaceShooter.Initializers
 {
-    public class SkinsInitializer : MonoBehaviour
+    public class SkinsInitializer : MonoBehaviour, IInitializer
     {
         [SerializeField]
         private SkinsContainer _skinsContainer;
@@ -20,7 +22,12 @@ namespace SpaceShooter.Initializers
         [SerializeField]
         private SkinPart _rightHand;
 
-        public void InitializeSkin(int skinIndex)
+        public void Initialize(UserConfig userConfig)
+        {
+            InitializeSkin(userConfig.SkinIndex);
+        }
+
+        private void InitializeSkin(int skinIndex)
         {
             InstantiateSkinPartModel(_head, _skinsContainer.Items[skinIndex].Head);
             InstantiateSkinPartModel(_leftHand, _skinsContainer.Items[skinIndex].LeftHand);
