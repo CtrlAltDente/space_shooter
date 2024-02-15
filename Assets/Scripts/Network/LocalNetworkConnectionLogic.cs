@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 namespace SpaceShooter.Network
 {
-    public class NetworkConnectionLogic : MonoBehaviour
+    public class LocalNetworkConnectionLogic : MonoBehaviour
     {
         public UnityEvent DoOnClientStartOperations;
         public UnityEvent DoOnHostStartOperations;

@@ -18,7 +18,7 @@ namespace SpaceShooter.UI
         private CanvasGroup _menuObject;
 
         [SerializeField]
-        private NetworkControl _networkControl;
+        private LocalMultiplayerControl _networkControl;
         [SerializeField]
         private SceneLoader _sceneLoader;
 

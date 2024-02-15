@@ -9,7 +9,7 @@ using Zenject;
 
 namespace SpaceShooter.Network
 {
-    public class NetworkControl : MonoBehaviour
+    public class LocalMultiplayerControl : MonoBehaviour
     {
         public UnityEvent OnHostSelected;
         public UnityEvent OnClientSelected;
