@@ -1,3 +1,4 @@
+using SpaceShooter.Enums;
 using SpaceShooter.User;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,49 @@ namespace SpaceShooter.GameLogic
     public static class GameData
     {
         #region Values 
+
+        #region Session
+
+        public static SessionConfig SessionConfig
+        {
+            get
+            {
+                return new SessionConfig(SessionType, SessionTypeValue);
+            }
+            set
+            {
+                SessionType = value.Type;
+                SessionTypeValue = value.TypeValue;
+            }
+        }
+
+        public static SessionType SessionType
+        {
+            get
+            {
+                return (SessionType)GetIntValue(GameDataKeys.SESSION_TYPE_VALUE);
+            }
+            set
+            {
+                SetValue(GameDataKeys.SESSION_TYPE_VALUE, (int)value);
+            }
+        }
+
+        public static int SessionTypeValue
+        {
+            get
+            {
+                return GetIntValue(GameDataKeys.SESSION_TYPE_VALUE);
+            }
+            set
+            {
+                SetValue(GameDataKeys.SESSION_TYPE_VALUE, value);
+            }
+        }
+
+        #endregion
+
+        #region Player
 
         public static UserConfig GameUserConfig
         {
@@ -76,6 +120,8 @@ namespace SpaceShooter.GameLogic
                 SetValue(GameDataKeys.PLAYER_NAME, value);
             }
         }
+
+        #endregion
 
         #endregion
 
