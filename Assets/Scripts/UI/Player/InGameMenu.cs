@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using Unity.Netcode;
 
 namespace SpaceShooter.UI
 {
@@ -17,8 +18,6 @@ namespace SpaceShooter.UI
         [SerializeField]
         private CanvasGroup _menuObject;
 
-        [SerializeField]
-        private LocalMultiplayerControl _networkControl;
         [SerializeField]
         private SceneLoader _sceneLoader;
 
@@ -55,7 +54,7 @@ namespace SpaceShooter.UI
         private void ExitFromSession(InputAction.CallbackContext callbackContext)
         {
             CloseMenu(new InputAction.CallbackContext());
-            _networkControl.Shutdown(false);
+            Destroy(NetworkManager.Singleton.gameObject);
         }
 
         private void SetActiveMenu(bool isActive)

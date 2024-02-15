@@ -11,16 +11,28 @@ namespace SpaceShooter.UI
         [SerializeField]
         private TextMeshProUGUI _connectedClientsLabel;
 
-        public void UpdateClientsCount()
+        private void Start()
         {
-            if (NetworkManager.Singleton.IsHost)
-                StartCoroutine(UpdateClientsCountWithDelay(1f));
+            NetworkManager.Singleton.OnClientConnectedCallback += ShowConnectedClients;
         }
 
-        private IEnumerator UpdateClientsCountWithDelay(float delay)
+        private void OnDestroy()
         {
-            yield return new WaitForSeconds(delay);
-            _connectedClientsLabel.text = $"Clients in session: {NetworkManager.Singleton.ConnectedClientsList.Count}";
+            NetworkManager.Singleton.OnClientConnectedCallback -= ShowConnectedClients;
+        }
+
+        private void ShowConnectedClients(ulong count)
+        {
+            if (!NetworkManager.Singleton.IsHost)
+                return;
+
+            StartCoroutine(UpdateClientsCount());
+        }
+
+        private IEnumerator UpdateClientsCount()
+        {
+            yield return new WaitForSeconds(1f);
+            _connectedClientsLabel.text = $"Clients in session: {NetworkManager.Singleton.ConnectedClients.Count}";
         }
     }
 }

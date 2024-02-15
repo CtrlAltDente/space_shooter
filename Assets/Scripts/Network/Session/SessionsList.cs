@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Events;
 
-namespace SpaceShooter.Network
+namespace SpaceShooter.Network.Sessions
 {
     public class SessionsList : MonoBehaviour
     {
+        public UnityEvent OnClientStarted;
+
         [SerializeField]
         private SessionButton _sessionButtonPrefab;
         [SerializeField]
@@ -87,6 +90,7 @@ namespace SpaceShooter.Network
                 _sessions.Add(sessionButton);
                 Debug.Log("Session button added");
                 sessionButton.SetData(session.SessionId, session.SessionIp);
+                sessionButton.OnClientStarted = OnClientStarted;
             }
         }
     }

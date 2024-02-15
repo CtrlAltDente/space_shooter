@@ -12,7 +12,7 @@ using Unity.Netcode.Transports.UTP;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace SpaceShooter.Network
+namespace SpaceShooter.Network.Sessions
 {
     public class SessionsLocator : MonoBehaviour
     {

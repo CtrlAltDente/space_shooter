@@ -9,11 +9,8 @@ using Zenject;
 
 namespace SpaceShooter.Network
 {
-    public class LocalMultiplayerControl : MonoBehaviour
+    public class NetworkControl : MonoBehaviour
     {
-        public UnityEvent OnHostSelected;
-        public UnityEvent OnClientSelected;
-
         [SerializeField]
         private SceneLoader _sceneLoader;
         
@@ -25,19 +22,6 @@ namespace SpaceShooter.Network
         private void OnDestroy()
         {
             UnsubscribeFromEvents();
-        }
-
-        public void SelectHost()
-        {
-            string localIpAddress = LocalNetworkInfo.GetLocalIPAddress();
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIpAddress, (ushort)LocalNetworkInfo.DefaultPort);
-            NetworkManager.Singleton.StartHost();
-            OnHostSelected?.Invoke();
-        }
-
-        public void SelectClient()
-        {
-            OnClientSelected?.Invoke();
         }
 
         public void Shutdown(bool boolValue)
