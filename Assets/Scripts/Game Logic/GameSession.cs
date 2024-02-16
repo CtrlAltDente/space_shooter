@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace SpaceShooter.GameLogic
 {
-    public class GameSession : MonoBehaviour
+    public class GameSession : NetworkBehaviour
     {
         private NetworkVariable<string> _sessionInformation;
 
