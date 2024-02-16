@@ -6,7 +6,7 @@ namespace SpaceShooter.Enums
 {
     public enum SessionType : int
     {
-        Time,
+        Time = 0,
         EnemyKills
     }
 }

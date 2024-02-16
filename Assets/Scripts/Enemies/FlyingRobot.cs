@@ -24,6 +24,8 @@ namespace SpaceShooter.Enemies
         [SerializeField]
         private List<Transform> _players = new List<Transform>();
 
+        public HealthSystem HealthSystem => _healthSystem;
+
         private IEnumerator Start()
         {
             yield return new WaitForSeconds(2f);

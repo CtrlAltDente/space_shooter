@@ -29,11 +29,11 @@ namespace SpaceShooter.GameLogic
         {
             get
             {
-                return (SessionType)GetIntValue(GameDataKeys.SESSION_TYPE_VALUE);
+                return (SessionType)GetIntValue(GameDataKeys.SESSION_TYPE);
             }
             set
             {
-                SetValue(GameDataKeys.SESSION_TYPE_VALUE, (int)value);
+                SetValue(GameDataKeys.SESSION_TYPE, (int)value);
             }
         }
 

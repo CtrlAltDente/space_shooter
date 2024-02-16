@@ -12,8 +12,11 @@ namespace SpaceShooter.UI.Game
         public SessionConfig SessionConfig => GameData.SessionConfig;
 
         [SerializeField]
-        private TextMeshProUGUI _sessionTypeValueText;
+        private TMP_Dropdown _sessionType;
 
+        [SerializeField]
+        private TextMeshProUGUI _sessionTypeValueText;
+        
         private void Start()
         {
             InitializeValues();
@@ -38,11 +41,15 @@ namespace SpaceShooter.UI.Game
         public void SetSessionType(int type)
         {
             GameData.SessionType = (SessionType)type;
+            Debug.Log("Session type: " + GameData.SessionType);
+            _sessionType.value = type;
         }
 
         private void SetSessionTypeValue(int value)
         {
-            GameData.SessionTypeValue = Mathf.Clamp(value, 0, 50);
+            GameData.SessionTypeValue = Mathf.Clamp(value, 5, 50);
+
+            Debug.Log("Type value:" + GameData.SessionTypeValue);
             _sessionTypeValueText.text = GameData.SessionTypeValue.ToString();
         }
     }
