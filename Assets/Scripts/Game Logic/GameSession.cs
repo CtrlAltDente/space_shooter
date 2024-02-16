@@ -2,6 +2,7 @@ using SpaceShooter.Interfaces;
 using SpaceShooter.Network;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace SpaceShooter.GameLogic
 {
     public class GameSession : NetworkBehaviour
     {
-        private NetworkVariable<string> _sessionInformation;
+        public NetworkVariable<FixedString32Bytes> SessionInformation;
 
         [SerializeField]
         private NetworkControl _networkControl;
@@ -28,7 +29,7 @@ namespace SpaceShooter.GameLogic
 
         public void SetSessionInformation(string sessionInformation)
         {
-            _sessionInformation.Value = sessionInformation;
+            SessionInformation.Value = sessionInformation;
         }
 
         private void StartGame()
