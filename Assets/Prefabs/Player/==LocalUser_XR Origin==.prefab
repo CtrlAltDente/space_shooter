@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3933382490527986206}
   - component: {fileID: 5685687627896872896}
   - component: {fileID: 271864952115327071}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --rayReticle--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5482782372449316899}
   - component: {fileID: 6903632871292456587}
   - component: {fileID: 286025636878049017}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 4859784092977625364}
   - component: {fileID: 777100163524598252}
   - component: {fileID: 7288084103232337130}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: XR Locomotion System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 4771260071952108721}
   - component: {fileID: 3555830430055466595}
   - component: {fileID: 3883955961962895127}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: LoadbarImageRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 6548542855857732200}
   - component: {fileID: 3927292519599521682}
   - component: {fileID: 8447709719857032910}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: --LoadingScreen--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 4792850192456138808}
   - component: {fileID: 4952432213339743167}
   - component: {fileID: 4355549740655972831}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,7 +770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7610331086696301131}
   - component: {fileID: 1249843178713540454}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ---UI---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -808,7 +808,6 @@ MonoBehaviour:
   _openMenuAction: {fileID: -7834900362730823207, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _exitFromSessionAction: {fileID: 2225169020558056833, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _menuObject: {fileID: 8428808873975586772}
-  _networkControl: {fileID: 0}
   _sceneLoader: {fileID: 0}
 --- !u!1 &2664213159739490248
 GameObject:
@@ -824,7 +823,7 @@ GameObject:
   - component: {fileID: 1905037664715161654}
   - component: {fileID: 9046529678235209199}
   - component: {fileID: 5420732121024475525}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftHand Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1485,7 +1484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8392551119870946257}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Camera Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1521,7 +1520,7 @@ GameObject:
   - component: {fileID: 6528076072915555902}
   - component: {fileID: 6112157505559561126}
   - component: {fileID: 4253827790783969967}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1656,7 +1655,7 @@ GameObject:
   - component: {fileID: 6306590488542105347}
   - component: {fileID: 5171984219904222429}
   - component: {fileID: 1248588189430892075}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LocalUser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1737,7 +1736,7 @@ GameObject:
   - component: {fileID: 3401015742855654397}
   - component: {fileID: 1642140685624005028}
   - component: {fileID: 8428808873975586772}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InGameMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1850,7 +1849,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4794572697440649206}
   - component: {fileID: 9113764794362595516}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: --Loadbar--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1905,7 +1904,7 @@ GameObject:
   - component: {fileID: 6549196511234234648}
   - component: {fileID: 5694793778042656557}
   - component: {fileID: 1164358435317803543}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightHand Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2570,7 +2569,7 @@ GameObject:
   - component: {fileID: 1113922757428349441}
   - component: {fileID: 5277097145071388804}
   - component: {fileID: 4080569810083666439}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ==LocalUser_XR Origin==
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2640,7 +2639,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 200
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -2669,7 +2668,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 200
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -2688,7 +2687,7 @@ GameObject:
   - component: {fileID: 5835038330380947825}
   - component: {fileID: 2045544761030476523}
   - component: {fileID: 6114368347076932846}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: --rayReticle--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2771,7 +2770,7 @@ GameObject:
   - component: {fileID: 1144336525077500146}
   - component: {fileID: 6272257853012141248}
   - component: {fileID: 1698718833329927559}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Backgorund
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2846,7 +2845,7 @@ GameObject:
   - component: {fileID: 7096201338269843826}
   - component: {fileID: 6112118745201606767}
   - component: {fileID: 4385707862017924776}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: LoadbarImageLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}

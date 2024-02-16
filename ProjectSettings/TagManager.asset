@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - PlayerHead
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -13,8 +14,8 @@ TagManager:
   - User
   - Water
   - UI
-  - 
-  - 
+  - Bullet
+  - Player
   - 
   - 
   - 
