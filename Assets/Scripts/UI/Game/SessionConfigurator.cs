@@ -1,5 +1,6 @@
+using SpaceShooter.Data;
 using SpaceShooter.Enums;
-using SpaceShooter.GameLogic;
+using SpaceShooter.GameLogic.Session;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;

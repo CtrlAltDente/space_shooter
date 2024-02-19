@@ -1,10 +1,11 @@
 using SpaceShooter.Enums;
+using SpaceShooter.GameLogic.Session;
 using SpaceShooter.User;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SpaceShooter.GameLogic
+namespace SpaceShooter.Data
 {
     public static class GameData
     {

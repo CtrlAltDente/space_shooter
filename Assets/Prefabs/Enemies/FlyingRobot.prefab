@@ -1253,7 +1253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthSystem: {fileID: 7412959923195090077}
   _gun: {fileID: 1624913398194202614}
-  _flyingHeight: 1.5
+  _flyingHeight: 3
   _players: []
 --- !u!114 &7412959923195090077
 MonoBehaviour:

@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SpaceShooter.GameLogic
+namespace SpaceShooter.GameLogic.Session
 {
     public class GameEnemyChallengeLogic : MonoBehaviour, IGameSessionLogic
     {

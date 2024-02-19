@@ -1,4 +1,4 @@
-using SpaceShooter.GameLogic;
+using SpaceShooter.GameLogic.Session;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

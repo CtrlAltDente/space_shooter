@@ -1,4 +1,4 @@
-using SpaceShooter.GameLogic;
+using SpaceShooter.Data;
 using SpaceShooter.LifeSupport;
 using System.Collections;
 using System.Collections.Generic;

@@ -1,5 +1,4 @@
-
-using SpaceShooter.GameLogic;
+using SpaceShooter.Data;
 using SpaceShooter.Player;
 using SpaceShooter.ScriptableObjects;
 using System;

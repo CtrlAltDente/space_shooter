@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace SpaceShooter.GameLogic
+namespace SpaceShooter.GameLogic.Session
 {
     public class GameSessionInformationDisplayer : MonoBehaviour
     {

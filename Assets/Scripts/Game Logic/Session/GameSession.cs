@@ -1,3 +1,4 @@
+using SpaceShooter.Data;
 using SpaceShooter.Interfaces;
 using SpaceShooter.Network;
 using System.Collections;
@@ -6,7 +7,7 @@ using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
-namespace SpaceShooter.GameLogic
+namespace SpaceShooter.GameLogic.Session
 {
     public class GameSession : NetworkBehaviour
     {
