@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health:
-    EnergyShield: 120
-    Health: 100
-    EnergyRestorationSpeed: 2
+    EnergyShield: 60
+    Health: 120
+    EnergyRestorationSpeed: 10
   _meshFilter: {fileID: 6644047264339421500}
   _meshRenderer: {fileID: 1919674564995732372}
   _healthSystem: {fileID: 0}
