@@ -1187,7 +1187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1545197461
+  GlobalObjectIdHash: 1396092381
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -1274,19 +1274,7 @@ MonoBehaviour:
       EnergyRestorationSpeed: 0
   OnDestroyed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8236257894412072806}
-        m_TargetAssemblyTypeName: SpaceShooter.Enemies.FlyingRobot, Assembly-CSharp
-        m_MethodName: Destroy
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _lifeSupportSystem: {fileID: 7503683572057208551}
   _useSettedLifeSupportSystem: 1
   _currentHealth:

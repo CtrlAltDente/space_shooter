@@ -326,19 +326,7 @@ MonoBehaviour:
       EnergyRestorationSpeed: 0
   OnDestroyed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7619855615802743659}
-        m_TargetAssemblyTypeName: Unity.Netcode.NetworkObject, Unity.Netcode.Runtime
-        m_MethodName: Despawn
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
   _lifeSupportSystem: {fileID: 311831452762839126}
   _useSettedLifeSupportSystem: 0
   _currentHealth:

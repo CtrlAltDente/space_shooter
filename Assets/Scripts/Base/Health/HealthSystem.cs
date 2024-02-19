@@ -36,7 +36,7 @@ namespace SpaceShooter.Base
 
         private void Start()
         {
-            if(_useSettedLifeSupportSystem)
+            if (_useSettedLifeSupportSystem)
             {
                 SetHealth(_lifeSupportSystem.Health);
             }
@@ -48,7 +48,7 @@ namespace SpaceShooter.Base
             {
                 NetworkHealth.Value = _currentHealth;
             }
-            else if(IsClient)
+            else if (IsClient)
             {
                 _currentHealth = NetworkHealth.Value;
             }
@@ -63,9 +63,10 @@ namespace SpaceShooter.Base
             {
                 Debug.Log("Damage");
             }
-            else
+            else if (IsHost && IsSpawned)
             {
                 OnDestroyed?.Invoke();
+                NetworkObject.Despawn(true);
             }
         }
 
@@ -83,11 +84,11 @@ namespace SpaceShooter.Base
 
         public bool UseEnergy(float neededEnergy)
         {
-            if(_currentHealth.UseEnergy(neededEnergy))
+            if (_currentHealth.UseEnergy(neededEnergy))
             {
                 SetHealthServerRpc(_currentHealth);
                 return true;
-            } 
+            }
             else return false;
         }
 

@@ -89,11 +89,6 @@ namespace SpaceShooter.Enemies
 
                 yield return null;
             }
-
-            if (IsHost)
-            {
-                NetworkObject.Despawn(true);
-            }
         }
 
         private void Fly()
