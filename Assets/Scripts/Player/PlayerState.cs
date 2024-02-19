@@ -1,7 +1,9 @@
 using SpaceShooter.Base;
 using SpaceShooter.Guns;
 using SpaceShooter.Initializers;
+using SpaceShooter.Interfaces;
 using SpaceShooter.User;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -19,16 +21,6 @@ namespace SpaceShooter.Player
         [SerializeField]
         private PlayerBodyReferences _playerBodyReferences;
 
-        [SerializeField]
-        private SkinsInitializer _skinInitializer;
-        [SerializeField]
-        private GunsInitializer _gunsInitializer;
-        [SerializeField]
-        private NameInitializer _nameInitializer;
-
-        [SerializeField]
-        private GameObject _playerInformation;
-
         private PlayerData _localPlayerData;
 
         public HealthSystem HealthSystem { get; private set; }
@@ -36,15 +28,10 @@ namespace SpaceShooter.Player
         private void Awake()
         {
             HealthSystem = GetComponent<HealthSystem>();
-    }
+        }
 
         private void Start()
         {
-            if(IsOwner)
-            {
-                _playerInformation.SetActive(false);
-            }
-
             InitializeUserConfigClientRpc(UserConfig.Value);
         }
 
@@ -81,9 +68,12 @@ namespace SpaceShooter.Player
         [ClientRpc]
         public void InitializeUserConfigClientRpc(UserConfig userConfig)
         {
-            _skinInitializer.InitializeSkin(userConfig.SkinIndex);
-            _gunsInitializer.InitializeGun(userConfig.GunIndex);
-            _nameInitializer.InitializeName(userConfig.Name, !IsOwner);
+            IInitializer[] initializers = GetComponentsInChildren<IInitializer>();
+
+            foreach(IInitializer initializer in initializers)
+            {
+                initializer.Initialize(userConfig);
+            }
         }
 
         private void SetLocalPlayerData(PlayerData playerData)

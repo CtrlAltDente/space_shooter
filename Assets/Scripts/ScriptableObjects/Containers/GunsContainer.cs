@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SpaceShooter.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "Container_Guns", menuName = "Scriptable Objects/Containers/Guns Container", order = 1)]
+    [CreateAssetMenu(fileName = "Container_Guns", menuName = "Scriptable Objects/Containers/Guns Container", order = 0)]
     public class GunsContainer : Container<GunPreset>
     {
 

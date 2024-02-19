@@ -4,12 +4,15 @@ using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace SpaceShooter.Network
+namespace SpaceShooter.Network.Sessions
 {
     public class SessionButton : MonoBehaviour
     {
+        public UnityEvent OnClientStarted;
+
         [SerializeField]
         private TextMeshProUGUI _idLabel;
         [SerializeField]
@@ -38,6 +41,7 @@ namespace SpaceShooter.Network
         {
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(_ipLabel.text, (ushort)LocalNetworkInfo.DefaultPort);
             NetworkManager.Singleton.StartClient();
+            OnClientStarted?.Invoke();
         }
     }
 }

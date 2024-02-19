@@ -1,7 +1,9 @@
 using SpaceShooter.Guns;
+using SpaceShooter.Interfaces;
 using SpaceShooter.Player;
 using SpaceShooter.ScriptableObjects;
 using SpaceShooter.Skins;
+using SpaceShooter.User;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -9,7 +11,7 @@ using UnityEngine;
 
 namespace SpaceShooter.Initializers
 {
-    public class GunsInitializer : NetworkBehaviour
+    public class GunsInitializer : NetworkBehaviour, IInitializer
     {
         [SerializeField]
         private GunsContainer _gunsContainer;
@@ -22,7 +24,12 @@ namespace SpaceShooter.Initializers
         [SerializeField]
         private PlayerHand _rightHand;
 
-        public void InitializeGun(int gunIndex)
+        public void Initialize(UserConfig userConfig)
+        {
+            InitializeGun(userConfig.GunIndex);
+        }
+
+        private void InitializeGun(int gunIndex)
         {
             GunPreset gunPreset = _gunsContainer.Items[gunIndex];
 
@@ -56,7 +63,7 @@ namespace SpaceShooter.Initializers
 
         private void InitializeGun(Gun gun, PlayerHand coreHand, PlayerHand additionalHand = null)
         {
-            Gun spawnedGun = Instantiate(gun, coreHand.transform.position, Quaternion.identity, coreHand.transform);
+            Gun spawnedGun = Instantiate(gun, coreHand.transform.position, coreHand.transform.rotation, coreHand.transform);
             spawnedGun.SetShootSystem(_shootSystem);
             spawnedGun.SetHands(coreHand, additionalHand);
         }

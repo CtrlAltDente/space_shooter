@@ -20,12 +20,20 @@ namespace SpaceShooter.Enemies
 
         [SerializeField]
         private float _flyingHeight;
+        [SerializeField]
+        private float _rotationSpeed = 20f;
+        [SerializeField]
+        private float _aimShootRange = 20f;
 
         [SerializeField]
         private List<Transform> _players = new List<Transform>();
 
-        private void Start()
+        public HealthSystem HealthSystem => _healthSystem;
+
+        private IEnumerator Start()
         {
+            yield return new WaitForSeconds(2f);
+
             if (IsHost || !NetworkManager.Singleton)
             {
                 StartCoroutine(MainLogic());
@@ -34,7 +42,7 @@ namespace SpaceShooter.Enemies
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "PlayerHead")
             {
                 Debug.Log("FINDED PLAYER");
                 if (!_players.Contains(other.transform))
@@ -46,7 +54,7 @@ namespace SpaceShooter.Enemies
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "PlayerHead")
             {
                 if (_players.Contains(other.transform))
                 {
@@ -78,17 +86,12 @@ namespace SpaceShooter.Enemies
 
         private IEnumerator MainLogic()
         {
-            while (_healthSystem.Health > 0)
+            while (_healthSystem.CurrentHealth > 0)
             {
                 Fly();
                 AttackNearPlayer();
 
                 yield return null;
-            }
-
-            if (IsHost)
-            {
-                NetworkObject.Despawn(true);
             }
         }
 
@@ -111,11 +114,11 @@ namespace SpaceShooter.Enemies
             if (_players.Count > 0)
             {
                 Vector3 direction = _players[0].transform.position - transform.position;
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), 30 * Time.deltaTime);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), _rotationSpeed * Time.deltaTime);
 
-                if (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction)) < 20f)
+                if (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction)) < _aimShootRange)
                 {
-                    _gun.transform.rotation = Quaternion.RotateTowards(_gun.transform.rotation, Quaternion.LookRotation(_players[0].transform.position - _gun.transform.position), 15 * Time.deltaTime);
+                    _gun.transform.rotation = Quaternion.RotateTowards(_gun.transform.rotation, Quaternion.LookRotation(_players[0].transform.position - _gun.transform.position), _rotationSpeed * Time.deltaTime);
 
                     Attack();
                 }

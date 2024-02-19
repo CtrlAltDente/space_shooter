@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SpaceShooter.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "Container_Skins", menuName = "Scriptable Objects/Containers/Skins Container", order = 2)]
+    [CreateAssetMenu(fileName = "Container_Skins", menuName = "Scriptable Objects/Containers/Skins Container", order = 1)]
     public class SkinsContainer : Container<Skin>
     {
 

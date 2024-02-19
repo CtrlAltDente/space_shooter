@@ -1,5 +1,4 @@
-
-using SpaceShooter.GameLogic;
+using SpaceShooter.Data;
 using SpaceShooter.Player;
 using SpaceShooter.ScriptableObjects;
 using System;
@@ -77,7 +76,7 @@ namespace SpaceShooter.User
             if (clientNetworkObjects.Count > 0)
             {
                  return clientNetworkObjects.
-                    Find(networkObject => networkObject.GetComponent<PlayerState>() != null).
+                    Find(networkObject => networkObject.GetComponent<PlayerState>() != null)?.
                     GetComponent<PlayerState>();
             }
 

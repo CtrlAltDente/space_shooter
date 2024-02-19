@@ -12,17 +12,12 @@ namespace SpaceShooter.Base
     {
         public UnityEvent<BulletOwnerType, float> OnDamageTaked;
 
-        private void Start()
-        {
-            if (!NetworkManager.Singleton.IsHost)
-            {
-                this.enabled = false;
-            }
-        }
-
         public void TakeDamage(BulletOwnerType bulletType, float damage)
         {
-            OnDamageTaked?.Invoke(bulletType, damage);
+            if (NetworkManager.Singleton.IsHost)
+            {
+                OnDamageTaked?.Invoke(bulletType, damage);
+            }
         }
     }
 }

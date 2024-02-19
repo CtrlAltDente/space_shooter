@@ -1,19 +1,64 @@
+using SpaceShooter.Enums;
+using SpaceShooter.GameLogic.Session;
 using SpaceShooter.User;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SpaceShooter.GameLogic
+namespace SpaceShooter.Data
 {
     public static class GameData
     {
         #region Values 
 
+        #region Session
+
+        public static SessionConfig SessionConfig
+        {
+            get
+            {
+                return new SessionConfig(SessionType, SessionTypeValue);
+            }
+            set
+            {
+                SessionType = value.Type;
+                SessionTypeValue = value.TypeValue;
+            }
+        }
+
+        public static SessionType SessionType
+        {
+            get
+            {
+                return (SessionType)GetIntValue(GameDataKeys.SESSION_TYPE);
+            }
+            set
+            {
+                SetValue(GameDataKeys.SESSION_TYPE, (int)value);
+            }
+        }
+
+        public static int SessionTypeValue
+        {
+            get
+            {
+                return GetIntValue(GameDataKeys.SESSION_TYPE_VALUE);
+            }
+            set
+            {
+                SetValue(GameDataKeys.SESSION_TYPE_VALUE, value);
+            }
+        }
+
+        #endregion
+
+        #region Player
+
         public static UserConfig GameUserConfig
         {
             get
             {
-                return new UserConfig(PlayerName, SkinIndex, GunIndex, new Base.SubjectHealth(100, 100, 5));
+                return new UserConfig(PlayerName, SkinIndex, GunIndex, LifeSupportSystemIndex);
             }
         }
 
@@ -53,6 +98,18 @@ namespace SpaceShooter.GameLogic
             }
         }
 
+        public static int LifeSupportSystemIndex
+        {
+            get
+            {
+                return GetIntValue(GameDataKeys.LIFE_SUPPORT_SYSTEM_INDEX);
+            }
+            set
+            {
+                SetValue(GameDataKeys.LIFE_SUPPORT_SYSTEM_INDEX, value);
+            }
+        }
+
         public static string PlayerName
         {
             get
@@ -64,6 +121,8 @@ namespace SpaceShooter.GameLogic
                 SetValue(GameDataKeys.PLAYER_NAME, value);
             }
         }
+
+        #endregion
 
         #endregion
 

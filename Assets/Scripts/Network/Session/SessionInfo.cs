@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SpaceShooter.Network
+namespace SpaceShooter.Network.Sessions
 {
     [Serializable]
     public struct SessionInfo

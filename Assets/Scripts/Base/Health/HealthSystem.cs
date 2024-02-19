@@ -1,5 +1,7 @@
 using SpaceShooter.Enums;
+using SpaceShooter.Extensions;
 using SpaceShooter.Interfaces;
+using SpaceShooter.LifeSupport;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -14,7 +16,10 @@ namespace SpaceShooter.Base
 
         public UnityEvent OnDestroyed;
 
-        public SubjectHealth BaseHealth;
+        [SerializeField]
+        private LifeSupportSystem _lifeSupportSystem;
+        [SerializeField]
+        private bool _useSettedLifeSupportSystem = false;
 
         [SerializeField]
         private SubjectHealth _currentHealth;
@@ -22,17 +27,19 @@ namespace SpaceShooter.Base
         [SerializeField]
         private BulletOwnerType _damageFromType;
 
-        public float EnergyShield => _currentHealth.EnergyShield;
-        public float Health => _currentHealth.Health;
+        private Coroutine _shieldRestorationCoroutine;
 
-        private void Awake()
-        {
-            _currentHealth = BaseHealth;
-        }
+        public float CurrentEnergyShield => _currentHealth.EnergyShield;
+        public float CurrentHealth => _currentHealth.Health;
+        public float MaximumHealth => _lifeSupportSystem.Health.Health;
+        public float MaximumEnergyShield => _lifeSupportSystem.Health.EnergyShield;
 
         private void Start()
         {
-            StartCoroutine(RestoreEnergyShield());
+            if (_useSettedLifeSupportSystem)
+            {
+                SetHealth(_lifeSupportSystem.Health);
+            }
         }
 
         private void Update()
@@ -41,7 +48,7 @@ namespace SpaceShooter.Base
             {
                 NetworkHealth.Value = _currentHealth;
             }
-            else if(IsClient)
+            else if (IsClient)
             {
                 _currentHealth = NetworkHealth.Value;
             }
@@ -56,32 +63,45 @@ namespace SpaceShooter.Base
             {
                 Debug.Log("Damage");
             }
-            else
+            else if (IsHost && IsSpawned)
             {
                 OnDestroyed?.Invoke();
+                NetworkObject.Despawn(true);
             }
+        }
+
+        public void SetHealth(SubjectHealth subjectHealth)
+        {
+            if (!IsHost)
+                return;
+
+            this.KillCoroutine(ref _shieldRestorationCoroutine);
+
+            _currentHealth = subjectHealth;
+
+            StartCoroutine(RestoreEnergyShield());
         }
 
         public bool UseEnergy(float neededEnergy)
         {
-            if(_currentHealth.UseEnergy(neededEnergy))
+            if (_currentHealth.UseEnergy(neededEnergy))
             {
                 SetHealthServerRpc(_currentHealth);
                 return true;
-            } 
+            }
             else return false;
         }
 
         public void RestoreHealth(float health)
         {
-            _currentHealth.RestoreHealth(BaseHealth.Health, health);
+            _currentHealth.RestoreHealth(_lifeSupportSystem.Health.Health, health);
         }
 
         public IEnumerator RestoreEnergyShield()
         {
             while (_currentHealth.Health > 0)
             {
-                _currentHealth.RestoreEnergyShield(BaseHealth.EnergyShield);
+                _currentHealth.RestoreEnergyShield(_lifeSupportSystem.Health.EnergyShield);
 
                 yield return new WaitForEndOfFrame();
             }

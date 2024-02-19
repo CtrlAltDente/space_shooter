@@ -6,7 +6,7 @@ using System.Text;
 using TMPro;
 using UnityEngine;
 
-namespace SpaceShooter.Network
+namespace SpaceShooter.Network.Sessions
 {
     public class SessionsSharer : MonoBehaviour
     {
