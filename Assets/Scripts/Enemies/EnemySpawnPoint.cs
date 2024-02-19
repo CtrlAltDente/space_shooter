@@ -15,17 +15,11 @@ namespace SpaceShooter.Enemies
 
         public bool HasEnemy => _spawnedRobot != null;
 
-        public bool SpawnEnemy(Action robotDestroyCallback)
+        public void SpawnEnemy(Action robotDestroyCallback)
         {
-            if(!HasEnemy)
-            {
-                _spawnedRobot = Instantiate(_flyingRobotPrefab, transform.position, transform.rotation);
-                _spawnedRobot.NetworkObject.Spawn();
-                _spawnedRobot.HealthSystem.OnDestroyed.AddListener(() => robotDestroyCallback.Invoke());
-                return true;
-            }
-
-            return false;
+            _spawnedRobot = Instantiate(_flyingRobotPrefab, transform.position, transform.rotation);
+            _spawnedRobot.NetworkObject.Spawn();
+            _spawnedRobot.HealthSystem.OnDestroyed.AddListener(() => robotDestroyCallback.Invoke());
         }
     }
 }
