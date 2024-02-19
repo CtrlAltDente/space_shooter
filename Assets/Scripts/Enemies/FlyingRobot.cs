@@ -110,11 +110,11 @@ namespace SpaceShooter.Enemies
             if (_players.Count > 0)
             {
                 Vector3 direction = _players[0].transform.position - transform.position;
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), 30 * Time.deltaTime);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), 5 * Time.deltaTime);
 
                 if (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction)) < 20f)
                 {
-                    _gun.transform.rotation = Quaternion.RotateTowards(_gun.transform.rotation, Quaternion.LookRotation(_players[0].transform.position - _gun.transform.position), 15 * Time.deltaTime);
+                    _gun.transform.rotation = Quaternion.RotateTowards(_gun.transform.rotation, Quaternion.LookRotation(_players[0].transform.position - _gun.transform.position), 5 * Time.deltaTime);
 
                     Attack();
                 }
