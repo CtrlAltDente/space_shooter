@@ -16,15 +16,22 @@ namespace SpaceShooter.GameLogic.Session
 
         [SerializeField]
         private EnemySpawnPoint[] _enemiesSpawnPoints;
-        
+
+        [SerializeField]
+        private SessionConfig _sessionConfig;
+
         [SerializeField]
         private int _enemiesCount;
+        [SerializeField]
+        private int _destroyedEnemies;
 
         public void StartGameSession(SessionConfig sessionConfig)
         {
             if(sessionConfig.Type == SESSION_TYPE)
             {
+                _sessionConfig = sessionConfig;
                 _enemiesCount = sessionConfig.TypeValue;
+                _destroyedEnemies = 0;
                 StartCoroutine(HandleSession());
             }
         }
@@ -35,42 +42,41 @@ namespace SpaceShooter.GameLogic.Session
 
             SpawnEnemies();
 
-            while (_enemiesCount > 0 && CheckThatAllEnemiesDestroyed())
+            while (_destroyedEnemies < _sessionConfig.TypeValue || AllEnemiesNotDestroyed())
             {
-                _gameSession.SetSessionInformation($"Enemies left: {_enemiesCount}");
+                _gameSession.SetSessionInformation($"Enemies left: {_sessionConfig.TypeValue - _destroyedEnemies}");
                 yield return null;
             }
 
-            _gameSession.SetSessionInformation($"Enemies left: {_enemiesCount}");
+            _gameSession.SetSessionInformation($"Enemies left: {_sessionConfig.TypeValue - _destroyedEnemies}");
             yield return new WaitForSeconds(2f);
             _gameSession.StopGame();
         }
 
         private void SpawnEnemies()
         {
-            int startEnemies = _enemiesCount;
-
             foreach (EnemySpawnPoint enemySpawnPoint in _enemiesSpawnPoints)
             {
-                if (startEnemies > 0)
+                if (_enemiesCount > 0)
                 {
                     enemySpawnPoint.SpawnEnemy(() => SpawnEnemyOnDestroy(enemySpawnPoint));
-                    startEnemies--;
+                    _enemiesCount--;
                 }
             }
         }
 
         private void SpawnEnemyOnDestroy(EnemySpawnPoint enemySpawnPoint)
         {
-            _enemiesCount--;
+            _destroyedEnemies++;
 
             if(_enemiesCount > 0)
             {
                 enemySpawnPoint.SpawnEnemy(() => SpawnEnemyOnDestroy(enemySpawnPoint));
+                _enemiesCount--;
             }
         }
 
-        private bool CheckThatAllEnemiesDestroyed()
+        private bool AllEnemiesNotDestroyed()
         {
             foreach(EnemySpawnPoint enemySpawnPoint in _enemiesSpawnPoints)
             {
