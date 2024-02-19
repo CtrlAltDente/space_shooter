@@ -20,6 +20,10 @@ namespace SpaceShooter.Enemies
 
         [SerializeField]
         private float _flyingHeight;
+        [SerializeField]
+        private float _rotationSpeed = 20f;
+        [SerializeField]
+        private float _aimShootRange = 20f;
 
         [SerializeField]
         private List<Transform> _players = new List<Transform>();
@@ -110,11 +114,11 @@ namespace SpaceShooter.Enemies
             if (_players.Count > 0)
             {
                 Vector3 direction = _players[0].transform.position - transform.position;
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), 5 * Time.deltaTime);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), _rotationSpeed * Time.deltaTime);
 
-                if (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction)) < 20f)
+                if (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction)) < _aimShootRange)
                 {
-                    _gun.transform.rotation = Quaternion.RotateTowards(_gun.transform.rotation, Quaternion.LookRotation(_players[0].transform.position - _gun.transform.position), 5 * Time.deltaTime);
+                    _gun.transform.rotation = Quaternion.RotateTowards(_gun.transform.rotation, Quaternion.LookRotation(_players[0].transform.position - _gun.transform.position), _rotationSpeed * Time.deltaTime);
 
                     Attack();
                 }

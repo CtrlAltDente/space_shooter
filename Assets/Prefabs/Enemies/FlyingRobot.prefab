@@ -1254,6 +1254,8 @@ MonoBehaviour:
   _healthSystem: {fileID: 7412959923195090077}
   _gun: {fileID: 1624913398194202614}
   _flyingHeight: 3
+  _rotationSpeed: 20
+  _aimShootRange: 20
   _players: []
 --- !u!114 &7412959923195090077
 MonoBehaviour:
