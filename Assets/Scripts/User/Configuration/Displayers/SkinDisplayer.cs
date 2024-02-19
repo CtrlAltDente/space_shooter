@@ -1,6 +1,7 @@
 using SpaceShooter.Skins;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace SpaceShooter.User.Configuration
@@ -9,6 +10,9 @@ namespace SpaceShooter.User.Configuration
     {
         [SerializeField]
         private Skin _currentSkin;
+
+        [SerializeField]
+        private TextMeshProUGUI _informationText;
 
         public override void DisplayCurrentConfig(int configDataIndex)
         {
@@ -20,12 +24,18 @@ namespace SpaceShooter.User.Configuration
             InitializeSkinPart(skin.Head, _currentSkin.Head);
             InitializeSkinPart(skin.LeftHand, _currentSkin.LeftHand);
             InitializeSkinPart(skin.RightHand, _currentSkin.RightHand);
+            ShowInformation(skin);
         }
 
         private void InitializeSkinPart(SkinPart selectedSkinPart, SkinPart displayerSkinPart)
         {
             displayerSkinPart.MeshFilter.sharedMesh = selectedSkinPart.MeshFilter.sharedMesh;
             displayerSkinPart.MeshRenderer.sharedMaterials = selectedSkinPart.MeshRenderer.sharedMaterials;
+        }
+
+        private void ShowInformation(Skin skin)
+        {
+            _informationText.text = skin.Description;
         }
     }
 }
