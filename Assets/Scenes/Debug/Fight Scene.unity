@@ -2294,7 +2294,11 @@ MonoBehaviour:
   - {fileID: 2036184371}
   - {fileID: 1192378045}
   - {fileID: 1476406159}
+  _sessionConfig:
+    Type: 0
+    TypeValue: 0
   _enemiesCount: 0
+  _destroyedEnemies: 0
 --- !u!1 &1909236364
 GameObject:
   m_ObjectHideFlags: 0
@@ -2466,7 +2470,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100645417}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.2}
+  m_LocalPosition: {x: 0, y: 0, z: -0.15}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2475,8 +2479,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.2}
-  m_SizeDelta: {x: 7, y: 3}
+  m_AnchoredPosition: {x: 0, y: 0.1}
+  m_SizeDelta: {x: 5, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2100645419
 MonoBehaviour:
