@@ -34,7 +34,7 @@ namespace SpaceShooter.User
 
         public PlayerState PlayerState => _playerState;
 
-        private void Update()
+        private void LateUpdate()
         {
             DoLocalUserLogic();
         }
