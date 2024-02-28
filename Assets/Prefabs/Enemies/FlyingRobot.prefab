@@ -1416,6 +1416,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthSystem: {fileID: 7412959923195090077}
   _gun: {fileID: 1624913398194202614}
+  _gunSpawnPositions:
+  - {fileID: 1939773705476291988}
+  - {fileID: 1131384704267959017}
   _flyingHeight: 3
   _rotationSpeed: 20
   _aimShootRange: 20
