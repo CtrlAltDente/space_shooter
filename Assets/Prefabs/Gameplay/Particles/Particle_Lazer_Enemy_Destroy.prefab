@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1161571531567035362}
   - component: {fileID: 7879672208460523433}
   m_Layer: 0
-  m_Name: Particle_Bullet_Destoy
+  m_Name: Particle_Lazer_Enemy_Destroy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4083,8 +4083,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 0.28193712, b: 1, a: 1}
-        key1: {r: 0, g: 0.28235295, b: 1, a: 0}
+        key0: {r: 1, g: 0, b: 0, a: 1}
+        key1: {r: 1, g: 0, b: 0, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
