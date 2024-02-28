@@ -20,6 +20,9 @@ namespace SpaceShooter.Guns
         private ShootSystem _shootSystem;
 
         [SerializeField]
+        private AudioSource _gunAudio;
+
+        [SerializeField]
         protected bool _canShoot = true;
 
         public GameObject GameObject => gameObject;
@@ -38,7 +41,8 @@ namespace SpaceShooter.Guns
             if (_shootSystem.UseEnergy(_gunSettings.EnergyCost))
             {
                 SpawnBullets();
-                GunShotParent();
+                GunRecoilParentObject();
+                PlayShotSound();
                 StartCoroutine(ShootPause());
             }
         }
@@ -53,7 +57,7 @@ namespace SpaceShooter.Guns
 
         }
 
-        private void GunShotParent()
+        private void GunRecoilParentObject()
         {
             MoveHand(1, () => MoveHand(0));
         }
@@ -61,6 +65,11 @@ namespace SpaceShooter.Guns
         private void MoveHand(int moveValue, TweenCallback tweenCallback = null)
         {
             transform.parent?.DOLocalMove(Vector3.back * 0.05f * moveValue, _gunSettings.ShootDelay/2).OnComplete(tweenCallback);
+        }
+
+        private void PlayShotSound()
+        {
+            _gunAudio.Play();
         }
 
         private void SpawnBullets()
