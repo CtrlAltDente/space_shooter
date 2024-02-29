@@ -35,9 +35,9 @@ namespace SpaceShooter.Enemies
 
         private IEnumerator Start()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.5f);
 
-            if (IsHost || !NetworkManager.Singleton)
+            if (IsHost)
             {
                 StartCoroutine(MainLogic());
             }
