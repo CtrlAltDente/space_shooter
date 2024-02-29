@@ -19,7 +19,7 @@ namespace SpaceShooter.Enemies
         private Gun _gun;
 
         [SerializeField]
-        private Transform[] _gunSpawnPositions;
+        private Transform[] _gunObjects;
 
         [SerializeField]
         private float _flyingHeight;
@@ -124,7 +124,7 @@ namespace SpaceShooter.Enemies
 
         private void ConfigureGunPositions(Vector3 targetDirection)
         {
-            foreach(Transform gunPosition in _gunSpawnPositions)
+            foreach(Transform gunPosition in _gunObjects)
             {
                 RotateGunPositions(gunPosition);
 
