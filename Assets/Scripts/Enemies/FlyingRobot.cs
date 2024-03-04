@@ -118,17 +118,17 @@ namespace SpaceShooter.Enemies
             {
                 Vector3 direction = _players[0].transform.position - transform.position;
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), _rotationSpeed * Time.deltaTime);
-                ConfigureGunPositions(direction);
+                ConfigureGunPositions();
             }
         }
 
-        private void ConfigureGunPositions(Vector3 targetDirection)
+        private void ConfigureGunPositions()
         {
             foreach(Transform gunPosition in _gunObjects)
             {
                 RotateGunPositions(gunPosition);
 
-                if (Quaternion.Angle(gunPosition.rotation, Quaternion.LookRotation(targetDirection)) < _aimShootRange)
+                if (Quaternion.Angle(gunPosition.rotation, Quaternion.LookRotation(_players[0].transform.position - gunPosition.position)) < _aimShootRange)
                 {
                     Attack();
                 }
