@@ -49,7 +49,7 @@ MonoBehaviour:
   _health:
     EnergyShield: 120
     Health: 100
-    EnergyRestorationSpeed: 3
+    EnergyRestorationSpeed: 15
   _meshFilter: {fileID: 6757927675007104266}
   _meshRenderer: {fileID: 269010819043147052}
   _healthSystem: {fileID: 0}
