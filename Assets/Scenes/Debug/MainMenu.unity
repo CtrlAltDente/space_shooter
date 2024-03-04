@@ -750,7 +750,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 143966851}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Interior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5798,8 +5798,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.1254902, g: 0.9294118, b: 0.9960785, a: 1}
-  m_Intensity: 0.21
+  m_Color: {r: 0.1254902, g: 0.92549026, b: 0.9960785, a: 1}
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5836,7 +5836,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 255
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -6843,9 +6843,9 @@ Light:
   m_GameObject: {fileID: 1347699953}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 3
+  m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21960786, g: 0.92549026, b: 0.9960785, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 179
@@ -6883,7 +6883,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 255
   m_RenderingLayerMask: 1
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
@@ -9876,7 +9876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6706624152364795623}
   - component: {fileID: 3472948302642260904}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Table_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9893,7 +9893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6706624152667306020}
   - component: {fileID: 3472948302809519467}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Table_LifeSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10034,7 +10034,7 @@ GameObject:
   - component: {fileID: 3469287836569007541}
   - component: {fileID: 1711813855997821311}
   - component: {fileID: 3469287836569007542}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpaceShip_Cabin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10146,7 +10146,7 @@ GameObject:
   - component: {fileID: 6971385957771123512}
   - component: {fileID: 2485278905090426345}
   - component: {fileID: 8251355677408459479}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Table_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10164,7 +10164,7 @@ GameObject:
   - component: {fileID: 6971385957468628475}
   - component: {fileID: 2485278905458998058}
   - component: {fileID: 8251355677710943252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Table_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10201,7 +10201,7 @@ GameObject:
   - component: {fileID: 5397497872169134594}
   - component: {fileID: 6832475795287023455}
   - component: {fileID: 529165123155198810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Table_2_Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10398,7 +10398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4313001788896525602}
   - component: {fileID: 4238977402920234427}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Table_Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10778,7 +10778,7 @@ GameObject:
   - component: {fileID: 8558311719752286213}
   - component: {fileID: 7358830757189688220}
   - component: {fileID: 4356414256970867083}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Table_3_Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10796,7 +10796,7 @@ GameObject:
   - component: {fileID: 8558311719987691206}
   - component: {fileID: 7358830756888241503}
   - component: {fileID: 4356414256803635016}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Table_3_Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11017,7 +11017,7 @@ GameObject:
   - component: {fileID: 788189406978997871}
   - component: {fileID: 1187661085607753878}
   - component: {fileID: 6030140691612321590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Table_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
