@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8440762150154407699}
   - component: {fileID: 788841684068148254}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: PointLight_Lazer_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
