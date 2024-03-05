@@ -119,7 +119,7 @@ namespace SpaceShooter.Base
 
         private void ContinueShieldRestoringAfterPause()
         {
-            _shieldRestorationCoroutine = StartCoroutine(RestoreEnergyShield(3f));
+            _shieldRestorationCoroutine = StartCoroutine(RestoreEnergyShield(1));
         }
 
         [ServerRpc]
