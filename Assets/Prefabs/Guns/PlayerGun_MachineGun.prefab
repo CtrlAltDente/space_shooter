@@ -179,7 +179,7 @@ MonoBehaviour:
   _gunSettings:
     BulletType: 0
     ShootDelay: 0.2
-    EnergyCost: 10
+    EnergyCost: 7
     Damage: 30
     FireSpreadDegrees: 3
     SpawnPositions:
