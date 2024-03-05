@@ -19,6 +19,9 @@ namespace SpaceShooter.Enemies
         private Gun _gun;
 
         [SerializeField]
+        private Transform[] _gunObjects;
+
+        [SerializeField]
         private float _flyingHeight;
         [SerializeField]
         private float _rotationSpeed = 20f;
@@ -32,9 +35,9 @@ namespace SpaceShooter.Enemies
 
         private IEnumerator Start()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.5f);
 
-            if (IsHost || !NetworkManager.Singleton)
+            if (IsHost)
             {
                 StartCoroutine(MainLogic());
             }
@@ -115,14 +118,27 @@ namespace SpaceShooter.Enemies
             {
                 Vector3 direction = _players[0].transform.position - transform.position;
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), _rotationSpeed * Time.deltaTime);
+                ConfigureGunPositions();
+            }
+        }
 
-                if (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction)) < _aimShootRange)
+        private void ConfigureGunPositions()
+        {
+            foreach(Transform gunPosition in _gunObjects)
+            {
+                RotateGunPositions(gunPosition);
+
+                if (Quaternion.Angle(gunPosition.rotation, Quaternion.LookRotation(_players[0].transform.position - gunPosition.position)) < _aimShootRange)
                 {
-                    _gun.transform.rotation = Quaternion.RotateTowards(_gun.transform.rotation, Quaternion.LookRotation(_players[0].transform.position - _gun.transform.position), _rotationSpeed * Time.deltaTime);
-
                     Attack();
                 }
             }
+        }
+
+        private void RotateGunPositions(Transform positionTransform)
+        {
+            Quaternion newTransformRotation = Quaternion.RotateTowards(positionTransform.rotation, Quaternion.LookRotation(_players[0].transform.position - positionTransform.position), _rotationSpeed * Time.deltaTime);
+            positionTransform.rotation = newTransformRotation; 
         }
     }
 }

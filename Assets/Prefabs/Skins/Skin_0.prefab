@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9154f56507c4cc499036d66618a309f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Description: Suit of space warriors
   Head: {fileID: 2558822701670812322}
   LeftHand: {fileID: 2140878583858266555}
   RightHand: {fileID: 118739843902791863}

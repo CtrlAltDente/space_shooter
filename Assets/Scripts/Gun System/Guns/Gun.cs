@@ -7,6 +7,7 @@ using System;
 using SpaceShooter.Player;
 using SpaceShooter.Enums;
 using SpaceShooter.Skins;
+using DG.Tweening;
 
 namespace SpaceShooter.Guns
 {
@@ -17,6 +18,9 @@ namespace SpaceShooter.Guns
 
         [SerializeField]
         private ShootSystem _shootSystem;
+
+        [SerializeField]
+        private AudioSource _gunAudio;
 
         [SerializeField]
         protected bool _canShoot = true;
@@ -37,6 +41,8 @@ namespace SpaceShooter.Guns
             if (_shootSystem.UseEnergy(_gunSettings.EnergyCost))
             {
                 SpawnBullets();
+                GunRecoilParentObject();
+                PlayShotSound();
                 StartCoroutine(ShootPause());
             }
         }
@@ -49,6 +55,21 @@ namespace SpaceShooter.Guns
         public virtual void SetHands(PlayerHand coreHand, PlayerHand additionalHand = null)
         {
 
+        }
+
+        private void GunRecoilParentObject()
+        {
+            MoveHand(1, () => MoveHand(0));
+        }
+
+        private void MoveHand(int moveValue, TweenCallback tweenCallback = null)
+        {
+            transform.parent?.DOLocalMove(Vector3.back * 0.05f * moveValue, _gunSettings.ShootDelay/2).OnComplete(tweenCallback);
+        }
+
+        private void PlayShotSound()
+        {
+            _gunAudio.Play();
         }
 
         private void SpawnBullets()

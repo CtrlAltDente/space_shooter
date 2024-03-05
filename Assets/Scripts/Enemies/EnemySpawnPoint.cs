@@ -15,11 +15,11 @@ namespace SpaceShooter.Enemies
 
         public bool HasEnemy => _spawnedRobot != null;
 
-        public void SpawnEnemy(Action robotDestroyCallback)
+        public void SpawnEnemy(Action robotDestroyCallback = null)
         {
             _spawnedRobot = Instantiate(_flyingRobotPrefab, transform.position, transform.rotation);
             _spawnedRobot.NetworkObject.Spawn();
-            _spawnedRobot.HealthSystem.OnDestroyed.AddListener(() => robotDestroyCallback.Invoke());
+            _spawnedRobot.HealthSystem.OnDestroyed.AddListener(() => robotDestroyCallback?.Invoke());
         }
     }
 }

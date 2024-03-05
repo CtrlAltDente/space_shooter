@@ -37,11 +37,6 @@ namespace SpaceShooter.Player
 
         private void Update()
         {
-            if (IsServer)
-            {
-                SetPlayerStatePosition(NetworkPlayerData.Value);
-            }
-
             if (IsOwner)
             {
                 SetNetworkPlayerDataServerRpc(_localPlayerData);
@@ -87,11 +82,6 @@ namespace SpaceShooter.Player
         private void SetNetworkPlayerDataServerRpc(PlayerData playerData)
         {
             NetworkPlayerData.Value = playerData;
-        }
-
-        private void SetPlayerStatePosition(PlayerData playerData)
-        {
-            transform.position = playerData.PlayerBodyData.Head.Position;
         }
     }
 }

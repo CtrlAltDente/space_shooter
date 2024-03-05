@@ -7,6 +7,8 @@ namespace SpaceShooter.Skins
 {
     public class Skin : MonoBehaviour
     {
+        public string Description;
+
         public SkinPart Head;
         public SkinPart LeftHand;
         public SkinPart RightHand;

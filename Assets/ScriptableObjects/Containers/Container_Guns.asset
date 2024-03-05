@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Container_Guns
   m_EditorClassIdentifier: 
   Items:
-  - {fileID: 8208229501890144546, guid: 7f1f3ee1b258d2d44b3a0b785679c2f4, type: 3}
-  - {fileID: 5653086607007687610, guid: d4b64d842f37de640a9e63075e243892, type: 3}
+  - {fileID: 5653086607007687610, guid: 16a770f11132ec14aab3208aa534f121, type: 3}
+  - {fileID: 5653086607007687610, guid: 2ee9dc756068f974db5aa8724922b2b9, type: 3}
+  - {fileID: 5653086607007687610, guid: 4857421c441acd145a7b35474912baab, type: 3}

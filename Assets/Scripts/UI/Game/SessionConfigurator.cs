@@ -18,6 +18,9 @@ namespace SpaceShooter.UI.Game
         [SerializeField]
         private TextMeshProUGUI _sessionTypeValueText;
         
+        [SerializeField]
+        private TextMeshProUGUI _sessionTypeValueDescription;
+
         private void Start()
         {
             InitializeValues();
@@ -44,6 +47,7 @@ namespace SpaceShooter.UI.Game
             GameData.SessionType = (SessionType)type;
             Debug.Log("Session type: " + GameData.SessionType);
             _sessionType.value = type;
+            SetDescription();
         }
 
         private void SetSessionTypeValue(int value)
@@ -52,6 +56,24 @@ namespace SpaceShooter.UI.Game
 
             Debug.Log("Type value:" + GameData.SessionTypeValue);
             _sessionTypeValueText.text = GameData.SessionTypeValue.ToString();
+        }
+
+        private void SetDescription()
+        {
+            switch (GameData.SessionType)
+            {
+                case SessionType.EnemyKills:
+                    {
+                        _sessionTypeValueDescription.text = "Select how enemies you want to destroy";
+                        break;
+                    }
+                case SessionType.Time:
+                    {
+                        _sessionTypeValueDescription.text = "Select how much minutes you will fight";
+                        break;
+                    }
+            }
+
         }
     }
 }

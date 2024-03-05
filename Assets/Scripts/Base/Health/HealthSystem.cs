@@ -61,6 +61,7 @@ namespace SpaceShooter.Base
 
             if (_currentHealth.TakeDamage(damage))
             {
+                PauseShieldRestoring();
                 Debug.Log("Damage");
             }
             else if (IsHost && IsSpawned)
@@ -79,13 +80,14 @@ namespace SpaceShooter.Base
 
             _currentHealth = subjectHealth;
 
-            StartCoroutine(RestoreEnergyShield());
+            _shieldRestorationCoroutine = StartCoroutine(RestoreEnergyShield(0));
         }
 
         public bool UseEnergy(float neededEnergy)
         {
             if (_currentHealth.UseEnergy(neededEnergy))
             {
+                PauseShieldRestoring();
                 SetHealthServerRpc(_currentHealth);
                 return true;
             }
@@ -97,14 +99,27 @@ namespace SpaceShooter.Base
             _currentHealth.RestoreHealth(_lifeSupportSystem.Health.Health, health);
         }
 
-        public IEnumerator RestoreEnergyShield()
+        public IEnumerator RestoreEnergyShield(float pauseBeforeStart)
         {
+            yield return new WaitForSeconds(pauseBeforeStart);
+
             while (_currentHealth.Health > 0)
             {
                 _currentHealth.RestoreEnergyShield(_lifeSupportSystem.Health.EnergyShield);
 
                 yield return new WaitForEndOfFrame();
             }
+        }
+
+        private void PauseShieldRestoring()
+        {
+            this.KillCoroutine(ref _shieldRestorationCoroutine);
+            ContinueShieldRestoringAfterPause();
+        }
+
+        private void ContinueShieldRestoringAfterPause()
+        {
+            _shieldRestorationCoroutine = StartCoroutine(RestoreEnergyShield(1));
         }
 
         [ServerRpc]

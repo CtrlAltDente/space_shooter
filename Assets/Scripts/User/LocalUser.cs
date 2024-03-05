@@ -27,14 +27,14 @@ namespace SpaceShooter.User
             }
         }
 
-        public ulong PlayerId => NetworkManager.Singleton.IsClient ? NetworkManager.Singleton.LocalClientId : 0;
+        public ulong PlayerId => NetworkManager.Singleton ? NetworkManager.Singleton.LocalClientId : 0;
 
         public PlayerBodyData PlayerBodyData => _playerBodyReferences.BodyData;
         public PlayerInputData PlayerInputData => _playerInputReferences.InputData;
 
         public PlayerState PlayerState => _playerState;
 
-        private void Update()
+        private void LateUpdate()
         {
             DoLocalUserLogic();
         }
