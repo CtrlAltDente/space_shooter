@@ -4,6 +4,7 @@ using UnityEngine;
 using SpaceShooter.Enums;
 using SpaceShooter.Interfaces;
 using SpaceShooter.Enemies;
+using Unity.Netcode;
 
 namespace SpaceShooter.GameLogic.Session
 {
@@ -35,7 +36,7 @@ namespace SpaceShooter.GameLogic.Session
             
             float time = _sessionConfig.TypeValue * 60f;
 
-            while (time > 0)
+            while (time > 0 && NetworkManager.Singleton)
             {
                 CheckEnemies();
                 _gameSession.SetSessionInformation($"Seconds left: {time.ToString("#")}");
@@ -43,9 +44,12 @@ namespace SpaceShooter.GameLogic.Session
                 time -= Time.deltaTime;
             }
 
-            _gameSession.SetSessionInformation($"Seconds left: 0");
-            yield return new WaitForSeconds(2f);
-            _gameSession.StopGame();
+            if (NetworkManager.Singleton)
+            {
+                _gameSession.SetSessionInformation($"Seconds left: 0");
+                yield return new WaitForSeconds(2f);
+                _gameSession.StopGame();
+            }
         }
 
         private void CheckEnemies()

@@ -18,7 +18,10 @@ namespace SpaceShooter.UI
 
         private void OnDestroy()
         {
-            NetworkManager.Singleton.OnClientConnectedCallback -= ShowConnectedClients;
+            if (NetworkManager.Singleton != null)
+            {
+                NetworkManager.Singleton.OnClientConnectedCallback -= ShowConnectedClients;
+            }
         }
 
         private void ShowConnectedClients(ulong count)

@@ -3,6 +3,7 @@ using SpaceShooter.Enums;
 using SpaceShooter.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace SpaceShooter.GameLogic.Session
@@ -42,15 +43,18 @@ namespace SpaceShooter.GameLogic.Session
 
             SpawnEnemies();
 
-            while (_destroyedEnemies < _sessionConfig.TypeValue || AllEnemiesNotDestroyed())
+            while (_destroyedEnemies < _sessionConfig.TypeValue || AllEnemiesNotDestroyed() && NetworkManager.Singleton)
             {
                 _gameSession.SetSessionInformation($"Enemies left: {_sessionConfig.TypeValue - _destroyedEnemies}");
                 yield return null;
             }
 
-            _gameSession.SetSessionInformation($"Enemies left: {_sessionConfig.TypeValue - _destroyedEnemies}");
-            yield return new WaitForSeconds(2f);
-            _gameSession.StopGame();
+            if (NetworkManager.Singleton)
+            {
+                _gameSession.SetSessionInformation($"Enemies left: 0");
+                yield return new WaitForSeconds(2f);
+                _gameSession.StopGame();
+            }
         }
 
         private void SpawnEnemies()
@@ -67,6 +71,9 @@ namespace SpaceShooter.GameLogic.Session
 
         private void SpawnEnemyOnDestroy(EnemySpawnPoint enemySpawnPoint)
         {
+            if (!NetworkManager.Singleton)
+                return;
+
             _destroyedEnemies++;
 
             if(_enemiesCount > 0)
